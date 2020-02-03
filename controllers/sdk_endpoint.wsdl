@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+  xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" 
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" 
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+  xmlns:tns="http://tempuri.org/" 
+  xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" 
+  xmlns:wsa10="http://www.w3.org/2005/08/addressing" 
+  xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" 
+  xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" 
+  xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" 
+  xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" 
+  xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" 
+  xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+  name="SDMSDK" targetNamespace="http://tempuri.org/">
+   <wsp:Policy wsu:Id="BasicHttpBinding_ISDMSDK_policy">
+      <wsp:ExactlyOne>
+         <wsp:All>
+            <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+               <wsp:Policy>
+                  <sp:TransportToken>
+                     <wsp:Policy>
+                        <sp:HttpsToken RequireClientCertificate="false" />
+                     </wsp:Policy>
+                  </sp:TransportToken>
+                  <sp:AlgorithmSuite>
+                     <wsp:Policy>
+                        <sp:Basic256 />
+                     </wsp:Policy>
+                  </sp:AlgorithmSuite>
+                  <sp:Layout>
+                     <wsp:Policy>
+                        <sp:Strict />
+                     </wsp:Policy>
+                  </sp:Layout>
+               </wsp:Policy>
+            </sp:TransportBinding>
+         </wsp:All>
+      </wsp:ExactlyOne>
+   </wsp:Policy>
+   <wsdl:types>
+      <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+         <xs:element name="GetCustomerByID">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+                  <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+                  <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+                  <xs:element minOccurs="0" name="customerID" type="xs:decimal" />
+                  <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="GetCustomerByIDResponse">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element minOccurs="0" name="GetCustomerByIDResult" nillable="true" type="tns:CC_CUSTOMER" />
+                  <xs:element minOccurs="0" name="SDKResult" nillable="true" type="tns:ServiceResult" />
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+            <xs:complexType name="ServiceResult">
+               <xs:sequence>
+                  <xs:element minOccurs="0" name="ExternalCode" type="xs:int" />
+                  <xs:element minOccurs="0" name="ResultCode" type="xs:string" /> <!-- SUCCESS | Customer_Does_Not_Exist --> <!--tns:ResultCode-->
+                  <xs:element minOccurs="0" name="ResultText" nillable="true" type="xs:string" />
+               </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CC_CUSTOMER">
+                  <xs:sequence>
+                     <!--<xs:element minOccurs="0" name="Addresses" nillable="true" type="tns:ArrayOfCC_ADDRESS" />-->
+                     <xs:element minOccurs="0" name="CRT_BYUSER" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+                     <xs:element minOccurs="0" name="CUST_CARDNUMBER" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="CUST_CLASSID" type="xs:decimal" />
+                     <xs:element minOccurs="0" name="CUST_COMPANY" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="CUST_COMPANYUN" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="CUST_CORPID" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="CUST_DATEADDED" type="xs:dateTime" />
+                     <xs:element minOccurs="0" name="CUST_DATEOFBIRHT" nillable="true" type="xs:dateTime" />
+                     <xs:element minOccurs="0" name="CUST_DEPENDENTS" type="xs:decimal" />
+                     <xs:element minOccurs="0" name="CUST_EMAIL" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="CUST_FIRSTNAME" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="CUST_FIRSTNAMEUN" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="CUST_GENDER" type="tns:GENDER" />
+                     <xs:element minOccurs="0" name="CUST_ID" type="xs:decimal" />
+                     <xs:element minOccurs="0" name="CUST_LASTNAME" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="CUST_LASTNAMEUN" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="CUST_MARITALSTATUS" type="tns:MARITAL_STATUS" />
+                     <xs:element minOccurs="0" name="CUST_MIDNAME" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="CUST_MIDNAMEUN" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="CUST_NATID" type="xs:decimal" />
+                     <xs:element minOccurs="0" name="CUST_NOTIFICATION_MOBILE" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="CUST_OCCUPATION" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="CUST_OCCUPATIONUN" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="CUST_PHONEAREACODE" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="CUST_PHONECOUNTRYCODE" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="CUST_PHONEEXTENSTION" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="CUST_PHONELOOKUP" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="CUST_PHONENUMBER" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="CUST_PHONETYPE" type="xs:int" />
+                     <xs:element minOccurs="0" name="CUST_PREFERRED_LANGUAGE" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="CUST_TITLE" type="xs:decimal" />
+                     <xs:element minOccurs="0" name="CUST_USERDATA1" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="CUST_USERDATA1UN" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="CUST_USERDATA2" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="CUST_USERDATA2UN" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="Loyalty" nillable="true" type="xs:string" /> <!--tns:ArrayOfCC_CUSTOMER_LOYALTY-->
+                     <xs:element minOccurs="0" name="PASSWORD" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="Settings" nillable="true" type="xs:string" /> <!--q18:ArrayOfKeyValueOfstringCC_CUSTOMER_SETTINGSw_PEY1RNb-->
+                     <xs:element minOccurs="0" name="UPT_BYUSER" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+                     <xs:element minOccurs="0" name="USERNAME" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="WCUST_ACTIVE_DATE" type="xs:dateTime" />
+                     <xs:element minOccurs="0" name="WCUST_CORPID" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="WCUST_FIRSTNAME" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="WCUST_HASHEDPASSWORD" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="WCUST_IS_GUEST" type="xs:boolean" />
+                     <xs:element minOccurs="0" name="WCUST_LASTNAME" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="WCUST_MIDNAME" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="WCUST_OFFER1" type="xs:int" />
+                     <xs:element minOccurs="0" name="WCUST_OFFER2" type="xs:int" />
+                     <xs:element minOccurs="0" name="WCUST_SEC_ANSWER" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="WCUST_SEC_QUESTION" type="xs:int" />
+                     <xs:element minOccurs="0" name="WCUST_STATUS" type="xs:int" />
+                     <xs:element minOccurs="0" name="WCUST_TOKEN" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="WCUST_TOKEN_DATE" type="xs:dateTime" />
+                     <xs:element minOccurs="0" name="WEB_CRT_BY" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="WEB_CRT_DATE" type="xs:dateTime" />
+                     <xs:element minOccurs="0" name="WEB_UPT_BY" nillable="true" type="xs:string" />
+                     <xs:element minOccurs="0" name="WEB_UPT_DATE" type="xs:dateTime" />
+                  </xs:sequence>
+               </xs:complexType>
+               <xs:simpleType name="GENDER">
+                  <xs:restriction base="xs:string">
+                     <xs:enumeration value="None">
+                        <xs:annotation>
+                           <xs:appinfo>
+                              <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+                           </xs:appinfo>
+                        </xs:annotation>
+                     </xs:enumeration>
+                     <xs:enumeration value="Female">
+                        <xs:annotation>
+                           <xs:appinfo>
+                              <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+                           </xs:appinfo>
+                        </xs:annotation>
+                     </xs:enumeration>
+                     <xs:enumeration value="Male">
+                        <xs:annotation>
+                           <xs:appinfo>
+                              <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                           </xs:appinfo>
+                        </xs:annotation>
+                     </xs:enumeration>
+                  </xs:restriction>
+               </xs:simpleType>
+               <xs:simpleType name="MARITAL_STATUS">
+                  <xs:restriction base="xs:string">
+                     <xs:enumeration value="None">
+                        <xs:annotation>
+                           <xs:appinfo>
+                              <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+                           </xs:appinfo>
+                        </xs:annotation>
+                     </xs:enumeration>
+                     <xs:enumeration value="Single">
+                        <xs:annotation>
+                           <xs:appinfo>
+                              <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+                           </xs:appinfo>
+                        </xs:annotation>
+                     </xs:enumeration>
+                     <xs:enumeration value="Married">
+                        <xs:annotation>
+                           <xs:appinfo>
+                              <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                           </xs:appinfo>
+                        </xs:annotation>
+                     </xs:enumeration>
+                     <xs:enumeration value="Divorced">
+                        <xs:annotation>
+                           <xs:appinfo>
+                              <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                           </xs:appinfo>
+                        </xs:annotation>
+                     </xs:enumeration>
+                  </xs:restriction>
+               </xs:simpleType>
+            </xs:schema>
+   </wsdl:types>
+   <wsdl:message name="ISDMSDK_GetCustomerByID_InputMessage">
+      <wsdl:part name="parameters" element="tns:GetCustomerByID" />
+   </wsdl:message>
+   <wsdl:message name="ISDMSDK_GetCustomerByID_OutputMessage">
+      <wsdl:part name="parameters" element="tns:GetCustomerByIDResponse" />
+   </wsdl:message>
+   <wsdl:portType name="ISDMSDK">
+      <wsdl:operation name="GetCustomerByID">
+         <wsdl:input wsaw:Action="http://tempuri.org/ISDMSDK/GetCustomerByID" message="tns:ISDMSDK_GetCustomerByID_InputMessage" />
+         <wsdl:output wsaw:Action="http://tempuri.org/ISDMSDK/GetCustomerByIDResponse" message="tns:ISDMSDK_GetCustomerByID_OutputMessage" />
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="BasicHttpBinding_ISDMSDK" type="tns:ISDMSDK">
+      <wsp:PolicyReference URI="#BasicHttpBinding_ISDMSDK_policy" />
+      <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+         <wsdl:operation name="GetCustomerByID">
+            <soap:operation soapAction="http://tempuri.org/ISDMSDK/GetCustomerByID" style="document" />
+            <wsdl:input>
+               <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+               <soap:body use="literal" />
+            </wsdl:output>
+         </wsdl:operation>
+       </wsdl:binding>
+   <wsdl:service name="SDMSDK">
+      <wsdl:port name="BasicHttpBinding_ISDMSDK" binding="tns:BasicHttpBinding_ISDMSDK">
+         <soap:address location="http://localhost:2020/" />
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

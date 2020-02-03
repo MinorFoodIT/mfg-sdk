@@ -1,0 +1,2690 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/SDM_SDK" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SDM_SDK">
+   <xs:import schemaLocation="https://10.201.134.6:1990/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+   <xs:import schemaLocation="https://10.201.134.6:1990/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+   <xs:import schemaLocation="https://10.201.134.6:1990/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/PSOrderingDOM.Enums" />
+   <xs:import schemaLocation="https://10.201.134.6:1990/?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SDM.Client.Entities.Enums" />
+   <xs:import schemaLocation="https://10.201.134.6:1990/?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/PSOrderingDOM" />
+   <xs:complexType name="ServiceResult">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="ExternalCode" type="xs:int" />
+         <xs:element minOccurs="0" name="ResultCode" type="tns:ResultCode" />
+         <xs:element minOccurs="0" name="ResultText" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ServiceResult" nillable="true" type="tns:ServiceResult" />
+   <xs:simpleType name="ResultCode">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="External_Data_Error">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-2</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="External_Error">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Success">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Invalid_Parameter">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Invalid_License">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Invalid_Concept_ID">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Invalid_Date">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Concept_Does_not_Exist">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Menu_Template_Does_Not_Exist">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Submenu_Does_Not_Exist">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Submenu">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Mod_Group_Does_Not_Exist">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">9</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Mod_Group">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Item_Does_Not_Exist">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="No_Mod_Groups_Linked_To_Item">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">12</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="No_Fix_Prices_In_Menu_Template">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">13</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="No_Categories_In_Menu_Template">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">14</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="No_Events_In_Menu_Template">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">15</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="No_Price_Levels_In_Menu_Template">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="No_Price_Change_In_Menu_Template">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">17</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="No_Menus_In_Menu_Template">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">18</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Invalid_Order_Object">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">19</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Null_Order_Object">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">20</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Menu_Does_Not_Exist">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">21</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="No_Submenu_In_Menu">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">22</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="No_Submenu_In_Menu_Template">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">23</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="No_System_Paramters">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">24</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Invalid_Customer_Object">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">25</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Null_Customer_Object">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">26</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Username">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">27</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Username_Or_Password">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">28</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Order_Statuses">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">29</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Connection_Statuses">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">30</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Countries">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">31</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Provinces">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">32</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Cities">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">33</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Nationalities">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">34</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Customer_Titles">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">35</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Languages">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">36</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Customer_Classes">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">37</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Address_Classes">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">38</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Area_Does_Not_Exist">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">39</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Street_Does_Not_Exist">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">40</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="District_Does_Not_Exist">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">41</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Zone_Does_Not_Exist">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">42</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Stores">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">43</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Invalid_Address_Object">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">44</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Null_Address_Object">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">45</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Invalid_Address_Detail_Object">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">46</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Null_Address_Detail_Object">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">47</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="No_Customer_Phone">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">48</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Null_Customer_Phone">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">49</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Invalid_Username_Or_Password">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">50</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Username_Already_Exists">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">51</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Data_insertion_Error">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">52</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Customer_Does_Not_Exist">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">53</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Address_Does_Not_Exist">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">54</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AddressDetails_Does_Not_Exist">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">55</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Phone_Does_Not_Exist">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">56</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="No_Menu_Template_In_Concept">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">57</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Store_Does_Not_Exist">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">58</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Order_Does_Not_Exist">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">59</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Invalid_Customer_Password">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">60</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="No_Reasons_Found">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">61</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Unknown_Order_Status">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">62</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Order_Status_Not_Allowed_To_Delete_Items">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">63</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Order_Status_Timeout_Not_Allowed_To_Delete_Items">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">64</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Order_Status_Not_Allowed_To_Add_Items">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">65</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Order_Status_Timeout_Not_Allowed_To_Add_Items">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">66</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Order_Status_Not_Allowed_To_Cancel">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">67</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Order_Status_Timeout_Not_Allowed_To_Cancel">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">68</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Order_Already_Canceled">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">69</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Order_Already_Closed">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">70</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Invalid_Order_Update">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">71</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Order_Deleted_Item">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">72</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="No_StoreArea_Found">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">73</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Invalid_Due_Time">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">74</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Untrusted_Client_IP_Address">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">75</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="No_Quantity_Prices_In_Menu_Template">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">76</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Email">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">77</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Mobile">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">78</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="No_Store_Found">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">79</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Failed_To_Get_System_Time">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">80</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Districts">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">81</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Streets">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">82</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Store_Web_Groups">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">83</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Web_Build_Type">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">84</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Web_Address_Type">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">85</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Customer_Status_Not_Pending">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">86</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Null_Notification_Object">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">87</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Customer_Already_Has_Web_Account">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">88</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Translations">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">89</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Web_Dimension">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">90</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Web_Grid">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">91</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="No_Items_In_Submenu">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">92</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Failed_Register_Exist_Customer">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">93</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Internal_Error">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">100</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Store_Web_Group_Categories">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">101</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Customer_Status_Is_Inactive">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">102</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="No_Backup_Store_Found">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">103</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Store_Out_Of_Working_Hours">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">104</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Store_Inactive">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">105</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Empty_Areas">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">106</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="No_Custom_Paramters">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">107</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Order_Status_Not_Allowed_To_Modify_Items">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">108</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Order_Status_Timeout_Not_Allowed_To_Modify_Items">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">109</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:element name="ResultCode" nillable="true" type="tns:ResultCode" />
+   <xs:complexType name="ArrayOfCC_WEB_VSELECTOR">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_WEB_VSELECTOR" nillable="true" type="tns:CC_WEB_VSELECTOR" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_WEB_VSELECTOR" nillable="true" type="tns:ArrayOfCC_WEB_VSELECTOR" />
+   <xs:complexType name="CC_WEB_VSELECTOR">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="MENU_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="VS_DESCRIPTION" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="VS_DESCRIPTION_UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="VS_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="VS_TITLE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="VS_TITLE_UN" nillable="true" type="xs:string" />
+         <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Values" nillable="true" type="q1:ArrayOfKeyValueOfintCC_WEB_VSELECTOR_VALUEw_PEY1RNb" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_VSELECTOR" nillable="true" type="tns:CC_WEB_VSELECTOR" />
+   <xs:complexType name="CC_WEB_VSELECTOR_VALUE">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="MENU_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="VSV_DESCRIPTION" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="VSV_DESCRIPTION_UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="VSV_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="VSV_SELECTOR_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="VSV_SEQ" type="xs:decimal" />
+         <xs:element minOccurs="0" name="VSV_TITLE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="VSV_TITLE_UN" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_VSELECTOR_VALUE" nillable="true" type="tns:CC_WEB_VSELECTOR_VALUE" />
+   <xs:complexType name="ArrayOfCC_WEB_VGROUP">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_WEB_VGROUP" nillable="true" type="tns:CC_WEB_VGROUP" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_WEB_VGROUP" nillable="true" type="tns:ArrayOfCC_WEB_VGROUP" />
+   <xs:complexType name="CC_WEB_VGROUP">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="MENU_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="VIG_BUILDER_ID" type="xs:int" />
+         <xs:element minOccurs="0" name="VIG_CUSTOMIZATION_TYPE" type="xs:int" />
+         <xs:element minOccurs="0" name="VIG_DESCRIPTION" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="VIG_DESCRIPTION_UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="VIG_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="VIG_SELECTOR1" type="xs:decimal" />
+         <xs:element minOccurs="0" name="VIG_SELECTOR1_VALUE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="VIG_SELECTOR2" type="xs:decimal" />
+         <xs:element minOccurs="0" name="VIG_SELECTOR2_VALUE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="VIG_SELECTOR3" type="xs:decimal" />
+         <xs:element minOccurs="0" name="VIG_SELECTOR3_VALUE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="VIG_TITLE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="VIG_TITLE_UN" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_VGROUP" nillable="true" type="tns:CC_WEB_VGROUP" />
+   <xs:complexType name="ArrayOfCC_WEB_DEAL">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_WEB_DEAL" nillable="true" type="tns:CC_WEB_DEAL" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_WEB_DEAL" nillable="true" type="tns:ArrayOfCC_WEB_DEAL" />
+   <xs:complexType name="CC_WEB_DEAL">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Details" nillable="true" type="q2:ArrayOfKeyValueOfintCC_WEB_DEAL_DETAILw_PEY1RNb" />
+         <xs:element minOccurs="0" name="MENU_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="MetaDescription" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="MetaDescriptionUn" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="MetaKeyWords" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="MetaKeyWordsUn" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="MetaTitle" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="MetaTitleUn" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="WD_AVAILABILITYDAYS" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WD_AVAILABILITYFROMTIME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WD_AVAILABILITYTOTIME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WD_AVAILABILITYUSEDAYS" type="xs:boolean" />
+         <xs:element minOccurs="0" name="WD_AVAILABILITYUSETIME" type="xs:boolean" />
+         <xs:element minOccurs="0" name="WD_DESCRIPTION" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WD_DESCRIPTION_UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WD_FILTER" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WD_FILTER_UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WD_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WD_IMAGENAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WD_ITEM" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WD_ORDERMODE" type="xs:int" />
+         <xs:element minOccurs="0" name="WD_PRICE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WD_RANK" type="xs:int" />
+         <xs:element minOccurs="0" name="WD_STYLE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WD_TITLE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WD_TITLE_UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WD_VISIBLE" type="xs:boolean" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_DEAL" nillable="true" type="tns:CC_WEB_DEAL" />
+   <xs:complexType name="CC_WEB_DEAL_DETAIL">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Defaults" nillable="true" type="q3:ArrayOfKeyValueOfintCC_WEB_DEAL_DETAIL_DEFAULTw_PEY1RNb" />
+         <xs:element minOccurs="0" name="MENU_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="WDD_DEAL_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WDD_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WDD_MAXIMUM" type="xs:int" />
+         <xs:element minOccurs="0" name="WDD_MINIMUM" type="xs:int" />
+         <xs:element minOccurs="0" name="WDD_SEQUENCE" type="xs:int" />
+         <xs:element minOccurs="0" name="WDD_STEP_ID" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_DEAL_DETAIL" nillable="true" type="tns:CC_WEB_DEAL_DETAIL" />
+   <xs:complexType name="CC_WEB_DEAL_DETAIL_DEFAULT">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="MENU_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="WDDD_DEAL_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WDDD_DETAIL_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WDDD_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WDDD_ITEM" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WDDD_MODIFIERS" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WDDD_STEP_ID" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_DEAL_DETAIL_DEFAULT" nillable="true" type="tns:CC_WEB_DEAL_DETAIL_DEFAULT" />
+   <xs:complexType name="ArrayOfCC_WEB_DEAL_STEP">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_WEB_DEAL_STEP" nillable="true" type="tns:CC_WEB_DEAL_STEP" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_WEB_DEAL_STEP" nillable="true" type="tns:ArrayOfCC_WEB_DEAL_STEP" />
+   <xs:complexType name="CC_WEB_DEAL_STEP">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Items" nillable="true" type="q4:ArrayOfKeyValueOfintCC_WEB_DEAL_STEP_ITEMw_PEY1RNb" />
+         <xs:element minOccurs="0" name="MENU_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="WDS_EXPLANATION" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WDS_EXPLANATION_UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WDS_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WDS_IS_MODIFIER" type="xs:boolean" />
+         <xs:element minOccurs="0" name="WDS_ITEM_DESCRIPTION" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WDS_ITEM_DESCRIPTION_UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WDS_ITEM_IMAGENAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WDS_ITEM_SELECTOR1_VALUE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WDS_ITEM_SELECTOR2_VALUE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WDS_ITEM_SELECTOR3_VALUE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WDS_ITEM_STYLE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WDS_ITEM_TITLE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WDS_ITEM_TITLE_UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WDS_ITEM_VGROUP_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WDS_QUESTION" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WDS_QUESTION_UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WDS_STYLE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WDS_TITLE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WDS_TITLE_UN" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_DEAL_STEP" nillable="true" type="tns:CC_WEB_DEAL_STEP" />
+   <xs:complexType name="CC_WEB_DEAL_STEP_ITEM">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="MENU_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="WDSI_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WDSI_ITEM" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WDSI_SEQUENCE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WDSI_STEP_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WDSI_WEIGHT" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_DEAL_STEP_ITEM" nillable="true" type="tns:CC_WEB_DEAL_STEP_ITEM" />
+   <xs:complexType name="ArrayOfCEntry">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CEntry" nillable="true" type="tns:CEntry" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCEntry" nillable="true" type="tns:ArrayOfCEntry" />
+   <xs:complexType name="CEntry">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Adj1" type="xs:decimal" />
+         <xs:element minOccurs="0" name="Adj2" type="xs:decimal" />
+         <xs:element minOccurs="0" name="Adj3" type="xs:decimal" />
+         <xs:element minOccurs="0" name="Adj4" type="xs:decimal" />
+         <xs:element minOccurs="0" name="AdjGroup1" type="xs:decimal" />
+         <xs:element minOccurs="0" name="AdjGroup2" type="xs:decimal" />
+         <xs:element minOccurs="0" name="AdjGroup3" type="xs:decimal" />
+         <xs:element minOccurs="0" name="AdjGroup4" type="xs:decimal" />
+         <xs:element minOccurs="0" name="AskDesc" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="AskPrice" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="Category" type="xs:int" />
+         <xs:element minOccurs="0" name="CheckID" type="xs:int" />
+         <xs:element minOccurs="0" name="ConceptID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CreateBy" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="CustID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="DOB" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="DateOfTrans" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="DealID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="DiscountPrice" type="xs:double" />
+         <xs:element minOccurs="0" name="DueTime" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="Entries" nillable="true" type="tns:ArrayOfCEntry" />
+         <xs:element minOccurs="0" name="FavoriteName" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="Index" type="xs:int" />
+         <xs:element minOccurs="0" name="IsSpecialMessage" type="xs:int" />
+         <xs:element minOccurs="0" name="ItemID" type="xs:int" />
+         <xs:element minOccurs="0" name="Level" type="xs:int" />
+         <xs:element minOccurs="0" name="LongName" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="LongnameUn" nillable="true" type="xs:string" />
+         <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/PSOrderingDOM.Enums" minOccurs="0" name="ModCode" type="q5:ENTRY_MOD_CODES" />
+         <xs:element minOccurs="0" name="ModgroupID" type="xs:int" />
+         <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="Noun" type="xs:decimal" />
+         <xs:element minOccurs="0" name="OrderID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="OrdrMode" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="Price" type="xs:double" />
+         <xs:element minOccurs="0" name="QCComponent" type="xs:decimal" />
+         <xs:element minOccurs="0" name="QCInstanceID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="QCProID" type="xs:int" />
+         <xs:element minOccurs="0" name="Remarks" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="RemarksUn" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ShortName" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ShortnameUn" nillable="true" type="xs:string" />
+         <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/PSOrderingDOM.Enums" minOccurs="0" name="Status" type="q6:ENTRY_MOD_CODES" />
+         <xs:element minOccurs="0" name="StoreEntryID" type="xs:int" />
+         <xs:element minOccurs="0" name="SubType" type="xs:decimal" />
+         <xs:element minOccurs="0" name="Tax1ID" type="xs:int" />
+         <xs:element minOccurs="0" name="Tax1Rate" type="xs:double" />
+         <xs:element minOccurs="0" name="Tax2ID" type="xs:int" />
+         <xs:element minOccurs="0" name="Tax2Rate" type="xs:double" />
+         <xs:element minOccurs="0" name="TransBy" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="TransTime" type="xs:dateTime" />
+         <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/PSOrderingDOM.Enums" minOccurs="0" name="Type" type="q7:ENTRY_TYPE" />
+         <xs:element minOccurs="0" name="UpdateBy" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UpdateTime" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="VoidReason" type="xs:int" />
+         <xs:element minOccurs="0" name="Weight" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CEntry" nillable="true" type="tns:CEntry" />
+   <xs:complexType name="ArrayOfCC_WEB_QSTNR">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_WEB_QSTNR" nillable="true" type="tns:CC_WEB_QSTNR" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_WEB_QSTNR" nillable="true" type="tns:ArrayOfCC_WEB_QSTNR" />
+   <xs:complexType name="CC_WEB_QSTNR">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Questions" nillable="true" type="q8:ArrayOfKeyValueOfintCC_WEB_QSTNR_QUESTIONw_PEY1RNb" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="WQ_CONCEPTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WQ_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WQ_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WQ_NAME_UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WQ_PUBLISHED" type="xs:int" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_QSTNR" nillable="true" type="tns:CC_WEB_QSTNR" />
+   <xs:complexType name="CC_WEB_QSTNR_QUESTION">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Options" nillable="true" type="q9:ArrayOfKeyValueOfintCC_WEB_QSTNR_QUESTION_OPTIONw_PEY1RNb" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="WQQ_CONCEPTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WQQ_DESCRIPTION" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WQQ_DESCRIPTION_UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WQQ_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WQQ_QSTNR_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WQQ_SEQUENCE" type="xs:int" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_QSTNR_QUESTION" nillable="true" type="tns:CC_WEB_QSTNR_QUESTION" />
+   <xs:complexType name="CC_WEB_QSTNR_QUESTION_OPTION">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="WQQO_CONCEPTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WQQO_DESCRIPTION" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WQQO_DESCRIPTION_UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WQQO_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WQQO_QSTNR_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WQQO_QUESTION_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WQQO_SEQUENCE" type="xs:int" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_QSTNR_QUESTION_OPTION" nillable="true" type="tns:CC_WEB_QSTNR_QUESTION_OPTION" />
+   <xs:complexType name="CC_WEB_QSTNR_RESULT">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="Result_Details" nillable="true" type="tns:ArrayOfCC_WEB_QSTNR_RESULT_DETAILS" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="WQR_CONCEPTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WQR_CUSTOMER_ID" nillable="true" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WQR_EMAIL" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WQR_FIRSTNAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WQR_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WQR_LASTNAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WQR_PHONENUMBER" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WQR_QSTNR_ID" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_QSTNR_RESULT" nillable="true" type="tns:CC_WEB_QSTNR_RESULT" />
+   <xs:complexType name="ArrayOfCC_WEB_QSTNR_RESULT_DETAILS">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_WEB_QSTNR_RESULT_DETAILS" nillable="true" type="tns:CC_WEB_QSTNR_RESULT_DETAILS" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_WEB_QSTNR_RESULT_DETAILS" nillable="true" type="tns:ArrayOfCC_WEB_QSTNR_RESULT_DETAILS" />
+   <xs:complexType name="CC_WEB_QSTNR_RESULT_DETAILS">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="WQRD_CONCEPTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WQRD_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WQRD_OPTION_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WQRD_QSTNR_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WQRD_QSTNR_RESULT_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WQRD_QUESTION_ID" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_QSTNR_RESULT_DETAILS" nillable="true" type="tns:CC_WEB_QSTNR_RESULT_DETAILS" />
+   <xs:complexType name="ArrayOfCC_WEB_ITEM_BUILDER">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_WEB_ITEM_BUILDER" nillable="true" type="tns:CC_WEB_ITEM_BUILDER" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_WEB_ITEM_BUILDER" nillable="true" type="tns:ArrayOfCC_WEB_ITEM_BUILDER" />
+   <xs:complexType name="CC_WEB_ITEM_BUILDER">
+      <xs:sequence>
+         <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Builder_Objects" nillable="true" type="q10:ArrayOfKeyValueOfintCC_WEB_BUILDER_OBJECTSw_PEY1RNb" />
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="MENU_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="WIB_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WIB_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WIB_VGRP_TITLE" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_ITEM_BUILDER" nillable="true" type="tns:CC_WEB_ITEM_BUILDER" />
+   <xs:complexType name="CC_WEB_BUILDER_OBJECTS">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FILTER_ITEMS" nillable="true" type="q11:ArrayOfdecimal" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="WBO_BUILDER_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WBO_EMPTY_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WBO_HTML_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WBO_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WBO_INDEX" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WBO_LINK_CONDITION" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WBO_SOURCE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WBO_TITLE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WBO_TYPE" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_BUILDER_OBJECTS" nillable="true" type="tns:CC_WEB_BUILDER_OBJECTS" />
+   <xs:complexType name="ArrayOfCC_FEEDBACK_TYPE">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_FEEDBACK_TYPE" nillable="true" type="tns:CC_FEEDBACK_TYPE" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_FEEDBACK_TYPE" nillable="true" type="tns:ArrayOfCC_FEEDBACK_TYPE" />
+   <xs:complexType name="CC_FEEDBACK_TYPE">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="FTYPE_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="FTYPE_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="FTYPE_PRINTABLE" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_FEEDBACK_TYPE" nillable="true" type="tns:CC_FEEDBACK_TYPE" />
+   <xs:complexType name="ArrayOfCC_FEEDBACK_SUB_TYPE">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_FEEDBACK_SUB_TYPE" nillable="true" type="tns:CC_FEEDBACK_SUB_TYPE" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_FEEDBACK_SUB_TYPE" nillable="true" type="tns:ArrayOfCC_FEEDBACK_SUB_TYPE" />
+   <xs:complexType name="CC_FEEDBACK_SUB_TYPE">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="FSTYPE_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="FSTYPE_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="FSTYPE_PRINTABLE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="FSTYPE_TYPEID" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_FEEDBACK_SUB_TYPE" nillable="true" type="tns:CC_FEEDBACK_SUB_TYPE" />
+   <xs:complexType name="CC_CUSTOMER_FEEDBACK">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="FED_ADDRID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="FED_CALLID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="FED_CLASS" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="FED_CONCEPTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="FED_CREATE_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="FED_CUSTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="FED_DOB" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="FED_FIRST_CALL_TIME" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="FED_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="FED_LAST_CALL_TIME" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="FED_ORDRID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="FED_REMARKS" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="FED_STATUS" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="FED_STRID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="FED_SUB_TYPEID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="FED_TEXT" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="FED_TYPEID" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_CUSTOMER_FEEDBACK" nillable="true" type="tns:CC_CUSTOMER_FEEDBACK" />
+   <xs:complexType name="ArrayOfCC_WEB_SUGGESTIVE_SELLING">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_WEB_SUGGESTIVE_SELLING" nillable="true" type="tns:CC_WEB_SUGGESTIVE_SELLING" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_WEB_SUGGESTIVE_SELLING" nillable="true" type="tns:ArrayOfCC_WEB_SUGGESTIVE_SELLING" />
+   <xs:complexType name="CC_WEB_SUGGESTIVE_SELLING">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ConditionItems" nillable="true" type="q12:ArrayOfKeyValueOfintCC_WEB_SUGESTIVE_SELING_CONITMw_PEY1RNb" />
+         <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ConditionSubMenu" nillable="true" type="q13:ArrayOfKeyValueOfintCC_WEB_SUGESTIVE_SELING_CONMNUw_PEY1RNb" />
+         <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Items" nillable="true" type="q14:ArrayOfKeyValueOfintCC_WEB_SUGESTIVE_SELING_ITEMSw_PEY1RNb" />
+         <xs:element minOccurs="0" name="MENU_ID" type="xs:decimal" />
+         <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Rules" nillable="true" type="q15:ArrayOfKeyValueOfintCC_WEB_SUGESTIVE_SELING_RULESw_PEY1RNb" />
+         <xs:element minOccurs="0" name="SUG_ACTIVE" type="xs:boolean" />
+         <xs:element minOccurs="0" name="SUG_ASKING_TYPE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="SUG_CONDITION_TYPE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="SUG_DESCRIPTION" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="SUG_DESCRIPTIONUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="SUG_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="SUG_ISADDON" type="xs:boolean" />
+         <xs:element minOccurs="0" name="SUG_ISMODIFIER" type="xs:boolean" />
+         <xs:element minOccurs="0" name="SUG_MULITPLYWITHQTY" type="xs:boolean" />
+         <xs:element minOccurs="0" name="SUG_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="SUG_NAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="SUG_NEXT_EXECUTION" type="xs:decimal" />
+         <xs:element minOccurs="0" name="SUG_PRIORITY" type="xs:decimal" />
+         <xs:element minOccurs="0" name="SUG_QTY" type="xs:decimal" />
+         <xs:element minOccurs="0" name="SUG_TRIGER_TYPE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="SUG_VIEW_TYPE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_SUGGESTIVE_SELLING" nillable="true" type="tns:CC_WEB_SUGGESTIVE_SELLING" />
+   <xs:complexType name="CC_WEB_SUGESTIVE_SELING_CONITM">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="MENU_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="SGITMCOND_CONDITION" type="xs:decimal" />
+         <xs:element minOccurs="0" name="SGITMCOND_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="SGITMCOND_ITMID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="SGITMCOND_SUGID" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_SUGESTIVE_SELING_CONITM" nillable="true" type="tns:CC_WEB_SUGESTIVE_SELING_CONITM" />
+   <xs:complexType name="CC_WEB_SUGESTIVE_SELING_CONMNU">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="MENU_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="SGMNUCOND_CONDITION" type="xs:decimal" />
+         <xs:element minOccurs="0" name="SGMNUCOND_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="SGMNUCOND_SUBMENUID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="SGMNUCOND_SUGID" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_SUGESTIVE_SELING_CONMNU" nillable="true" type="tns:CC_WEB_SUGESTIVE_SELING_CONMNU" />
+   <xs:complexType name="CC_WEB_SUGESTIVE_SELING_ITEMS">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="MENU_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="SGITM_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="SGITM_ITMID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="SGITM_SEQUENCE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="SGITM_SUGID" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_SUGESTIVE_SELING_ITEMS" nillable="true" type="tns:CC_WEB_SUGESTIVE_SELING_ITEMS" />
+   <xs:complexType name="CC_WEB_SUGESTIVE_SELING_RULES">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="MENU_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="RUL_CONDITION" type="xs:decimal" />
+         <xs:element minOccurs="0" name="RUL_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="RUL_OPERATOR" type="xs:decimal" />
+         <xs:element minOccurs="0" name="RUL_SUGID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="RUL_VALUE" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_SUGESTIVE_SELING_RULES" nillable="true" type="tns:CC_WEB_SUGESTIVE_SELING_RULES" />
+   <xs:complexType name="ArrayOfWebCombo">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="WebCombo" nillable="true" type="tns:WebCombo" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfWebCombo" nillable="true" type="tns:ArrayOfWebCombo" />
+   <xs:complexType name="WebCombo">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="AvailabilityDays" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="AvailabilityFromTime" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="AvailabilityToTime" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="AvailabilityUseDays" type="xs:boolean" />
+         <xs:element minOccurs="0" name="AvailabilityUseTime" type="xs:boolean" />
+         <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="DescriptionUn" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="DisplayUpperLevel" type="xs:boolean" />
+         <xs:element minOccurs="0" name="ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="Level" type="xs:decimal" />
+         <xs:element minOccurs="0" name="OrderMode" type="xs:int" />
+         <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+         <xs:element minOccurs="0" name="PromoID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="Selectore1Value" type="xs:decimal" />
+         <xs:element minOccurs="0" name="Selectore2Value" type="xs:decimal" />
+         <xs:element minOccurs="0" name="Selectore3Value" type="xs:decimal" />
+         <xs:element minOccurs="0" name="Steps" nillable="true" type="tns:ArrayOfWebComboStep" />
+         <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="TitleUn" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="VirtualGroupID" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="WebCombo" nillable="true" type="tns:WebCombo" />
+   <xs:complexType name="ArrayOfWebComboStep">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="WebComboStep" nillable="true" type="tns:WebComboStep" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfWebComboStep" nillable="true" type="tns:ArrayOfWebComboStep" />
+   <xs:complexType name="WebComboStep">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CompID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="DescriptionUn" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfWebComboStepItem" />
+         <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="TitleUn" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="WebComboStep" nillable="true" type="tns:WebComboStep" />
+   <xs:complexType name="ArrayOfWebComboStepItem">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="WebComboStepItem" nillable="true" type="tns:WebComboStepItem" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfWebComboStepItem" nillable="true" type="tns:ArrayOfWebComboStepItem" />
+   <xs:complexType name="WebComboStepItem">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CompID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ItemID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+         <xs:element minOccurs="0" name="PromoID" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="WebComboStepItem" nillable="true" type="tns:WebComboStepItem" />
+   <xs:complexType name="ServiceCharges">
+      <xs:sequence>
+         <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Concepts" nillable="true" type="q16:ArrayOfKeyValueOfdecimalServiceChargeConceptw_PEY1RNb" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ServiceCharges" nillable="true" type="tns:ServiceCharges" />
+   <xs:complexType name="ServiceChargeConcept">
+      <xs:sequence>
+         <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AreaCharges" nillable="true" type="q17:ArrayOfKeyValueOfdecimalServiceChargew_PEY1RNb" />
+         <xs:element minOccurs="0" name="Charges" nillable="true" type="tns:ServiceCharge" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ServiceChargeConcept" nillable="true" type="tns:ServiceChargeConcept" />
+   <xs:complexType name="ServiceCharge">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CallInCharge" nillable="true" type="xs:decimal" />
+         <xs:element minOccurs="0" name="DeliveryCharge" nillable="true" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WalkInCharge" nillable="true" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ServiceCharge" nillable="true" type="tns:ServiceCharge" />
+   <xs:complexType name="OrderStatusChanges">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="StatusChanges" nillable="true" type="tns:ArrayOfOrderStatusChange" />
+         <xs:element minOccurs="0" name="SyncStamp" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="OrderStatusChanges" nillable="true" type="tns:OrderStatusChanges" />
+   <xs:complexType name="ArrayOfOrderStatusChange">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderStatusChange" nillable="true" type="tns:OrderStatusChange" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfOrderStatusChange" nillable="true" type="tns:ArrayOfOrderStatusChange" />
+   <xs:complexType name="OrderStatusChange">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="OrderId" nillable="true" type="xs:decimal" />
+         <xs:element minOccurs="0" name="OrderStatus" type="xs:decimal" />
+         <xs:element minOccurs="0" name="TransferredFromOrderId" nillable="true" type="xs:decimal" />
+         <xs:element minOccurs="0" name="TransferredToOrderId" nillable="true" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="OrderStatusChange" nillable="true" type="tns:OrderStatusChange" />
+   <xs:complexType name="ArrayOfCC_SYSPARAMS">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_SYSPARAMS" nillable="true" type="tns:CC_SYSPARAMS" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_SYSPARAMS" nillable="true" type="tns:ArrayOfCC_SYSPARAMS" />
+   <xs:complexType name="CC_SYSPARAMS">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="PARM_CAPTION" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="PARM_DESC" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="PARM_ID" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="PARM_VALUE" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_SYSPARAMS" nillable="true" type="tns:CC_SYSPARAMS" />
+   <xs:complexType name="ArrayOfCC_WEB_SYSPARAMS">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_WEB_SYSPARAMS" nillable="true" type="tns:CC_WEB_SYSPARAMS" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_WEB_SYSPARAMS" nillable="true" type="tns:ArrayOfCC_WEB_SYSPARAMS" />
+   <xs:complexType name="CC_WEB_SYSPARAMS">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="PARM_CAPTION" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="PARM_CONCEPTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="PARM_DESC" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="PARM_ID" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="PARM_VALUE" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_SYSPARAMS" nillable="true" type="tns:CC_WEB_SYSPARAMS" />
+   <xs:complexType name="ArrayOfCC_WEB_CUSTOM_PARAMS">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_WEB_CUSTOM_PARAMS" nillable="true" type="tns:CC_WEB_CUSTOM_PARAMS" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_WEB_CUSTOM_PARAMS" nillable="true" type="tns:ArrayOfCC_WEB_CUSTOM_PARAMS" />
+   <xs:complexType name="CC_WEB_CUSTOM_PARAMS">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CPRM_CONCEPTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CPRM_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CPRM_VALUE" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_CUSTOM_PARAMS" nillable="true" type="tns:CC_WEB_CUSTOM_PARAMS" />
+   <xs:complexType name="CC_CUSTOMER">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Addresses" nillable="true" type="tns:ArrayOfCC_ADDRESS" />
+         <xs:element minOccurs="0" name="CRT_BYUSER" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="CUST_CARDNUMBER" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CUST_CLASSID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CUST_COMPANY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CUST_COMPANYUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CUST_CORPID" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CUST_DATEADDED" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="CUST_DATEOFBIRHT" nillable="true" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="CUST_DEPENDENTS" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CUST_EMAIL" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CUST_FIRSTNAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CUST_FIRSTNAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CUST_GENDER" type="tns:GENDER" />
+         <xs:element minOccurs="0" name="CUST_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CUST_LASTNAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CUST_LASTNAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CUST_MARITALSTATUS" type="tns:MARITAL_STATUS" />
+         <xs:element minOccurs="0" name="CUST_MIDNAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CUST_MIDNAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CUST_NATID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CUST_NOTIFICATION_MOBILE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CUST_OCCUPATION" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CUST_OCCUPATIONUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CUST_PHONEAREACODE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CUST_PHONECOUNTRYCODE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CUST_PHONEEXTENSTION" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CUST_PHONELOOKUP" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CUST_PHONENUMBER" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CUST_PHONETYPE" type="xs:int" />
+         <xs:element minOccurs="0" name="CUST_PREFERRED_LANGUAGE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CUST_TITLE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CUST_USERDATA1" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CUST_USERDATA1UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CUST_USERDATA2" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CUST_USERDATA2UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="Loyalty" nillable="true" type="tns:ArrayOfCC_CUSTOMER_LOYALTY" />
+         <xs:element minOccurs="0" name="PASSWORD" nillable="true" type="xs:string" />
+         <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Settings" nillable="true" type="q18:ArrayOfKeyValueOfstringCC_CUSTOMER_SETTINGSw_PEY1RNb" />
+         <xs:element minOccurs="0" name="UPT_BYUSER" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="USERNAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WCUST_ACTIVE_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="WCUST_CORPID" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WCUST_FIRSTNAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WCUST_HASHEDPASSWORD" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WCUST_IS_GUEST" type="xs:boolean" />
+         <xs:element minOccurs="0" name="WCUST_LASTNAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WCUST_MIDNAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WCUST_OFFER1" type="xs:int" />
+         <xs:element minOccurs="0" name="WCUST_OFFER2" type="xs:int" />
+         <xs:element minOccurs="0" name="WCUST_SEC_ANSWER" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WCUST_SEC_QUESTION" type="xs:int" />
+         <xs:element minOccurs="0" name="WCUST_STATUS" type="xs:int" />
+         <xs:element minOccurs="0" name="WCUST_TOKEN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WCUST_TOKEN_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="WEB_CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WEB_CRT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="WEB_UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WEB_UPT_DATE" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_CUSTOMER" nillable="true" type="tns:CC_CUSTOMER" />
+   <xs:complexType name="ArrayOfCC_ADDRESS">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_ADDRESS" nillable="true" type="tns:CC_ADDRESS" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_ADDRESS" nillable="true" type="tns:ArrayOfCC_ADDRESS" />
+   <xs:complexType name="CC_ADDRESS">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="ADDR_AREAID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ADDR_BLDGNAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDR_BLDGNAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDR_BLDGNUM" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDR_CITYID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ADDR_CLASSID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ADDR_COUNTRYID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ADDR_COUNTY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDR_CUSTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ADDR_DESC" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDR_DISTRICTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ADDR_FLATNUM" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDR_FLOOR" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDR_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ADDR_LANGUAGE_PREFERENCE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDR_MAPCODE" nillable="true" type="tns:GPoint" />
+         <xs:element minOccurs="0" name="ADDR_PHONEAREACODE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDR_PHONECOUNTRYCODE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDR_PHONEEXTENTION" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDR_PHONELOOKUP" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDR_PHONENUMBER" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDR_PHONETYPE" type="xs:int" />
+         <xs:element minOccurs="0" name="ADDR_POSTALCODE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDR_PROVINCEID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ADDR_SKETCH" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDR_SKETCHUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDR_STREETID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ADDR_USEMAP" type="xs:boolean" />
+         <xs:element minOccurs="0" name="CRT_BYUSER" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="Details" nillable="true" type="tns:ArrayOfCC_ADDRESS_STORE_DETAILS" />
+         <xs:element minOccurs="0" name="Phones" nillable="true" type="tns:ArrayOfCC_CUSTOMER_PHONE" />
+         <xs:element minOccurs="0" name="UPT_BYUSER" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WADDR_AREAID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WADDR_AREA_TEXT" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WADDR_BUILD_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WADDR_BUILD_NUM" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WADDR_BUILD_TYPE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WADDR_CITYID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WADDR_CONCEPTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WADDR_COUNTRYID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WADDR_DESC" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WADDR_DIRECTIONS" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WADDR_DISTRICTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WADDR_DISTRICT_TEXT" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WADDR_IS_GUEST" type="xs:boolean" />
+         <xs:element minOccurs="0" name="WADDR_MNUID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WADDR_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WADDR_NOTES" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WADDR_POSTAL_CODE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WADDR_PROVINCEID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WADDR_STATUS" type="xs:int" />
+         <xs:element minOccurs="0" name="WADDR_STREETID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="WADDR_STREET_TEXT" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WADDR_SUBDISTRICT_TEXT" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="WADDR_TYPE" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_ADDRESS" nillable="true" type="tns:CC_ADDRESS" />
+   <xs:complexType name="GPoint">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="X" type="xs:double" />
+         <xs:element minOccurs="0" name="Y" type="xs:double" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GPoint" nillable="true" type="tns:GPoint" />
+   <xs:complexType name="ArrayOfCC_ADDRESS_STORE_DETAILS">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_ADDRESS_STORE_DETAILS" nillable="true" type="tns:CC_ADDRESS_STORE_DETAILS" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_ADDRESS_STORE_DETAILS" nillable="true" type="tns:ArrayOfCC_ADDRESS_STORE_DETAILS" />
+   <xs:complexType name="CC_ADDRESS_STORE_DETAILS">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="ADDRS_ADDRID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ADDRS_CARDNUMBER" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDRS_CONCEPTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ADDRS_CUSTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ADDRS_DATEADDED" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="ADDRS_DLVINSTRUCTIONS1" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDRS_DLVINSTRUCTIONS1UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDRS_DLVINSTRUCTIONS2" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDRS_DLVINSTRUCTIONS2UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDRS_DLVINSTRUCTIONS3" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDRS_DLVINSTRUCTIONS3UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDRS_DLVINSTRUCTIONS4" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDRS_DLVINSTRUCTIONS4UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDRS_EXTRA1" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDRS_EXTRA1UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDRS_EXTRA2" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDRS_EXTRA2UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDRS_EXTRA3" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDRS_EXTRA3UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDRS_SKETCH" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDRS_SKETCHUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDRS_STRID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ADDRS_USERDATA1" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDRS_USERDATA1UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDRS_USERDATA2" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDRS_USERDATA2UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ADDRS_ZONEID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CRT_BYUSER" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="UPT_BYUSER" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_ADDRESS_STORE_DETAILS" nillable="true" type="tns:CC_ADDRESS_STORE_DETAILS" />
+   <xs:complexType name="ArrayOfCC_CUSTOMER_PHONE">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_CUSTOMER_PHONE" nillable="true" type="tns:CC_CUSTOMER_PHONE" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_CUSTOMER_PHONE" nillable="true" type="tns:ArrayOfCC_CUSTOMER_PHONE" />
+   <xs:complexType name="CC_CUSTOMER_PHONE">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CRT_BYUSER" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="PHONE_ADDRID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="PHONE_AREACODE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="PHONE_COUNTRYCODE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="PHONE_CUSTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="PHONE_EXT" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="PHONE_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="PHONE_ISDEFAULT" type="ser:char" />
+         <xs:element minOccurs="0" name="PHONE_LOOKUP" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="PHONE_NUMBER" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="PHONE_TYPE" type="xs:int" />
+         <xs:element minOccurs="0" name="UPT_BYUSER" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_CUSTOMER_PHONE" nillable="true" type="tns:CC_CUSTOMER_PHONE" />
+   <xs:simpleType name="GENDER">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="None">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Female">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Male">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:element name="GENDER" nillable="true" type="tns:GENDER" />
+   <xs:simpleType name="MARITAL_STATUS">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="None">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Single">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Married">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Divorced">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:element name="MARITAL_STATUS" nillable="true" type="tns:MARITAL_STATUS" />
+   <xs:complexType name="ArrayOfCC_CUSTOMER_LOYALTY">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_CUSTOMER_LOYALTY" nillable="true" type="tns:CC_CUSTOMER_LOYALTY" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_CUSTOMER_LOYALTY" nillable="true" type="tns:ArrayOfCC_CUSTOMER_LOYALTY" />
+   <xs:complexType name="CC_CUSTOMER_LOYALTY">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CULY_CARD_NUMBER" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CULY_CONCEPTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CULY_CUSTOMERID" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_CUSTOMER_LOYALTY" nillable="true" type="tns:CC_CUSTOMER_LOYALTY" />
+   <xs:complexType name="CC_CUSTOMER_SETTINGS">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="SET_CUSTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="SET_DESC" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="SET_DESCUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="SET_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="SET_TYPE" type="xs:int" />
+         <xs:element minOccurs="0" name="SET_VALUE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_CUSTOMER_SETTINGS" nillable="true" type="tns:CC_CUSTOMER_SETTINGS" />
+   <xs:simpleType name="CUSTOMER_EXISTANCE">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="NOT_FOUND" />
+         <xs:enumeration value="FOUND_PENDING_WEB" />
+         <xs:enumeration value="FOUND_WEB" />
+         <xs:enumeration value="FOUND_SDM" />
+         <xs:enumeration value="FOUND_MULTIPLE_SDM" />
+         <xs:enumeration value="FOUND_GUEST_WEB" />
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:element name="CUSTOMER_EXISTANCE" nillable="true" type="tns:CUSTOMER_EXISTANCE" />
+   <xs:complexType name="ArrayOfCC_NATIONALITY">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_NATIONALITY" nillable="true" type="tns:CC_NATIONALITY" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_NATIONALITY" nillable="true" type="tns:ArrayOfCC_NATIONALITY" />
+   <xs:complexType name="CC_NATIONALITY">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="NAT_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="NAT_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="NAT_NAMEUN" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_NATIONALITY" nillable="true" type="tns:CC_NATIONALITY" />
+   <xs:complexType name="ArrayOfCC_CUSTOMER_TITLE">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_CUSTOMER_TITLE" nillable="true" type="tns:CC_CUSTOMER_TITLE" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_CUSTOMER_TITLE" nillable="true" type="tns:ArrayOfCC_CUSTOMER_TITLE" />
+   <xs:complexType name="CC_CUSTOMER_TITLE">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="TIT_GENDER" type="xs:int" />
+         <xs:element minOccurs="0" name="TIT_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="TIT_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="TIT_NAMEUN" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_CUSTOMER_TITLE" nillable="true" type="tns:CC_CUSTOMER_TITLE" />
+   <xs:complexType name="ArrayOfCC_CUSTOMER_LANGUAGE">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_CUSTOMER_LANGUAGE" nillable="true" type="tns:CC_CUSTOMER_LANGUAGE" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_CUSTOMER_LANGUAGE" nillable="true" type="tns:ArrayOfCC_CUSTOMER_LANGUAGE" />
+   <xs:complexType name="CC_CUSTOMER_LANGUAGE">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="LANG_CODE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="LANG_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="LANG_NAME" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_CUSTOMER_LANGUAGE" nillable="true" type="tns:CC_CUSTOMER_LANGUAGE" />
+   <xs:complexType name="ArrayOfCC_CUSTOMER_CLASS">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_CUSTOMER_CLASS" nillable="true" type="tns:CC_CUSTOMER_CLASS" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_CUSTOMER_CLASS" nillable="true" type="tns:ArrayOfCC_CUSTOMER_CLASS" />
+   <xs:complexType name="CC_CUSTOMER_CLASS">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CLSS_DEFAULT_ADDRCLSS" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CLSS_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CLSS_NAME" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_CUSTOMER_CLASS" nillable="true" type="tns:CC_CUSTOMER_CLASS" />
+   <xs:complexType name="ArrayOfCC_ADDRESS_CLASS">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_ADDRESS_CLASS" nillable="true" type="tns:CC_ADDRESS_CLASS" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_ADDRESS_CLASS" nillable="true" type="tns:ArrayOfCC_ADDRESS_CLASS" />
+   <xs:complexType name="CC_ADDRESS_CLASS">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CLSS_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CLSS_NAME" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_ADDRESS_CLASS" nillable="true" type="tns:CC_ADDRESS_CLASS" />
+   <xs:complexType name="ArrayOfLocationSearch">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="LocationSearch" nillable="true" type="tns:LocationSearch" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfLocationSearch" nillable="true" type="tns:ArrayOfLocationSearch" />
+   <xs:complexType name="LocationSearch">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="AREA_CITYID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="AREA_COUNTRYID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="AREA_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="AREA_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="AREA_PROVINCEID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="DIS_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="DIS_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="RN" type="xs:int" />
+         <xs:element minOccurs="0" name="STRET_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STRET_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_CONCEPTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STR_DEF_ZONEID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STR_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STR_NAME" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="LocationSearch" nillable="true" type="tns:LocationSearch" />
+   <xs:complexType name="ArrayOfCC_WEB_BUILD_TYPE">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_WEB_BUILD_TYPE" nillable="true" type="tns:CC_WEB_BUILD_TYPE" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_WEB_BUILD_TYPE" nillable="true" type="tns:ArrayOfCC_WEB_BUILD_TYPE" />
+   <xs:complexType name="CC_WEB_BUILD_TYPE">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="BTYPE_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="BTYPE_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="BTYPE_NAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_BUILD_TYPE" nillable="true" type="tns:CC_WEB_BUILD_TYPE" />
+   <xs:complexType name="ArrayOfCC_WEB_ADDRESS_TYPE">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_WEB_ADDRESS_TYPE" nillable="true" type="tns:CC_WEB_ADDRESS_TYPE" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_WEB_ADDRESS_TYPE" nillable="true" type="tns:ArrayOfCC_WEB_ADDRESS_TYPE" />
+   <xs:complexType name="CC_WEB_ADDRESS_TYPE">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="TYPE_ADDR_CLASSID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="TYPE_CUST_CLASSID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="TYPE_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="TYPE_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="TYPE_NAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_ADDRESS_TYPE" nillable="true" type="tns:CC_WEB_ADDRESS_TYPE" />
+   <xs:complexType name="ArrayOfCC_COUNTRY">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_COUNTRY" nillable="true" type="tns:CC_COUNTRY" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_COUNTRY" nillable="true" type="tns:ArrayOfCC_COUNTRY" />
+   <xs:complexType name="CC_COUNTRY">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CNT_CODE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CNT_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CNT_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CNT_NAMEUN" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_COUNTRY" nillable="true" type="tns:CC_COUNTRY" />
+   <xs:complexType name="ArrayOfCC_PROVINCE">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_PROVINCE" nillable="true" type="tns:CC_PROVINCE" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_PROVINCE" nillable="true" type="tns:ArrayOfCC_PROVINCE" />
+   <xs:complexType name="CC_PROVINCE">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="PRO_CNTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="PRO_CODE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="PRO_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="PRO_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="PRO_NAMEUN" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_PROVINCE" nillable="true" type="tns:CC_PROVINCE" />
+   <xs:complexType name="ArrayOfCC_CITY">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_CITY" nillable="true" type="tns:CC_CITY" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_CITY" nillable="true" type="tns:ArrayOfCC_CITY" />
+   <xs:complexType name="CC_CITY">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CTY_CNTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CTY_CODE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CTY_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CTY_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CTY_NAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CTY_PROVINCEID" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_CITY" nillable="true" type="tns:CC_CITY" />
+   <xs:complexType name="ArrayOfCC_WEB_COUNTRY">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_WEB_COUNTRY" nillable="true" type="tns:CC_WEB_COUNTRY" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_WEB_COUNTRY" nillable="true" type="tns:ArrayOfCC_WEB_COUNTRY" />
+   <xs:complexType name="CC_WEB_COUNTRY">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CNT_ACTIVE" type="xs:int" />
+         <xs:element minOccurs="0" name="CNT_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CNT_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CNT_NAMEUN" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_COUNTRY" nillable="true" type="tns:CC_WEB_COUNTRY" />
+   <xs:complexType name="ArrayOfCC_WEB_PROVINCE">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_WEB_PROVINCE" nillable="true" type="tns:CC_WEB_PROVINCE" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_WEB_PROVINCE" nillable="true" type="tns:ArrayOfCC_WEB_PROVINCE" />
+   <xs:complexType name="CC_WEB_PROVINCE">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="PRO_ACTIVE" type="xs:int" />
+         <xs:element minOccurs="0" name="PRO_CNTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="PRO_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="PRO_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="PRO_NAMEUN" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_PROVINCE" nillable="true" type="tns:CC_WEB_PROVINCE" />
+   <xs:complexType name="ArrayOfCC_WEB_CITY">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_WEB_CITY" nillable="true" type="tns:CC_WEB_CITY" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_WEB_CITY" nillable="true" type="tns:ArrayOfCC_WEB_CITY" />
+   <xs:complexType name="CC_WEB_CITY">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CTY_ACTIVE" type="xs:int" />
+         <xs:element minOccurs="0" name="CTY_CNTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CTY_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CTY_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CTY_NAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CTY_PROVINCEID" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_CITY" nillable="true" type="tns:CC_WEB_CITY" />
+   <xs:complexType name="CC_AREA">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="AREA_ALT_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="AREA_ALT_NAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="AREA_CITYID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="AREA_CODE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="AREA_COUNTRYID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="AREA_DEF_DISTRICTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="AREA_DEF_STREETID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="AREA_DESC" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="AREA_DESCUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="AREA_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="AREA_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="AREA_NAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="AREA_PROVINCEID" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_AREA" nillable="true" type="tns:CC_AREA" />
+   <xs:complexType name="CC_STREET">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="STRET_ALT_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STRET_ALT_NAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STRET_CNTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STRET_CTYID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STRET_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STRET_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STRET_NAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STRET_NUMBER" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STRET_PROVINCEID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STRET_REMARKS" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STRET_REMARKSUN" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_STREET" nillable="true" type="tns:CC_STREET" />
+   <xs:complexType name="CC_DISTRICT">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="DIS_ALT_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="DIS_ALT_NAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="DIS_CITYID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="DIS_COUNTRYID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="DIS_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="DIS_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="DIS_NAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="DIS_PROVINCEID" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_DISTRICT" nillable="true" type="tns:CC_DISTRICT" />
+   <xs:complexType name="ArrayOfCC_DISTRICT">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_DISTRICT" nillable="true" type="tns:CC_DISTRICT" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_DISTRICT" nillable="true" type="tns:ArrayOfCC_DISTRICT" />
+   <xs:complexType name="ArrayOfCC_WEB_DISTRICT">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_WEB_DISTRICT" nillable="true" type="tns:CC_WEB_DISTRICT" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_WEB_DISTRICT" nillable="true" type="tns:ArrayOfCC_WEB_DISTRICT" />
+   <xs:complexType name="CC_WEB_DISTRICT">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="DIS_ACTIVE" type="xs:int" />
+         <xs:element minOccurs="0" name="DIS_CITYID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="DIS_COUNTRYID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="DIS_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="DIS_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="DIS_NAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="DIS_PROVINCEID" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_DISTRICT" nillable="true" type="tns:CC_WEB_DISTRICT" />
+   <xs:complexType name="ArrayOfCC_WEB_AREA">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_WEB_AREA" nillable="true" type="tns:CC_WEB_AREA" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_WEB_AREA" nillable="true" type="tns:ArrayOfCC_WEB_AREA" />
+   <xs:complexType name="CC_WEB_AREA">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="AREA_ACTIVE" type="xs:int" />
+         <xs:element minOccurs="0" name="AREA_CITYID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="AREA_COUNTRYID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="AREA_DEF_DISTRICTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="AREA_DEF_STREETID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="AREA_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="AREA_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="AREA_NAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="AREA_PROVINCEID" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_AREA" nillable="true" type="tns:CC_WEB_AREA" />
+   <xs:complexType name="ArrayOfCC_WEB_STREET">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_WEB_STREET" nillable="true" type="tns:CC_WEB_STREET" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_WEB_STREET" nillable="true" type="tns:ArrayOfCC_WEB_STREET" />
+   <xs:complexType name="CC_WEB_STREET">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="STRET_ACTIVE" type="xs:int" />
+         <xs:element minOccurs="0" name="STRET_CNTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STRET_CTYID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STRET_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STRET_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STRET_NAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STRET_PROVINCEID" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_STREET" nillable="true" type="tns:CC_WEB_STREET" />
+   <xs:complexType name="CC_DLVZONE">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="ZON_AVAILABLE_HOUSE_HOLD" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ZON_CODE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ZON_DEF_DIRECTION" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ZON_DIVING_PERIOD" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ZON_DRIVING_DISTANCE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ZON_ENTRYPOINT" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ZON_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ZON_LATITUDE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ZON_LONGITUDE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ZON_MAP" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ZON_MAP_LOCATION" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ZON_PRIMARY_BACKUP_STORE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ZON_REMARKS" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ZON_REMARKSUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ZON_SECONDARY1_BACKUP_STORE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ZON_SECONDARY2_BACKUP_STORE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ZON_STATUS" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ZON_STOREID" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_DLVZONE" nillable="true" type="tns:CC_DLVZONE" />
+   <xs:complexType name="CC_STORE">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Fences" nillable="true" type="tns:ArrayOfCC_STORE_MAP_FENCE" />
+         <xs:element minOccurs="0" name="Locations" nillable="true" type="tns:ArrayOfCC_STORE_MAP_LOCATION" />
+         <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Parameters" nillable="true" type="q19:ArrayOfKeyValueOfstringstring" />
+         <xs:element minOccurs="0" name="STR_ADDRESS" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_ADDRESSUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_BACKUP_OWH_STATUS" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STR_BACKUP_STATUS" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STR_CALLCENTERNOTE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_CALLINAMOUNT" type="xs:double" />
+         <xs:element minOccurs="0" name="STR_CALLINISFIXED" type="xs:boolean" />
+         <xs:element minOccurs="0" name="STR_CALLINMODE" type="xs:boolean" />
+         <xs:element minOccurs="0" name="STR_CONCEPTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STR_DELIVERYAMOUNT" type="xs:double" />
+         <xs:element minOccurs="0" name="STR_DELIVERYISFIXED" type="xs:boolean" />
+         <xs:element minOccurs="0" name="STR_DELIVERYMODE" type="xs:boolean" />
+         <xs:element minOccurs="0" name="STR_DOB" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STR_ISACTIVE" type="xs:boolean" />
+         <xs:element minOccurs="0" name="STR_MAP_LINK" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_MENU_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STR_META_DESC" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_META_DESC_UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_META_KEYS" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_META_KEYS_UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_META_TITLE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_META_TITLE_UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_NAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_NUM" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_PHONE1" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_PHONE2" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_PRIMARY_BACKUP" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STR_PROMISETIME" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STR_SDM_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_SDM_NAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_SECONDARY1_BACKUP" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STR_SECONDARY2_BACKUP" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STR_SERVICES" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_SERVICES_UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_STARTUP_SCREEN" type="xs:int" />
+         <xs:element minOccurs="0" name="STR_STATUS" type="xs:int" />
+         <xs:element minOccurs="0" name="STR_STORENOTE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_TIMEDIFFERENCE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STR_USE_BACKUP_FLAG" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STR_WALKINAMOUNT" type="xs:double" />
+         <xs:element minOccurs="0" name="STR_WALKINISFIXED" type="xs:boolean" />
+         <xs:element minOccurs="0" name="STR_WALKINMODE" type="xs:boolean" />
+         <xs:element minOccurs="0" name="STR_WEB_MNUID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STR_WEB_NOTE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_WEB_OFFER_CONTENT" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_WEB_OFFER_CONTENT_UN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="STR_WH_ENDTIME" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="STR_WH_NEXT_DAY" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STR_WH_STARTTIME" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_STORE" nillable="true" type="tns:CC_STORE" />
+   <xs:complexType name="ArrayOfCC_STORE_MAP_FENCE">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_STORE_MAP_FENCE" nillable="true" type="tns:CC_STORE_MAP_FENCE" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_STORE_MAP_FENCE" nillable="true" type="tns:ArrayOfCC_STORE_MAP_FENCE" />
+   <xs:complexType name="CC_STORE_MAP_FENCE">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="MAPF_AREAID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="MAPF_DESCRIPTION" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="MAPF_DISTRICTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="MAPF_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="MAPF_LATITUDE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="MAPF_LONGITUDE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="MAPF_OBJECTID" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="MAPF_STOREID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="MAPF_STREETID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="MAPF_TYPE" type="xs:int" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_STORE_MAP_FENCE" nillable="true" type="tns:CC_STORE_MAP_FENCE" />
+   <xs:complexType name="ArrayOfCC_STORE_MAP_LOCATION">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_STORE_MAP_LOCATION" nillable="true" type="tns:CC_STORE_MAP_LOCATION" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_STORE_MAP_LOCATION" nillable="true" type="tns:ArrayOfCC_STORE_MAP_LOCATION" />
+   <xs:complexType name="CC_STORE_MAP_LOCATION">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="MAPL_CITY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="MAPL_COUNTRY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="MAPL_COUNTY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="MAPL_DESCRIPTION" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="MAPL_DISTRICT" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="MAPL_FLAG" type="xs:int" />
+         <xs:element minOccurs="0" name="MAPL_HOUSENO" type="xs:decimal" />
+         <xs:element minOccurs="0" name="MAPL_ID" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="MAPL_LATITUDE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="MAPL_LONGITUDE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="MAPL_STATE" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="MAPL_STOREID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="MAPL_STREET" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="MAPL_ZIP" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_STORE_MAP_LOCATION" nillable="true" type="tns:CC_STORE_MAP_LOCATION" />
+   <xs:complexType name="ArrayOfCC_STORE">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_STORE" nillable="true" type="tns:CC_STORE" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_STORE" nillable="true" type="tns:ArrayOfCC_STORE" />
+   <xs:complexType name="ArrayOfCC_STORE_AREA">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_STORE_AREA" nillable="true" type="tns:CC_STORE_AREA" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_STORE_AREA" nillable="true" type="tns:ArrayOfCC_STORE_AREA" />
+   <xs:complexType name="CC_STORE_AREA">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="STR_AREAID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STR_CONCEPTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STR_DEF_ZONEID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STR_DELIVERYCHARGE" type="xs:double" />
+         <xs:element minOccurs="0" name="STR_DELIVERYCHARGEID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STR_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="STR_ISDEFAULT" type="xs:int" />
+         <xs:element minOccurs="0" name="STR_MAP_LOCATION" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_STORE_AREA" nillable="true" type="tns:CC_STORE_AREA" />
+   <xs:complexType name="ArrayOfCC_WEB_STORE_GROUP_DEF">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_WEB_STORE_GROUP_DEF" nillable="true" type="tns:CC_WEB_STORE_GROUP_DEF" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_WEB_STORE_GROUP_DEF" nillable="true" type="tns:ArrayOfCC_WEB_STORE_GROUP_DEF" />
+   <xs:complexType name="CC_WEB_STORE_GROUP_DEF">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="GRP_CATID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="GRP_DESC" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="GRP_DESCUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="GRP_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="GRP_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="GRP_NAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="GRP_SEQUENCE" type="xs:int" />
+         <xs:element minOccurs="0" name="GRP_TYPE" type="xs:int" />
+         <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Stores" nillable="true" type="q20:ArrayOfdecimal" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_STORE_GROUP_DEF" nillable="true" type="tns:CC_WEB_STORE_GROUP_DEF" />
+   <xs:complexType name="ArrayOfCC_WEB_STORE_GROUP_CATEGORY">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_WEB_STORE_GROUP_CATEGORY" nillable="true" type="tns:CC_WEB_STORE_GROUP_CATEGORY" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_WEB_STORE_GROUP_CATEGORY" nillable="true" type="tns:ArrayOfCC_WEB_STORE_GROUP_CATEGORY" />
+   <xs:complexType name="CC_WEB_STORE_GROUP_CATEGORY">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CAT_DESC" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CAT_DESCUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CAT_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CAT_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CAT_NAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CAT_SEQUENCE" type="xs:int" />
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StoreWebGroups" nillable="true" type="q21:ArrayOfdecimal" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_STORE_GROUP_CATEGORY" nillable="true" type="tns:CC_WEB_STORE_GROUP_CATEGORY" />
+   <xs:complexType name="ArrayOfCC_ORDER_STATUS">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_ORDER_STATUS" nillable="true" type="tns:CC_ORDER_STATUS" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_ORDER_STATUS" nillable="true" type="tns:ArrayOfCC_ORDER_STATUS" />
+   <xs:complexType name="CC_ORDER_STATUS">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="ODRSTS_CODE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ODRSTS_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ODRSTS_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ODRSTS_NAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="ORDSTS_CAN_ADD" type="xs:int" />
+         <xs:element minOccurs="0" name="ORDSTS_CAN_ADD_TIMEOUT" type="xs:int" />
+         <xs:element minOccurs="0" name="ORDSTS_CAN_CANCEL" type="xs:int" />
+         <xs:element minOccurs="0" name="ORDSTS_CAN_CANCEL_TIMEOUT" type="xs:int" />
+         <xs:element minOccurs="0" name="ORDSTS_CAN_DELETE" type="xs:int" />
+         <xs:element minOccurs="0" name="ORDSTS_CAN_DELETE_TIMEOUT" type="xs:int" />
+         <xs:element minOccurs="0" name="ORDSTS_CAN_MODIFY" type="xs:int" />
+         <xs:element minOccurs="0" name="ORDSTS_CAN_MODIFY_TIMEOUT" type="xs:int" />
+         <xs:element minOccurs="0" name="ORDSTS_CAN_REORDER" type="xs:int" />
+         <xs:element minOccurs="0" name="ORDSTS_CAN_REORDER_TIMEOUT" type="xs:int" />
+         <xs:element minOccurs="0" name="ORDSTS_EXCEPTION" type="xs:int" />
+         <xs:element minOccurs="0" name="ORDSTS_WARNING" type="xs:int" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_ORDER_STATUS" nillable="true" type="tns:CC_ORDER_STATUS" />
+   <xs:complexType name="ArrayOfCC_CONNECTION_STATUS">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_CONNECTION_STATUS" nillable="true" type="tns:CC_CONNECTION_STATUS" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_CONNECTION_STATUS" nillable="true" type="tns:ArrayOfCC_CONNECTION_STATUS" />
+   <xs:complexType name="CC_CONNECTION_STATUS">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CONSTAT_CODE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CONSTAT_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CONSTAT_NAME" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_CONNECTION_STATUS" nillable="true" type="tns:CC_CONNECTION_STATUS" />
+   <xs:complexType name="CC_CONCEPT">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CON_BACKUP_OWH_STATUS" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CON_DATA_FOLDER" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CON_DESC" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CON_DESUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CON_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CON_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CON_NAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CON_WH_ENDTIME" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="CON_WH_NEXT_DAY" type="xs:int" />
+         <xs:element minOccurs="0" name="CON_WH_STARTTIME" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="DATA_IN_SPACE" nillable="true" type="xs:string" />
+         <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MenuTemplates" nillable="true" type="q22:ArrayOfKeyValueOfdecimalCC_MENU_TEMPLATEw_PEY1RNb" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_CONCEPT" nillable="true" type="tns:CC_CONCEPT" />
+   <xs:complexType name="CC_MENU_TEMPLATE">
+      <xs:sequence>
+         <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Extend" nillable="true" type="q23:ArrayOfKeyValueOfstringstring" />
+         <xs:element minOccurs="0" name="MENU_CONCEPTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="MENU_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="MENU_NAME" nillable="true" type="xs:string" />
+         <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/SDM.Client.Entities.Enums" minOccurs="0" name="MENU_POS_TYPE" type="q24:MenuTemplatePosType" />
+         <xs:element minOccurs="0" name="MENU_SCHEME" type="xs:decimal" />
+         <xs:element minOccurs="0" name="MENU_TYPE" type="xs:decimal" />
+         <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/PSOrderingDOM" minOccurs="0" name="MenuTransactions" nillable="true" type="q25:ArrayOfTransactionOrderingDatabase" />
+         <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Menus" nillable="true" type="q26:ArrayOfKeyValueOfintCMenukckD9yn_P" />
+         <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PizzaModgroups" nillable="true" type="q27:ArrayOfint" />
+         <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Submenus" nillable="true" type="q28:ArrayOfKeyValueOfintCSubmenukckD9yn_P" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_MENU_TEMPLATE" nillable="true" type="tns:CC_MENU_TEMPLATE" />
+   <xs:complexType name="ArrayOfCC_MENU_TEMPLATE">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_MENU_TEMPLATE" nillable="true" type="tns:CC_MENU_TEMPLATE" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_MENU_TEMPLATE" nillable="true" type="tns:ArrayOfCC_MENU_TEMPLATE" />
+   <xs:complexType name="CCheck">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="AddressID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="AreaID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="AuthBy" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="AuthReq" type="xs:int" />
+         <xs:element minOccurs="0" name="AuthReqReason" type="xs:decimal" />
+         <xs:element minOccurs="0" name="AuthReqRemarks" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="AuthReqRemarksUn" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="AuthTime" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="BackupStoreID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="Balance" type="xs:double" />
+         <xs:element minOccurs="0" name="CancelAllowed" type="xs:boolean" />
+         <xs:element minOccurs="0" name="CancelBy" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CancelTime" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="Change" type="xs:double" />
+         <xs:element minOccurs="0" name="CheckNumber" type="xs:int" />
+         <xs:element minOccurs="0" name="CityID" type="xs:decimal" />
+         <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Comps" nillable="true" type="q29:ArrayOfKeyValueOfdecimalCCompkckD9yn_P" />
+         <xs:element minOccurs="0" name="ConceptID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CountryID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CreateBy" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="CustomerID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="DOB" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="DateOfTrans" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="DeliveryChargeID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="DiscountTotal" type="xs:double" />
+         <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Discounts" nillable="true" type="q30:ArrayOfKeyValueOfCPromodoubleoFML3H3D" />
+         <xs:element minOccurs="0" name="DistrictID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="DriverID" type="xs:int" />
+         <xs:element minOccurs="0" name="DriverName" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="DueTime" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="EditAllowed" type="xs:boolean" />
+         <xs:element minOccurs="0" name="Entries" nillable="true" type="tns:ArrayOfCEntry" />
+         <xs:element minOccurs="0" name="ExclusiveTaxesTotal" type="xs:double" />
+         <xs:element minOccurs="0" name="ExtendedAttributes" nillable="true" type="tns:ArrayOfExtendedAttribute" />
+         <xs:element minOccurs="0" name="ExternalStatus" type="xs:int" />
+         <xs:element minOccurs="0" name="FirstSendTime" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="GrossTotal" type="xs:double" />
+         <xs:element minOccurs="0" name="InclusiveTaxesTotal" type="xs:double" />
+         <xs:element minOccurs="0" name="IsAuth" type="xs:int" />
+         <xs:element minOccurs="0" name="IsExternal" type="xs:int" />
+         <xs:element minOccurs="0" name="LastSendTime" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="LoyaltyCardNumber" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="LoyaltyRemarks" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="Notes" nillable="true" type="tns:ArrayOfCNote" />
+         <xs:element minOccurs="0" name="OrderID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="OrderMode" type="xs:int" />
+         <xs:element minOccurs="0" name="OrderName" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="OrderType" type="xs:int" />
+         <xs:element minOccurs="0" name="OriginalStoreID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="OverridePromiseTime" type="xs:decimal" />
+         <xs:element minOccurs="0" name="PaidOnline" type="xs:int" />
+         <xs:element minOccurs="0" name="PaymentAmount" type="xs:double" />
+         <xs:element minOccurs="0" name="PaymentMethod" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="PaymentMethodUn" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="Payments" nillable="true" type="tns:ArrayOfCC_ORDER_PAYMENT" />
+         <xs:element minOccurs="0" name="PromiseTime" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ProvinceID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="RejectReason" type="xs:decimal" />
+         <xs:element minOccurs="0" name="Remarks" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="SalesAmount" type="xs:double" />
+         <xs:element minOccurs="0" name="ServiceCharge" type="xs:double" />
+         <xs:element minOccurs="0" name="Source" type="xs:decimal" />
+         <xs:element minOccurs="0" name="Status" type="xs:int" />
+         <xs:element minOccurs="0" name="StatusTime" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="StoreDOB" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="StoreDueTime" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="StoreID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="StoreName" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="StoreNumber" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="StoreOrderMode" type="xs:int" />
+         <xs:element minOccurs="0" name="StoreWebName" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="StoreWebNameUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="StreetID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="SubTotal" type="xs:double" />
+         <xs:element minOccurs="0" name="SuspendReason" type="xs:decimal" />
+         <xs:element minOccurs="0" name="Total" type="xs:double" />
+         <xs:element minOccurs="0" name="TransferBy" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="TransferFromOrderID" type="xs:int" />
+         <xs:element minOccurs="0" name="TransferFromStoreID" type="xs:int" />
+         <xs:element minOccurs="0" name="TransferTime" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="TransferToOrderID" type="xs:int" />
+         <xs:element minOccurs="0" name="TransferToStoreID" type="xs:int" />
+         <xs:element minOccurs="0" name="UpdateBy" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UpdateTime" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="ValidateStore" type="xs:int" />
+         <xs:element minOccurs="0" name="ValidationRemarks" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="VoidReason" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ZoneID" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CCheck" nillable="true" type="tns:CCheck" />
+   <xs:complexType name="ArrayOfExtendedAttribute">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="ExtendedAttribute" nillable="true" type="tns:ExtendedAttribute" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfExtendedAttribute" nillable="true" type="tns:ArrayOfExtendedAttribute" />
+   <xs:complexType name="ExtendedAttribute">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="OBJECT_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="OBJECT_TYPE" type="tns:OBJECT_TYPE" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="VALUE" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ExtendedAttribute" nillable="true" type="tns:ExtendedAttribute" />
+   <xs:simpleType name="OBJECT_TYPE">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Unknown" />
+         <xs:enumeration value="Order" />
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:element name="OBJECT_TYPE" nillable="true" type="tns:OBJECT_TYPE" />
+   <xs:complexType name="ArrayOfCNote">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CNote" nillable="true" type="tns:CNote" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCNote" nillable="true" type="tns:ArrayOfCNote" />
+   <xs:complexType name="CNote">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="NT_DOB" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="NT_FREE_TEXT" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="NT_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="NT_MANDATORY" type="xs:int" />
+         <xs:element minOccurs="0" name="NT_NOTEID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="NT_NOTE_GROUPID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="NT_ORDERID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="NT_SOURCE" type="xs:int" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CNote" nillable="true" type="tns:CNote" />
+   <xs:complexType name="ArrayOfCC_ORDER_PAYMENT">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_ORDER_PAYMENT" nillable="true" type="tns:CC_ORDER_PAYMENT" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_ORDER_PAYMENT" nillable="true" type="tns:ArrayOfCC_ORDER_PAYMENT" />
+   <xs:complexType name="CC_ORDER_PAYMENT">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CRT_BYUSER" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="PAY_AMOUNT" type="xs:double" />
+         <xs:element minOccurs="0" name="PAY_CREDITCARD_CCV" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="PAY_CREDITCARD_EXPIREDATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="PAY_CREDITCARD_HOLDERNAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="PAY_CREDITCARD_NUMBER" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="PAY_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="PAY_ORDRID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="PAY_REF_COUNTRY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="PAY_REF_GATEWAY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="PAY_REF_IP" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="PAY_REF_NO" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="PAY_STATUS" type="xs:int" />
+         <xs:element minOccurs="0" name="PAY_STORE_TENDERID" type="xs:int" />
+         <xs:element minOccurs="0" name="PAY_SUB_TYPE" type="xs:int" />
+         <xs:element minOccurs="0" name="PAY_TYPE" type="xs:int" />
+         <xs:element minOccurs="0" name="UPT_BYUSER" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_ORDER_PAYMENT" nillable="true" type="tns:CC_ORDER_PAYMENT" />
+   <xs:complexType name="ArrayOfCCheck">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CCheck" nillable="true" type="tns:CCheck" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCCheck" nillable="true" type="tns:ArrayOfCCheck" />
+   <xs:simpleType name="REASON_TYPE">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="VOID_REASON">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="TRANSFER_REASON">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NOT_READY_REASON">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="AUTHORIZATION_REASON">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="UNCONFIRMED_NEW_ORDER">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="REJECT_REASON">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SUSPEND_REASON">
+            <xs:annotation>
+               <xs:appinfo>
+                  <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:element name="REASON_TYPE" nillable="true" type="tns:REASON_TYPE" />
+   <xs:complexType name="ArrayOfCC_REASON">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_REASON" nillable="true" type="tns:CC_REASON" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_REASON" nillable="true" type="tns:ArrayOfCC_REASON" />
+   <xs:complexType name="CC_REASON">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="REAS_CODE" type="xs:decimal" />
+         <xs:element minOccurs="0" name="REAS_CONCEPTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="REAS_DESCRIPTION" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="REAS_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="REAS_PAYMENT_STATUS" type="xs:decimal" />
+         <xs:element minOccurs="0" name="REAS_TYPEID" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_REASON" nillable="true" type="tns:CC_REASON" />
+   <xs:complexType name="ArrayOfCC_WEB_TRANSLATION">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_WEB_TRANSLATION" nillable="true" type="tns:CC_WEB_TRANSLATION" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_WEB_TRANSLATION" nillable="true" type="tns:ArrayOfCC_WEB_TRANSLATION" />
+   <xs:complexType name="CC_WEB_TRANSLATION">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="TRNS_CAPTION" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="TRNS_CAPTION_A" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="TRNS_CAPTION_B" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="TRNS_CONCEPTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="TRNS_TYPE" type="xs:int" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_TRANSLATION" nillable="true" type="tns:CC_WEB_TRANSLATION" />
+   <xs:complexType name="ArrayOfCC_WEB_DIM">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_WEB_DIM" nillable="true" type="tns:CC_WEB_DIM" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_WEB_DIM" nillable="true" type="tns:ArrayOfCC_WEB_DIM" />
+   <xs:complexType name="CC_WEB_DIM">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="DIM_CONCEPTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="DIM_DESC" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="DIM_DESCUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="DIM_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="DIM_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="DIM_NAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="DIM_QUESTION" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="DIM_QUESTIONUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="Elements" nillable="true" type="tns:ArrayOfCC_WEB_DIM_ELEMENT" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_DIM" nillable="true" type="tns:CC_WEB_DIM" />
+   <xs:complexType name="ArrayOfCC_WEB_DIM_ELEMENT">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_WEB_DIM_ELEMENT" nillable="true" type="tns:CC_WEB_DIM_ELEMENT" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_WEB_DIM_ELEMENT" nillable="true" type="tns:ArrayOfCC_WEB_DIM_ELEMENT" />
+   <xs:complexType name="CC_WEB_DIM_ELEMENT">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CRT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="CRT_DATE" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="DIME_CONCEPTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="DIME_DIMID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="DIME_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="DIME_IMAGEFILENAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="DIME_INDEX" type="xs:int" />
+         <xs:element minOccurs="0" name="DIME_NAME" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="DIME_NAMEUN" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_BY" nillable="true" type="xs:string" />
+         <xs:element minOccurs="0" name="UPT_DATE" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_DIM_ELEMENT" nillable="true" type="tns:CC_WEB_DIM_ELEMENT" />
+   <xs:complexType name="ArrayOfCC_WEB_GRID">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CC_WEB_GRID" nillable="true" type="tns:CC_WEB_GRID" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCC_WEB_GRID" nillable="true" type="tns:ArrayOfCC_WEB_GRID" />
+   <xs:complexType name="CC_WEB_GRID">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="GRD_CONCEPTID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="GRD_DIMX_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="GRD_DIMY_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="GRD_ELEMENTX_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="GRD_ELEMENTY_ID" type="xs:decimal" />
+         <xs:element minOccurs="0" name="GRD_ITEMID" type="xs:int" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CC_WEB_GRID" nillable="true" type="tns:CC_WEB_GRID" />
+</xs:schema>

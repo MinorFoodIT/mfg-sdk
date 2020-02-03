@@ -1,0 +1,2922 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+   <xs:import schemaLocation="https://10.201.134.6:1990/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SDM_SDK" />
+   <xs:import schemaLocation="https://10.201.134.6:1990/?xsd=xsd5" namespace="PSOrderingDOM.Classes" />
+   <xs:import schemaLocation="https://10.201.134.6:1990/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+   <xs:import schemaLocation="https://10.201.134.6:1990/?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/PSOrderingDOM" />
+   <xs:element name="GetWebGridListCount">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebGridListCountResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="GetWebGridListCountResult" type="xs:int" />
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q1:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetVirtualSelectors">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetVirtualSelectorsResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetVirtualSelectorsResult" nillable="true" type="q2:ArrayOfCC_WEB_VSELECTOR" />
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q3:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetVirtualGroups">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetVirtualGroupsResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetVirtualGroupsResult" nillable="true" type="q4:ArrayOfCC_WEB_VGROUP" />
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q5:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebDeals">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebDealsResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetWebDealsResult" nillable="true" type="q6:ArrayOfCC_WEB_DEAL" />
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q7:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebDealSteps">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebDealStepsResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetWebDealStepsResult" nillable="true" type="q8:ArrayOfCC_WEB_DEAL_STEP" />
+            <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q9:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetFaveItemsList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="numberOfItems" type="xs:int" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetFaveItemsListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetFaveItemsListResult" nillable="true" type="q10:ArrayOfCEntry" />
+            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q11:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="PostFaveItem">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="entry" nillable="true" type="q12:CEntry" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="PostFaveItemResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="PostFaveItemResult" type="xs:decimal" />
+            <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q13:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="DeleteFaveItem">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="FaveItemID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="DeleteFaveItemResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="DeleteFaveItemResult" type="xs:boolean" />
+            <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q14:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetQuestionnaire">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetQuestionnaireResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetQuestionnaireResult" nillable="true" type="q15:ArrayOfCC_WEB_QSTNR" />
+            <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q16:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="SubmitQuestionnaireResult">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="qstnResult" nillable="true" type="q17:CC_WEB_QSTNR_RESULT" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="SubmitQuestionnaireResultResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="SubmitQuestionnaireResultResult" type="xs:boolean" />
+            <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q18:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetItemBuilders">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetItemBuildersResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetItemBuildersResult" nillable="true" type="q19:ArrayOfCC_WEB_ITEM_BUILDER" />
+            <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q20:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="CalcPromise">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="storeID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="DOB" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="CalcPromiseResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="CalcPromiseResult" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetFeedbackTypesList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetFeedbackTypesListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetFeedbackTypesListResult" nillable="true" type="q21:ArrayOfCC_FEEDBACK_TYPE" />
+            <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q22:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetFeedbackSubTypesList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetFeedbackSubTypesListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetFeedbackSubTypesListResult" nillable="true" type="q23:ArrayOfCC_FEEDBACK_SUB_TYPE" />
+            <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q24:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="PostCustomerFeedback">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="feedback" nillable="true" type="q25:CC_CUSTOMER_FEEDBACK" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="PostCustomerFeedbackResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="PostCustomerFeedbackResult" type="xs:decimal" />
+            <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q26:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetSuggestiveSelling">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetSuggestiveSellingResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetSuggestiveSellingResult" nillable="true" type="q27:ArrayOfCC_WEB_SUGGESTIVE_SELLING" />
+            <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q28:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetOrderModesList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetOrderModesListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q29="PSOrderingDOM.Classes" minOccurs="0" name="GetOrderModesListResult" nillable="true" type="q29:ArrayOfCOrderMode" />
+            <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q30:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetTaxesList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetTaxesListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q31="PSOrderingDOM.Classes" minOccurs="0" name="GetTaxesListResult" nillable="true" type="q31:ArrayOfCTax" />
+            <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q32:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetActiveOrdersStatusList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="source" type="xs:int" />
+            <xs:element xmlns:q33="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ordersIDs" nillable="true" type="q33:ArrayOfint" />
+            <xs:element minOccurs="0" name="fromDate" nillable="true" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="toDate" nillable="true" type="xs:dateTime" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetActiveOrdersStatusListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q34="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetActiveOrdersStatusListResult" nillable="true" type="q34:ArrayOfKeyValueOflongint" />
+            <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q35:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebCombosList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebCombosListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetWebCombosListResult" nillable="true" type="q36:ArrayOfWebCombo" />
+            <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q37:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetServiceChargeForStore">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="storeID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="areaID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetServiceChargeForStoreResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="GetServiceChargeForStoreResult" nillable="true" type="xs:decimal" />
+            <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q38:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetServiceCharges">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetServiceChargesResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetServiceChargesResult" nillable="true" type="q39:ServiceCharges" />
+            <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q40:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetOrderStatusChanges">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptId" type="xs:decimal" />
+            <xs:element minOccurs="0" name="lastSyncStamp" nillable="true" type="xs:dateTime" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetOrderStatusChangesResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetOrderStatusChangesResult" nillable="true" type="q41:OrderStatusChanges" />
+            <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q42:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetSystemTime">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetSystemTimeResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="GetSystemTimeResult" type="xs:dateTime" />
+            <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q43:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetSystemParametersList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetSystemParametersListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetSystemParametersListResult" nillable="true" type="q44:ArrayOfCC_SYSPARAMS" />
+            <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q45:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebSystemParametersList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebSystemParametersListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetWebSystemParametersListResult" nillable="true" type="q46:ArrayOfCC_WEB_SYSPARAMS" />
+            <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q47:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebCustomParametersList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebCustomParametersListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetWebCustomParametersListResult" nillable="true" type="q48:ArrayOfCC_WEB_CUSTOM_PARAMS" />
+            <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q49:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="SendCommand">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="applicationID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="command" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="SendCommandResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="SendCommandResult" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetConceptLastUpdateTime">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetConceptLastUpdateTimeResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="GetConceptLastUpdateTimeResult" type="xs:dateTime" />
+            <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q50:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetMenuTemplateLastUpdateTime">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetMenuTemplateLastUpdateTimeResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="GetMenuTemplateLastUpdateTimeResult" type="xs:dateTime" />
+            <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q51:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetMasterDataLastUpdateTime">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetMasterDataLastUpdateTimeResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="GetMasterDataLastUpdateTimeResult" type="xs:dateTime" />
+            <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q52:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="RegisterExistingCustomer">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="RegisterExistingCustomerResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="RegisterExistingCustomerResult" nillable="true" type="q53:CC_CUSTOMER" />
+            <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q54:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="RegisterExistingCustomerAsGuest">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="RegisterExistingCustomerAsGuestResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="RegisterExistingCustomerAsGuestResult" nillable="true" type="q55:CC_CUSTOMER" />
+            <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q56:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="RegisterCustomer">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="customer" nillable="true" type="q57:CC_CUSTOMER" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="RegisterCustomerResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="RegisterCustomerResult" nillable="true" type="q58:CC_CUSTOMER" />
+            <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q59:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="RegisterAddress">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerUserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerPassword" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerRegistrationID" nillable="true" type="xs:string" />
+            <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="address" nillable="true" type="q60:CC_ADDRESS" />
+            <xs:element minOccurs="0" name="isGuest" type="xs:boolean" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="RegisterAddressResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="RegisterAddressResult" nillable="true" type="q61:CC_ADDRESS" />
+            <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q62:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="RegisterAddressByID">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerRegistrationID" nillable="true" type="xs:string" />
+            <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="address" nillable="true" type="q63:CC_ADDRESS" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="RegisterAddressByIDResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="RegisterAddressByIDResult" nillable="true" type="q64:CC_ADDRESS" />
+            <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q65:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="RegisterAddressStoreDetails">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerUserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerPassword" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerRegistrationID" nillable="true" type="xs:string" />
+            <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="addressDetails" nillable="true" type="q66:CC_ADDRESS_STORE_DETAILS" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="RegisterAddressStoreDetailsResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="RegisterAddressStoreDetailsResult" nillable="true" type="q67:CC_ADDRESS_STORE_DETAILS" />
+            <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q68:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="RegisterCustomerPhoneNumber">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerUserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerPassword" nillable="true" type="xs:string" />
+            <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="phoneInfo" nillable="true" type="q69:CC_CUSTOMER_PHONE" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="RegisterCustomerPhoneNumberResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="RegisterCustomerPhoneNumberResult" nillable="true" type="q70:CC_CUSTOMER_PHONE" />
+            <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q71:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="UpdateCustomer">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="customer" nillable="true" type="q72:CC_CUSTOMER" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="UpdateCustomerResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="UpdateCustomerResult" nillable="true" type="q73:CC_CUSTOMER" />
+            <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q74:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="UpdateAddress">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerUserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerPassword" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerRegistrationID" nillable="true" type="xs:string" />
+            <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="address" nillable="true" type="q75:CC_ADDRESS" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="UpdateAddressResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="UpdateAddressResult" nillable="true" type="q76:CC_ADDRESS" />
+            <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q77:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="UpdateAddressByID">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerRegistrationID" nillable="true" type="xs:string" />
+            <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="address" nillable="true" type="q78:CC_ADDRESS" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="UpdateAddressByIDResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="UpdateAddressByIDResult" nillable="true" type="q79:CC_ADDRESS" />
+            <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q80:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="UpdateAddressStoreDetails">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerUserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerPassword" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerRegistrationID" nillable="true" type="xs:string" />
+            <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="addressDetails" nillable="true" type="q81:CC_ADDRESS_STORE_DETAILS" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="UpdateAddressStoreDetailsResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="UpdateAddressStoreDetailsResult" nillable="true" type="q82:CC_ADDRESS_STORE_DETAILS" />
+            <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q83:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="UpdateCustomerPhoneNumber">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerUserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerPassword" nillable="true" type="xs:string" />
+            <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="phoneInfo" nillable="true" type="q84:CC_CUSTOMER_PHONE" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="UpdateCustomerPhoneNumberResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="UpdateCustomerPhoneNumberResult" nillable="true" type="q85:CC_CUSTOMER_PHONE" />
+            <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q86:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="UpdateCustomerSettings">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerID" type="xs:decimal" />
+            <xs:element xmlns:q87="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="settings" nillable="true" type="q87:ArrayOfKeyValueOfstringCC_CUSTOMER_SETTINGSw_PEY1RNb" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="UpdateCustomerSettingsResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="UpdateCustomerSettingsResult" type="xs:boolean" />
+            <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q88:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="UpdateCustomerNotificationMobile">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="notificationMobile" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="UpdateCustomerNotificationMobileResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="UpdateCustomerNotificationMobileResult" type="xs:boolean" />
+            <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q89:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="UpdateCustomerToken">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="tokenDate" type="xs:dateTime" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="UpdateCustomerTokenResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="UpdateCustomerTokenResult" type="xs:boolean" />
+            <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q90:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="DeleteCustomerPhoneNumber">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerUserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerPassword" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="addressID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="phoneID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="DeleteCustomerPhoneNumberResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="DeleteCustomerPhoneNumberResult" type="xs:boolean" />
+            <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q91:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="ActiveCustomerAccount">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="ActiveCustomerAccountResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="ActiveCustomerAccountResult" type="xs:boolean" />
+            <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q92:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="IsCustomerUserNameOrEmailUsed">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerUserNameOrEmail" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="IsCustomerUserNameOrEmailUsedResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="IsCustomerUserNameOrEmailUsedResult" type="q93:CUSTOMER_EXISTANCE" />
+            <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q94:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCustomerByID">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCustomerByIDResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetCustomerByIDResult" nillable="true" type="q95:CC_CUSTOMER" />
+            <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q96:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCustomerSDMInfoByID">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCustomerSDMInfoByIDResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetCustomerSDMInfoByIDResult" nillable="true" type="q97:CC_CUSTOMER" />
+            <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q98:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCustomer">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerUserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerPassword" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCustomerResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetCustomerResult" nillable="true" type="q99:CC_CUSTOMER" />
+            <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q100:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCustomerByEmail">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCustomerByEmailResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetCustomerByEmailResult" nillable="true" type="q101:CC_CUSTOMER" />
+            <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q102:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCustomersByEmail">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCustomersByEmailResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q103="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetCustomersByEmailResult" nillable="true" type="q103:ArrayOfdecimal" />
+            <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q104:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCustomerByMobile">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="mobileNo" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCustomerByMobileResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetCustomerByMobileResult" nillable="true" type="q105:CC_CUSTOMER" />
+            <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q106:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCustomersByPhone">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="phoneNo" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCustomersByPhoneResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q107="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetCustomersByPhoneResult" nillable="true" type="q107:ArrayOfdecimal" />
+            <xs:element xmlns:q108="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q108:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetNationalitiesList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetNationalitiesListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q109="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetNationalitiesListResult" nillable="true" type="q109:ArrayOfCC_NATIONALITY" />
+            <xs:element xmlns:q110="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q110:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCustomerTitlesList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCustomerTitlesListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q111="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetCustomerTitlesListResult" nillable="true" type="q111:ArrayOfCC_CUSTOMER_TITLE" />
+            <xs:element xmlns:q112="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q112:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCustomerLanguagesList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCustomerLanguagesListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q113="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetCustomerLanguagesListResult" nillable="true" type="q113:ArrayOfCC_CUSTOMER_LANGUAGE" />
+            <xs:element xmlns:q114="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q114:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCustomerClassesList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCustomerClassesListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q115="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetCustomerClassesListResult" nillable="true" type="q115:ArrayOfCC_CUSTOMER_CLASS" />
+            <xs:element xmlns:q116="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q116:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetAddressClassesList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetAddressClassesListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q117="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetAddressClassesListResult" nillable="true" type="q117:ArrayOfCC_ADDRESS_CLASS" />
+            <xs:element xmlns:q118="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q118:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetOrdersCount">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerUserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerPassword" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetOrdersCountResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="GetOrdersCountResult" type="xs:int" />
+            <xs:element xmlns:q119="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q119:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetPendingOrdersCount">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerUserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerPassword" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetPendingOrdersCountResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="GetPendingOrdersCountResult" type="xs:int" />
+            <xs:element xmlns:q120="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q120:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="ChangeCustomerPassword">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerUserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="oldCustomerPassword" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="newCustomerPassword" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="ChangeCustomerPasswordResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="ChangeCustomerPasswordResult" type="xs:boolean" />
+            <xs:element xmlns:q121="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q121:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="ChangeSecurityQuestion">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="question" type="xs:int" />
+            <xs:element minOccurs="0" name="answer" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="ChangeSecurityQuestionResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="ChangeSecurityQuestionResult" type="xs:boolean" />
+            <xs:element xmlns:q122="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q122:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="ChangeCustomerEmail">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="newCustomerEmail" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="ChangeCustomerEmailResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="ChangeCustomerEmailResult" type="xs:boolean" />
+            <xs:element xmlns:q123="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q123:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="SetCustomerPassword">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerUserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="newCustomerPassword" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="SetCustomerPasswordResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="SetCustomerPasswordResult" type="xs:boolean" />
+            <xs:element xmlns:q124="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q124:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="ValidatePhoneExistance">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="phoneNo" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="excludeGuest" type="xs:boolean" />
+            <xs:element minOccurs="0" name="excludeUsernames" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="additionalConditions" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="ValidatePhoneExistanceResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="ValidatePhoneExistanceResult" type="xs:boolean" />
+            <xs:element xmlns:q125="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q125:ServiceResult" />
+            <xs:element xmlns:q126="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="customer" nillable="true" type="q126:CC_CUSTOMER" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="FindLocation">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="countryID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="provinceID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="cityID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="searchText" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="criteria" type="xs:int" />
+            <xs:element minOccurs="0" name="area" type="xs:boolean" />
+            <xs:element minOccurs="0" name="district" type="xs:boolean" />
+            <xs:element minOccurs="0" name="street" type="xs:boolean" />
+            <xs:element minOccurs="0" name="buildingName" type="xs:boolean" />
+            <xs:element minOccurs="0" name="template" type="xs:boolean" />
+            <xs:element minOccurs="0" name="sortBy" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="searchCriteria" type="xs:int" />
+            <xs:element minOccurs="0" name="startRowNum" type="xs:int" />
+            <xs:element minOccurs="0" name="endRowNum" type="xs:int" />
+            <xs:element minOccurs="0" name="districtID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="FindLocationResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q127="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="FindLocationResult" nillable="true" type="q127:ArrayOfLocationSearch" />
+            <xs:element xmlns:q128="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q128:ServiceResult" />
+            <xs:element minOccurs="0" name="TotalResultCount" type="xs:int" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebBuildTypeList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebBuildTypeListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q129="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetWebBuildTypeListResult" nillable="true" type="q129:ArrayOfCC_WEB_BUILD_TYPE" />
+            <xs:element xmlns:q130="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q130:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebAddressTypeList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebAddressTypeListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q131="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetWebAddressTypeListResult" nillable="true" type="q131:ArrayOfCC_WEB_ADDRESS_TYPE" />
+            <xs:element xmlns:q132="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q132:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCountriesList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCountriesListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q133="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetCountriesListResult" nillable="true" type="q133:ArrayOfCC_COUNTRY" />
+            <xs:element xmlns:q134="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q134:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetProvincesList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetProvincesListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q135="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetProvincesListResult" nillable="true" type="q135:ArrayOfCC_PROVINCE" />
+            <xs:element xmlns:q136="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q136:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCitiesList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCitiesListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q137="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetCitiesListResult" nillable="true" type="q137:ArrayOfCC_CITY" />
+            <xs:element xmlns:q138="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q138:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebCountriesList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebCountriesListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q139="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetWebCountriesListResult" nillable="true" type="q139:ArrayOfCC_WEB_COUNTRY" />
+            <xs:element xmlns:q140="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q140:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebProvincesList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebProvincesListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q141="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetWebProvincesListResult" nillable="true" type="q141:ArrayOfCC_WEB_PROVINCE" />
+            <xs:element xmlns:q142="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q142:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebCitiesList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebCitiesListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q143="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetWebCitiesListResult" nillable="true" type="q143:ArrayOfCC_WEB_CITY" />
+            <xs:element xmlns:q144="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q144:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetArea">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="areaID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetAreaResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q145="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetAreaResult" nillable="true" type="q145:CC_AREA" />
+            <xs:element xmlns:q146="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q146:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetStreet">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="streetID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetStreetResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q147="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetStreetResult" nillable="true" type="q147:CC_STREET" />
+            <xs:element xmlns:q148="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q148:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetDistrict">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="districtID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetDistrictResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q149="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetDistrictResult" nillable="true" type="q149:CC_DISTRICT" />
+            <xs:element xmlns:q150="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q150:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetDistrictsList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="countryID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="provinceID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="cityID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="text" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="searchType" type="xs:int" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetDistrictsListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q151="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetDistrictsListResult" nillable="true" type="q151:ArrayOfCC_DISTRICT" />
+            <xs:element xmlns:q152="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q152:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebDistrictsList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="countryID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="provinceID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="cityID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebDistrictsListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q153="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetWebDistrictsListResult" nillable="true" type="q153:ArrayOfCC_WEB_DISTRICT" />
+            <xs:element xmlns:q154="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q154:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebAreasList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="countryID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="provinceID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="cityID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebAreasListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q155="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetWebAreasListResult" nillable="true" type="q155:ArrayOfCC_WEB_AREA" />
+            <xs:element xmlns:q156="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q156:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebStreetsList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="countryID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="provinceID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="cityID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebStreetsListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q157="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetWebStreetsListResult" nillable="true" type="q157:ArrayOfCC_WEB_STREET" />
+            <xs:element xmlns:q158="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q158:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebStreetsListCount">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="countryID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="provinceID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="cityID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebStreetsListCountResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="GetWebStreetsListCountResult" type="xs:int" />
+            <xs:element xmlns:q159="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q159:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebStreetsListPart">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="countryID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="provinceID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="cityID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="from" type="xs:int" />
+            <xs:element minOccurs="0" name="to" type="xs:int" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebStreetsListPartResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q160="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetWebStreetsListPartResult" nillable="true" type="q160:ArrayOfCC_WEB_STREET" />
+            <xs:element xmlns:q161="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q161:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebDistrictsListCount">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="countryID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="provinceID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="cityID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebDistrictsListCountResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="GetWebDistrictsListCountResult" type="xs:int" />
+            <xs:element xmlns:q162="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q162:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebAreasListCount">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="countryID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="provinceID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="cityID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebAreasListCountResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="GetWebAreasListCountResult" type="xs:int" />
+            <xs:element xmlns:q163="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q163:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebDistrictsListPart">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="countryID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="provinceID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="cityID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="from" type="xs:int" />
+            <xs:element minOccurs="0" name="to" type="xs:int" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebDistrictsListPartResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q164="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetWebDistrictsListPartResult" nillable="true" type="q164:ArrayOfCC_WEB_DISTRICT" />
+            <xs:element xmlns:q165="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q165:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebAreasListPart">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="countryID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="provinceID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="cityID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="from" type="xs:int" />
+            <xs:element minOccurs="0" name="to" type="xs:int" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebAreasListPartResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q166="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetWebAreasListPartResult" nillable="true" type="q166:ArrayOfCC_WEB_AREA" />
+            <xs:element xmlns:q167="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q167:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetZone">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="zoneID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetZoneResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q168="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetZoneResult" nillable="true" type="q168:CC_DLVZONE" />
+            <xs:element xmlns:q169="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q169:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetStore">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="storeID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetStoreResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q170="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetStoreResult" nillable="true" type="q170:CC_STORE" />
+            <xs:element xmlns:q171="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q171:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetStoresList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetStoresListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q172="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetStoresListResult" nillable="true" type="q172:ArrayOfCC_STORE" />
+            <xs:element xmlns:q173="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q173:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetStoresListPart">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="from" type="xs:int" />
+            <xs:element minOccurs="0" name="to" type="xs:int" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetStoresListPartResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q174="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetStoresListPartResult" nillable="true" type="q174:ArrayOfCC_STORE" />
+            <xs:element xmlns:q175="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q175:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetStoresListCount">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetStoresListCountResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="GetStoresListCountResult" type="xs:int" />
+            <xs:element xmlns:q176="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q176:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetStoresAreaList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetStoresAreaListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q177="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetStoresAreaListResult" nillable="true" type="q177:ArrayOfCC_STORE_AREA" />
+            <xs:element xmlns:q178="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q178:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetStoreArea">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="areaID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetStoreAreaResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q179="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetStoreAreaResult" nillable="true" type="q179:CC_STORE_AREA" />
+            <xs:element xmlns:q180="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q180:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebStoreGroups">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebStoreGroupsResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q181="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetWebStoreGroupsResult" nillable="true" type="q181:ArrayOfCC_WEB_STORE_GROUP_DEF" />
+            <xs:element xmlns:q182="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q182:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebStoreGroupCategories">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebStoreGroupCategoriesResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q183="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetWebStoreGroupCategoriesResult" nillable="true" type="q183:ArrayOfCC_WEB_STORE_GROUP_CATEGORY" />
+            <xs:element xmlns:q184="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q184:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="FindStores">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="searchText" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="webOnly" type="xs:boolean" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="FindStoresResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q185="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FindStoresResult" nillable="true" type="q185:ArrayOfdecimal" />
+            <xs:element xmlns:q186="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q186:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetOrderStatusList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetOrderStatusListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q187="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetOrderStatusListResult" nillable="true" type="q187:ArrayOfCC_ORDER_STATUS" />
+            <xs:element xmlns:q188="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q188:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetConnectionStatusList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetConnectionStatusListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q189="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetConnectionStatusListResult" nillable="true" type="q189:ArrayOfCC_CONNECTION_STATUS" />
+            <xs:element xmlns:q190="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q190:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetConcept">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetConceptResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q191="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetConceptResult" nillable="true" type="q191:CC_CONCEPT" />
+            <xs:element xmlns:q192="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q192:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetMenuTemplate">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetMenuTemplateResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q193="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetMenuTemplateResult" nillable="true" type="q193:CC_MENU_TEMPLATE" />
+            <xs:element xmlns:q194="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q194:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetMenuTemplatesList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetMenuTemplatesListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q195="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetMenuTemplatesListResult" nillable="true" type="q195:ArrayOfCC_MENU_TEMPLATE" />
+            <xs:element xmlns:q196="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q196:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetQuantityPriceList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetQuantityPriceListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q197="PSOrderingDOM.Classes" minOccurs="0" name="GetQuantityPriceListResult" nillable="true" type="q197:ArrayOfCQuantityPrice" />
+            <xs:element xmlns:q198="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q198:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetFixedPriceList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetFixedPriceListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q199="PSOrderingDOM.Classes" minOccurs="0" name="GetFixedPriceListResult" nillable="true" type="q199:ArrayOfCFixedPrice" />
+            <xs:element xmlns:q200="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q200:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetPriceLevelList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetPriceLevelListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q201="PSOrderingDOM.Classes" minOccurs="0" name="GetPriceLevelListResult" nillable="true" type="q201:ArrayOfCPriceLevel" />
+            <xs:element xmlns:q202="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q202:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetPriceChangeList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetPriceChangeListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q203="PSOrderingDOM.Classes" minOccurs="0" name="GetPriceChangeListResult" nillable="true" type="q203:ArrayOfCPriceChange" />
+            <xs:element xmlns:q204="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q204:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetEventsList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetEventsListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q205="PSOrderingDOM.Classes" minOccurs="0" name="GetEventsListResult" nillable="true" type="q205:ArrayOfCEvent" />
+            <xs:element xmlns:q206="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q206:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCategoriesList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCategoriesListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q207="PSOrderingDOM.Classes" minOccurs="0" name="GetCategoriesListResult" nillable="true" type="q207:ArrayOfCCategory" />
+            <xs:element xmlns:q208="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q208:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetMenusList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetMenusListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q209="PSOrderingDOM.Classes" minOccurs="0" name="GetMenusListResult" nillable="true" type="q209:ArrayOfCMenu" />
+            <xs:element xmlns:q210="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q210:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetSubmenusList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuID" type="xs:int" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetSubmenusListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q211="PSOrderingDOM.Classes" minOccurs="0" name="GetSubmenusListResult" nillable="true" type="q211:ArrayOfCSubmenu" />
+            <xs:element xmlns:q212="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q212:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetSubmenu">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="submenuID" type="xs:int" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetSubmenuResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q213="PSOrderingDOM.Classes" minOccurs="0" name="GetSubmenuResult" nillable="true" type="q213:CSubmenu" />
+            <xs:element xmlns:q214="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q214:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetAllSubmenus">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetAllSubmenusResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q215="PSOrderingDOM.Classes" minOccurs="0" name="GetAllSubmenusResult" nillable="true" type="q215:ArrayOfCSubmenu" />
+            <xs:element xmlns:q216="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q216:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetItem">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="itemID" type="xs:int" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetItemResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q217="PSOrderingDOM.Classes" minOccurs="0" name="GetItemResult" nillable="true" type="q217:CItem" />
+            <xs:element xmlns:q218="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q218:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetItemsList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="submenuID" type="xs:int" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetItemsListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q219="PSOrderingDOM.Classes" minOccurs="0" name="GetItemsListResult" nillable="true" type="q219:ArrayOfCItem" />
+            <xs:element xmlns:q220="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q220:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetModgroupsList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="itemID" type="xs:int" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetModgroupsListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q221="PSOrderingDOM.Classes" minOccurs="0" name="GetModgroupsListResult" nillable="true" type="q221:ArrayOfCModGroup" />
+            <xs:element xmlns:q222="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q222:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetModifiersList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="modgroupID" type="xs:int" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetModifiersListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q223="PSOrderingDOM.Classes" minOccurs="0" name="GetModifiersListResult" nillable="true" type="q223:ArrayOfCItem" />
+            <xs:element xmlns:q224="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q224:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCompList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCompListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q225="PSOrderingDOM.Classes" minOccurs="0" name="GetCompListResult" nillable="true" type="q225:ArrayOfCComp" />
+            <xs:element xmlns:q226="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q226:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetPromoBogoList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetPromoBogoListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q227="PSOrderingDOM.Classes" minOccurs="0" name="GetPromoBogoListResult" nillable="true" type="q227:ArrayOfCPromo_BOGO" />
+            <xs:element xmlns:q228="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q228:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetPromoCheckReductionList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetPromoCheckReductionListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q229="PSOrderingDOM.Classes" minOccurs="0" name="GetPromoCheckReductionListResult" nillable="true" type="q229:ArrayOfCPromo_CheckReduction" />
+            <xs:element xmlns:q230="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q230:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetPromoQuickComboList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetPromoQuickComboListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q231="PSOrderingDOM.Classes" minOccurs="0" name="GetPromoQuickComboListResult" nillable="true" type="q231:ArrayOfCPromo_QuickCombo" />
+            <xs:element xmlns:q232="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q232:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCategoryItemList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="categoryID" type="xs:int" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCategoryItemListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q233="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetCategoryItemListResult" nillable="true" type="q233:ArrayOfint" />
+            <xs:element xmlns:q234="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q234:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetMenuTransactions">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetMenuTransactionsResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q235="http://schemas.datacontract.org/2004/07/PSOrderingDOM" minOccurs="0" name="GetMenuTransactionsResult" nillable="true" type="q235:ArrayOfTransactionOrderingDatabase" />
+            <xs:element xmlns:q236="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q236:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="UpdateOrder">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element xmlns:q237="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="order" nillable="true" type="q237:CCheck" />
+            <xs:element minOccurs="0" name="autoApprove" type="xs:boolean" />
+            <xs:element minOccurs="0" name="useBackupStoreIfAvailable" type="xs:boolean" />
+            <xs:element minOccurs="0" name="orderNotes1" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="orderNotes2" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="creditCardPaymentbool" type="xs:boolean" />
+            <xs:element minOccurs="0" name="isSuspended" type="xs:boolean" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="UpdateOrderResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="UpdateOrderResult" type="xs:decimal" />
+            <xs:element xmlns:q238="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q238:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="ValidateOrder">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="validateCustomer" type="xs:boolean" />
+            <xs:element xmlns:q239="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="order" nillable="true" type="q239:CCheck" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="ValidateOrderResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="ValidateOrderResult" type="xs:boolean" />
+            <xs:element xmlns:q240="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q240:ServiceResult" />
+            <xs:element xmlns:q241="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="validatedOrder" nillable="true" type="q241:CCheck" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="CancelOrder">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="orderID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="voidReason" type="xs:decimal" />
+            <xs:element minOccurs="0" name="voidRemarks" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="autoApprove" type="xs:boolean" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="CancelOrderResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="CancelOrderResult" type="xs:boolean" />
+            <xs:element xmlns:q242="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q242:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="ChangePaymentMethodToCash">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="orderID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="autoApprove" type="xs:boolean" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="ChangePaymentMethodToCashResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="ChangePaymentMethodToCashResult" type="xs:boolean" />
+            <xs:element xmlns:q243="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q243:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="AddOrderPayment">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="orderID" type="xs:decimal" />
+            <xs:element xmlns:q244="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="payment" nillable="true" type="q244:CC_ORDER_PAYMENT" />
+            <xs:element minOccurs="0" name="paymentAuthReasonID" type="xs:int" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="AddOrderPaymentResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="AddOrderPaymentResult" type="xs:boolean" />
+            <xs:element xmlns:q245="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q245:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="ProcessCreditCardPayment">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="orderID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="cancelOrder" type="xs:boolean" />
+            <xs:element minOccurs="0" name="paymentAuthReasonID" type="xs:int" />
+            <xs:element minOccurs="0" name="paymentType" type="xs:int" />
+            <xs:element minOccurs="0" name="paymentSubType" type="xs:int" />
+            <xs:element minOccurs="0" name="paymentStatus" type="xs:int" />
+            <xs:element minOccurs="0" name="paymentTenderID" type="xs:int" />
+            <xs:element minOccurs="0" name="amount" type="xs:double" />
+            <xs:element minOccurs="0" name="holderName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="cardNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="cardCCV" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="cardExpire" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="refNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="refIp" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="refCountry" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="refGateway" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="voidReasonID" type="xs:int" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="ProcessCreditCardPaymentResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="ProcessCreditCardPaymentResult" type="xs:boolean" />
+            <xs:element xmlns:q246="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q246:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="ProcessPayment">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="orderID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="paymentID" type="xs:int" />
+            <xs:element minOccurs="0" name="amount" type="xs:double" />
+            <xs:element minOccurs="0" name="cardNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="refNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="refGateway" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="cancelOrder" type="xs:boolean" />
+            <xs:element minOccurs="0" name="voidReasonID" type="xs:int" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="ProcessPaymentResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="ProcessPaymentResult" type="xs:boolean" />
+            <xs:element xmlns:q247="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q247:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetUnprocessedCreditCardOrders">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetUnprocessedCreditCardOrdersResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q248="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetUnprocessedCreditCardOrdersResult" nillable="true" type="q248:ArrayOfdecimal" />
+            <xs:element xmlns:q249="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q249:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetOrderDetails">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="orderID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetOrderDetailsResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q250="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetOrderDetailsResult" nillable="true" type="q250:CCheck" />
+            <xs:element xmlns:q251="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q251:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetActiveOrdersList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="addressID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="numberOfOrders" type="xs:int" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetActiveOrdersListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q252="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetActiveOrdersListResult" nillable="true" type="q252:ArrayOfCCheck" />
+            <xs:element xmlns:q253="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q253:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetHistoryOrdersList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="addressID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="numberOfOrders" type="xs:int" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetHistoryOrdersListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q254="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetHistoryOrdersListResult" nillable="true" type="q254:ArrayOfCCheck" />
+            <xs:element xmlns:q255="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q255:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetHistoryOrdersListByDate">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="numberOfOrders" type="xs:int" />
+            <xs:element minOccurs="0" name="fromDate" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="toDate" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetHistoryOrdersListByDateResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q256="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetHistoryOrdersListByDateResult" nillable="true" type="q256:ArrayOfCCheck" />
+            <xs:element xmlns:q257="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q257:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetPrefOrderDetails">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="orderID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetPrefOrderDetailsResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q258="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetPrefOrderDetailsResult" nillable="true" type="q258:CCheck" />
+            <xs:element xmlns:q259="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q259:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetPrefOrdersList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="addressID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="numberOfOrders" type="xs:int" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetPrefOrdersListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q260="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetPrefOrdersListResult" nillable="true" type="q260:ArrayOfCCheck" />
+            <xs:element xmlns:q261="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q261:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="PostPrefOrder">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element xmlns:q262="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="order" nillable="true" type="q262:CCheck" />
+            <xs:element minOccurs="0" name="menuTemplateID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="PostPrefOrderResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="PostPrefOrderResult" type="xs:decimal" />
+            <xs:element xmlns:q263="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q263:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="DeletePrefOrder">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="prefOrderID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="DeletePrefOrderResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="DeletePrefOrderResult" type="xs:boolean" />
+            <xs:element xmlns:q264="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q264:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="UpdatePrefOrder">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="prefOrderID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="prefOrderName" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="UpdatePrefOrderResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="UpdatePrefOrderResult" type="xs:boolean" />
+            <xs:element xmlns:q265="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q265:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCurrentInfo">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetCurrentInfoResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q266="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetCurrentInfoResult" nillable="true" type="q266:ArrayOfstring" />
+            <xs:element xmlns:q267="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q267:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetReasonList">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element xmlns:q268="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="reasonType" type="q268:REASON_TYPE" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetReasonListResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q269="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetReasonListResult" nillable="true" type="q269:ArrayOfCC_REASON" />
+            <xs:element xmlns:q270="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q270:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetExtendedAttributes">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element xmlns:q271="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="objectType" type="q271:OBJECT_TYPE" />
+            <xs:element minOccurs="0" name="objectID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetExtendedAttributesResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q272="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetExtendedAttributesResult" nillable="true" type="q272:ArrayOfExtendedAttribute" />
+            <xs:element xmlns:q273="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q273:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="UpdateExtendedAttributes">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+            <xs:element xmlns:q274="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="objectType" type="q274:OBJECT_TYPE" />
+            <xs:element minOccurs="0" name="objectID" type="xs:decimal" />
+            <xs:element xmlns:q275="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="extendedAttributes" nillable="true" type="q275:ArrayOfExtendedAttribute" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="UpdateExtendedAttributesResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="UpdateExtendedAttributesResult" type="xs:boolean" />
+            <xs:element xmlns:q276="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q276:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetTranslationListPart">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="from" type="xs:int" />
+            <xs:element minOccurs="0" name="to" type="xs:int" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetTranslationListPartResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q277="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetTranslationListPartResult" nillable="true" type="q277:ArrayOfCC_WEB_TRANSLATION" />
+            <xs:element xmlns:q278="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q278:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetTranslationListCount">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetTranslationListCountResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="GetTranslationListCountResult" type="xs:int" />
+            <xs:element xmlns:q279="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q279:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebDimensionListPart">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="from" type="xs:int" />
+            <xs:element minOccurs="0" name="to" type="xs:int" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebDimensionListPartResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q280="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetWebDimensionListPartResult" nillable="true" type="q280:ArrayOfCC_WEB_DIM" />
+            <xs:element xmlns:q281="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q281:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebDimensionListCount">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebDimensionListCountResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="GetWebDimensionListCountResult" type="xs:int" />
+            <xs:element xmlns:q282="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q282:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebGridListPart">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+            <xs:element minOccurs="0" name="from" type="xs:int" />
+            <xs:element minOccurs="0" name="to" type="xs:int" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GetWebGridListPartResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element xmlns:q283="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="GetWebGridListPartResult" nillable="true" type="q283:ArrayOfCC_WEB_GRID" />
+            <xs:element xmlns:q284="http://schemas.datacontract.org/2004/07/SDM_SDK" minOccurs="0" name="SDKResult" nillable="true" type="q284:ServiceResult" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>
