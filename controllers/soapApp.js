@@ -26,39 +26,47 @@ var service = {
           if(args["customerID"]){
             let customer_id = args["customerID"];  
             logger.info('[GetCustomerByID] customer_id => '+customer_id);
-            pool.getConnection()
-            .then(con => {
-                logger.info('got connection from pool');
-                let sql_getCustomerByID = 'SELECT {0}.*,W.WCUST_ID,W.WCUST_USERNAME,W.WCUST_PASSWORD,W.WCUST_HASHEDPASSWORD,W.WCUST_CORPID,W.WCUST_STATUS,W.CRT_BY AS WCUST_WEB_CRT_BY,W.CRT_DATE AS WCUST_WEB_CRT_DATE,W.UPT_BY AS WCUST_WEB_UPT_BY,W.UPT_DATE AS WCUST_WEB_UPT_DATE,W.WCUST_TOKEN,W.WCUST_TOKEN_DATE,W.WCUST_ACTIVE_DATE,W.WCUST_FIRSTNAME,W.WCUST_MIDNAME,W.WCUST_LASTNAME,W.WCUST_OFFER1,W.WCUST_OFFER2,W.WCUST_SEC_QUESTION,W.WCUST_SEC_ANSWER,W.WCUST_IS_GUEST  FROM CC_CUSTOMER INNER JOIN CC_WEB_CUSTOMER W ON CUST_ID = W.WCUST_ID WHERE CUST_ID='+customer_id; //ORDER BY CUST_DATEADDED DESC, CUST_ID DESC';
-                let options = {
-                    outFormat: oracledb.OUT_FORMAT_OBJECT   // query result format
-                    // extendedMetaData: true,   // get extra metadata
-                    // fetchArraySize: 100       // internal buffer allocation size for tuning
-                  };
-                logger.info('execute query =>'); 
-                logger.info(sql_getCustomerByID);
 
-                con.execute(sql_getCustomerByID,{},options)
-                .then(result =>{
-                    logger.info('result to return =>');
-                    console.log(result.rows);
-                })
-                .catch(exec_error => {
-                    logger.info('execute error to return =>');
-                    console.log(exec_error);
-                })
-            })
-            .catch(err => {
-                logger.info('error get connection from pool to return =>');
-                console.log(err);
-            })
+            var responseXML = mapRequestToResponse(args) //initial xml
+
+            try{
+              pool.getConnection()
+              .then(con => {
+                  logger.info('got connection from pool');
+                  let sql_getCustomerByID = 'SELECT {0}.*,W.WCUST_ID,W.WCUST_USERNAME,W.WCUST_PASSWORD,W.WCUST_HASHEDPASSWORD,W.WCUST_CORPID,W.WCUST_STATUS,W.CRT_BY AS WCUST_WEB_CRT_BY,W.CRT_DATE AS WCUST_WEB_CRT_DATE,W.UPT_BY AS WCUST_WEB_UPT_BY,W.UPT_DATE AS WCUST_WEB_UPT_DATE,W.WCUST_TOKEN,W.WCUST_TOKEN_DATE,W.WCUST_ACTIVE_DATE,W.WCUST_FIRSTNAME,W.WCUST_MIDNAME,W.WCUST_LASTNAME,W.WCUST_OFFER1,W.WCUST_OFFER2,W.WCUST_SEC_QUESTION,W.WCUST_SEC_ANSWER,W.WCUST_IS_GUEST  FROM CC_CUSTOMER INNER JOIN CC_WEB_CUSTOMER W ON CUST_ID = W.WCUST_ID WHERE CUST_ID='+customer_id; //ORDER BY CUST_DATEADDED DESC, CUST_ID DESC';
+                  let options = {
+                      outFormat: oracledb.OUT_FORMAT_OBJECT   // query result format
+                      // extendedMetaData: true,   // get extra metadata
+                      // fetchArraySize: 100       // internal buffer allocation size for tuning
+                    };
+                  logger.info('execute query =>'); 
+                  logger.info(sql_getCustomerByID);
+  
+                  con.execute(sql_getCustomerByID,{},options)
+                  .then(result =>{
+                      logger.info('result to return =>');
+                      console.log(result.rows);
+                  })
+                  .catch(exec_error => {
+                      logger.info('execute error to return =>');
+                      console.log(exec_error);
+                  })
+              })
+              .catch(err => {
+                  logger.info('error get connection from pool to return =>');
+                  console.log(err);
+              })
+            }catch(ex){
+              logger.info('error pool.getConnection from pool to return =>');
+              console.log(ex);
+            }
+
           }else{
             logger.info('[GetCustomerByID] invalid customer_id ');
           }  
-
+          
           //args  
-
-          var responseXML = 'SDK_OK' //mapRequestToResponse(args) //initial xml
+          logger.info(responseXML);
           cb(responseXML);
           
         }
@@ -198,62 +206,73 @@ function mapRequestToResponse(args){
     var responseJson = {};
     logger.info(args);
 
-    if(args["RegMsg01"]){
-      responseJson["RequestService01Result"] = {}
-      responseJson["RequestService01Result"]["ResHdr"] = {}
-      responseJson["RequestService01Result"]["ResDtl"] = {}
+    responseJson["GetCustomerByIDResult"] = {}
+    responseJson["GetCustomerByIDResult"]["CRT_BYUSER"] = '';
+    responseJson["GetCustomerByIDResult"]["CRT_DATE"] = ''; //moment().format('YYYYMMDDHHmmss');
+    responseJson["GetCustomerByIDResult"]["CUST_CARDNUMBER"] = '';
+    responseJson["GetCustomerByIDResult"]["CUST_CLASSID"] = '';
+    responseJson["GetCustomerByIDResult"]["CUST_COMPANY"] = '';
+    responseJson["GetCustomerByIDResult"]["CUST_COMPANYUN"] = '';
+    responseJson["GetCustomerByIDResult"]["CUST_CORPID"] = '';
+    responseJson["GetCustomerByIDResult"]["CUST_DATEADDED"] = ''; //moment().format('YYYYMMDDHHmmss');
+    responseJson["GetCustomerByIDResult"]["CUST_DATEOFBIRHT"] = '';
+    responseJson["GetCustomerByIDResult"]["CUST_EMAIL"] = '';
+    responseJson["GetCustomerByIDResult"]["CUST_FIRSTNAME"] = '';
+    responseJson["GetCustomerByIDResult"]["CUST_FIRSTNAMEUN"] = '';
+    responseJson["GetCustomerByIDResult"]["CUST_GENDER"] = '';
+    responseJson["GetCustomerByIDResult"]["CUST_ID"] = '';
+    responseJson["GetCustomerByIDResult"]["CUST_LASTNAME"] = '';
+    responseJson["GetCustomerByIDResult"]["CUST_LASTNAMEUN"] = '';
+    responseJson["GetCustomerByIDResult"]["CUST_MARITALSTATUS"] = '';
+    responseJson["GetCustomerByIDResult"]["CUST_MIDNAME"] = '';
+    responseJson["GetCustomerByIDResult"]["CUST_MIDNAMEUN"] = '';
+    responseJson["GetCustomerByIDResult"]["CUST_NATID"] = '';
+    responseJson["GetCustomerByIDResult"]["CUST_NOTIFICATION_MOBILE"] = '';
+    responseJson["GetCustomerByIDResult"]["CUST_OCCUPATION"] = '';
+    responseJson["GetCustomerByIDResult"]["CUST_OCCUPATIONUN"] = '';
+    responseJson["GetCustomerByIDResult"]["CUST_PHONEAREACODE"] = '';  
+    responseJson["GetCustomerByIDResult"]["CUST_PHONECOUNTRYCODE"] = '';  
+    responseJson["GetCustomerByIDResult"]["CUST_PHONEEXTENSTION"] = '';  
+    responseJson["GetCustomerByIDResult"]["CUST_PHONELOOKUP"] = '';  
+    responseJson["GetCustomerByIDResult"]["CUST_PHONENUMBER"] = '';  
+    responseJson["GetCustomerByIDResult"]["CUST_PHONETYPE"] = '';  
+    responseJson["GetCustomerByIDResult"]["CUST_PREFERRED_LANGUAGE"] = '';  
+    responseJson["GetCustomerByIDResult"]["CUST_TITLE"] = '';  
+    responseJson["GetCustomerByIDResult"]["CUST_USERDATA1"] = '';  
+    responseJson["GetCustomerByIDResult"]["CUST_USERDATA1UN"] = '';  
+    responseJson["GetCustomerByIDResult"]["CUST_USERDATA2"] = '';  
+    responseJson["GetCustomerByIDResult"]["CUST_USERDATA2UN"] = '';  
+    responseJson["GetCustomerByIDResult"]["Loyalty"] = '';  
+    responseJson["GetCustomerByIDResult"]["PASSWORD"] = '';  
+    responseJson["GetCustomerByIDResult"]["Settings"] = '';  
+    responseJson["GetCustomerByIDResult"]["UPT_BYUSER"] = '';  
+    responseJson["GetCustomerByIDResult"]["UPT_DATE"] = '';  
+    responseJson["GetCustomerByIDResult"]["USERNAME"] = '';  
+    responseJson["GetCustomerByIDResult"]["WCUST_ACTIVE_DATE"] = '';  
+    
+    responseJson["GetCustomerByIDResult"]["WCUST_CORPID"] = ''; 
+    responseJson["GetCustomerByIDResult"]["WCUST_FIRSTNAME"] = ''; 
+    responseJson["GetCustomerByIDResult"]["WCUST_HASHEDPASSWORD"] = ''; 
+    responseJson["GetCustomerByIDResult"]["WCUST_IS_GUEST"] = ''; 
+    responseJson["GetCustomerByIDResult"]["WCUST_LASTNAME"] = ''; 
+    responseJson["GetCustomerByIDResult"]["WCUST_MIDNAME"] = ''; 
+    responseJson["GetCustomerByIDResult"]["WCUST_OFFER1"] = ''; 
+    responseJson["GetCustomerByIDResult"]["WCUST_OFFER2"] = ''; 
+    responseJson["GetCustomerByIDResult"]["WCUST_SEC_ANSWER"] = ''; 
+    responseJson["GetCustomerByIDResult"]["WCUST_SEC_QUESTION"] = ''; 
+    responseJson["GetCustomerByIDResult"]["WCUST_STATUS"] = ''; 
+    responseJson["GetCustomerByIDResult"]["WCUST_TOKEN"] = ''; 
+    responseJson["GetCustomerByIDResult"]["WCUST_TOKEN_DATE"] = ''; 
+    responseJson["GetCustomerByIDResult"]["WEB_CRT_BY"] = ''; 
+    responseJson["GetCustomerByIDResult"]["WEB_CRT_DATE"] = ''; 
+    responseJson["GetCustomerByIDResult"]["WEB_UPT_BY"] = ''; 
+    responseJson["GetCustomerByIDResult"]["WEB_UPT_DATE"] = ''; 
 
-      responseJson["RequestService01Result"]["ResHdr"]["ActCd"]  =  args["RegMsg01"]["ReqHdr"]["ActCd"];
-      responseJson["RequestService01Result"]["ResHdr"]["ResID"]  =  args["RegMsg01"]["ReqHdr"]["ReqID"];
-      responseJson["RequestService01Result"]["ResHdr"]["ResDt"]  =  moment().format('YYYYMMDDHHmmss');
-      responseJson["RequestService01Result"]["ResHdr"]["ResCd"]  = '';
-      responseJson["RequestService01Result"]["ResHdr"]["ResMsg"] = '';
-      
-      responseJson["RequestService01Result"]["ResDtl"]["ErrCd"] = '';
-      responseJson["RequestService01Result"]["ResDtl"]["ErrMsgEng"] = '';
-      responseJson["RequestService01Result"]["ResDtl"]["ErrMsgThai"] = '';
-      responseJson["RequestService01Result"]["ResDtl"]["ApvlCd"] = args["RegMsg01"]["ReqHdr"]["ActCd"];
-      responseJson["RequestService01Result"]["ResDtl"]["Ref1"] = '';
-      responseJson["RequestService01Result"]["ResDtl"]["Ref2"] = args["RegMsg01"]["TrnHdr"]["StrCd"];
-      responseJson["RequestService01Result"]["ResDtl"]["Ref3"] = '';
-      responseJson["RequestService01Result"]["ResDtl"]["Ref4"] = '';
-      responseJson["RequestService01Result"]["ResDtl"]["Ref5"] = args["RegMsg01"]["TrnHdr"]["TtlAmt"];
-      responseJson["RequestService01Result"]["ResDtl"]["Ref6"] = args["RegMsg01"]["TrnHdr"]["TrnDt"];
-      responseJson["RequestService01Result"]["ResDtl"]["Ref7"] = args["RegMsg01"]["TrnHdr"]["ChkNo"];
-      responseJson["RequestService01Result"]["ResDtl"]["Ref8"] = '';
-      responseJson["RequestService01Result"]["ResDtl"]["Ref9"] = '';
-      responseJson["RequestService01Result"]["ResDtl"]["Ref10"] = '';
+    responseJson["SDKResult"] = {}
+    responseJson["SDKResult"]["ExternalCode"] = '';
+    responseJson["SDKResult"]["ResultCode"] = '';
+    responseJson["SDKResult"]["ResultText"] = '';
 
-      responseJson["RequestService01Result"]["MinorID"] = 0; //uuidV1();
-      
-    }else if(args["RegMsg02"]){
-      responseJson["RequestService02Result"] = {}
-      responseJson["RequestService02Result"]["ResHdr"] = {}
-      responseJson["RequestService02Result"]["ResDtl"] = {}
-
-      responseJson["RequestService02Result"]["ResHdr"]["ActCd"]  =  args["RegMsg02"]["ReqHdr"]["ActCd"];
-      responseJson["RequestService02Result"]["ResHdr"]["ResID"]  =  args["RegMsg02"]["ReqHdr"]["ReqID"];
-      responseJson["RequestService02Result"]["ResHdr"]["ResDt"]  =  moment().format('YYYYMMDDHHmmss');
-      responseJson["RequestService02Result"]["ResHdr"]["ResCd"]  = '';
-      responseJson["RequestService02Result"]["ResHdr"]["ResMsg"] = '';
-      
-      responseJson["RequestService02Result"]["ResDtl"]["ErrCd"] = '';
-      responseJson["RequestService02Result"]["ResDtl"]["ErrMsgEng"] = '';
-      responseJson["RequestService02Result"]["ResDtl"]["ErrMsgThai"] = '';
-      responseJson["RequestService02Result"]["ResDtl"]["ApvlCd"] = '';
-      responseJson["RequestService02Result"]["ResDtl"]["Ref1"] = '';
-      responseJson["RequestService02Result"]["ResDtl"]["Ref2"] = args["RegMsg02"]["TrnHdr"]["StrCd"];
-      responseJson["RequestService02Result"]["ResDtl"]["Ref3"] = '';
-      responseJson["RequestService02Result"]["ResDtl"]["Ref4"] = '';
-      responseJson["RequestService02Result"]["ResDtl"]["Ref5"] = args["RegMsg02"]["TrnHdr"]["TtlAmt"];
-      responseJson["RequestService02Result"]["ResDtl"]["Ref6"] = args["RegMsg02"]["TrnHdr"]["TrnDt"];
-      responseJson["RequestService02Result"]["ResDtl"]["Ref7"] = args["RegMsg02"]["TrnHdr"]["ChkNo"];
-      responseJson["RequestService02Result"]["ResDtl"]["Ref8"] = '';
-      responseJson["RequestService02Result"]["ResDtl"]["Ref9"] = '';
-      responseJson["RequestService02Result"]["ResDtl"]["Ref10"] = '';
-
-      responseJson["RequestService02Result"]["MinorID"] = 0; //uuidV1();
-    }
     return responseJson;
 }
 
