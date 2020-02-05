@@ -28,19 +28,19 @@ var service = {
             try{
               oracledb.getConnection()
               .then(con => {
-                  logger.info('got connection from pool');
+                  //logger.info('got connection from pool');
                   let sql_getCustomerByID = 'SELECT CC_CUSTOMER.*,W.WCUST_ID,W.WCUST_USERNAME,W.WCUST_PASSWORD,W.WCUST_HASHEDPASSWORD,W.WCUST_CORPID,W.WCUST_STATUS,W.CRT_BY AS WCUST_WEB_CRT_BY,W.CRT_DATE AS WCUST_WEB_CRT_DATE,W.UPT_BY AS WCUST_WEB_UPT_BY,W.UPT_DATE AS WCUST_WEB_UPT_DATE,W.WCUST_TOKEN,W.WCUST_TOKEN_DATE,W.WCUST_ACTIVE_DATE,W.WCUST_FIRSTNAME,W.WCUST_MIDNAME,W.WCUST_LASTNAME,W.WCUST_OFFER1,W.WCUST_OFFER2,W.WCUST_SEC_QUESTION,W.WCUST_SEC_ANSWER,W.WCUST_IS_GUEST  FROM CC_CUSTOMER INNER JOIN CC_WEB_CUSTOMER W ON CUST_ID = W.WCUST_ID WHERE CUST_ID='+customer_id; //ORDER BY CUST_DATEADDED DESC, CUST_ID DESC';
                   let options = {
                       outFormat: oracledb.OUT_FORMAT_OBJECT   // query result format
                       // extendedMetaData: true,   // get extra metadata
                       // fetchArraySize: 100       // internal buffer allocation size for tuning
                     };
-                  logger.info('execute query =>'); 
-                  logger.info(sql_getCustomerByID);
+                  //logger.info('execute query =>'); 
+                  //logger.info(sql_getCustomerByID);
   
                   con.execute(sql_getCustomerByID,{},options)
                   .then(result =>{
-                      logger.info('result to return =>');
+                      //logger.info('result to return =>');
                       //console.log(result.rows);
                       responseXML = mapRequestToResponse(result.rows,null);
                       cb(responseXML);
@@ -168,25 +168,27 @@ function mapRequestToResponse(rows,err){
     responseJson["SDKResult"] = {}
     
     if(rows.length > 0){
-      logger.info(rows);
+      //logger.info(rows);
       let row = rows[0];
       responseJson["GetCustomerByIDResult"]["CRT_BYUSER"] = !helper.isNullEmptry(row["CRT_BYUSER"])?row["CRT_BYUSER"]:'';
-      responseJson["GetCustomerByIDResult"]["CRT_DATE"] = moment(row["CRT_DATE"],'YYYY-MM-DDThh:mm:ss.ms').format('YYYY-MM-DDTHH:mm:ss'); //moment().format('YYYYMMDDHHmmss');
+      responseJson["GetCustomerByIDResult"]["CRT_DATE"] = renderDate(row["CRT_DATE"]); //moment().format('YYYYMMDDHHmmss');
       responseJson["GetCustomerByIDResult"]["CUST_CARDNUMBER"] = !helper.isNullEmptry(row["CUST_CARDNUMBER"])?row["CUST_CARDNUMBER"]:'';
       responseJson["GetCustomerByIDResult"]["CUST_CLASSID"] = !helper.isNullEmptry(row["CUST_CLASSID"])?row["CUST_CLASSID"]:'';
       responseJson["GetCustomerByIDResult"]["CUST_COMPANY"] = !helper.isNullEmptry(row["CUST_COMPANY"])?row["CUST_COMPANY"]:'';
       responseJson["GetCustomerByIDResult"]["CUST_COMPANYUN"] = !helper.isNullEmptry(row["CUST_COMPANYUN"])?row["CUST_COMPANYUN"]:'';
       responseJson["GetCustomerByIDResult"]["CUST_CORPID"] = !helper.isNullEmptry(row["CUST_CORPID"])?row["CUST_CORPID"]:'';
-      responseJson["GetCustomerByIDResult"]["CUST_DATEADDED"] = moment(row["CUST_DATEADDED"],'YYYY-MM-DDThh:mm:ss.ms').format('YYYY-MM-DDTHH:mm:ss'); //moment().format('YYYYMMDDHHmmss');  /2019-11-25T07:42:19.000Z
-      responseJson["GetCustomerByIDResult"]["CUST_DATEOFBIRHT"] = moment(row["CUST_DATEOFBIRHT"],'YYYY-MM-DDThh:mm:ss.ms').format('YYYY-MM-DDTHH:mm:ss');// row["CUST_DATEOFBIRHT"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_DATEADDED"] = renderDate(row["CUST_DATEADDED"]); //moment().format('YYYYMMDDHHmmss');  /2019-11-25T07:42:19.000Z
+      responseJson["GetCustomerByIDResult"]["CUST_DATEOFBIRHT"] = renderDate(row["CUST_DATEOFBIRHT"]);// row["CUST_DATEOFBIRHT"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_DEPENDENTS"] = !helper.isNullEmptry(row["CUST_DEPENDENTS"])?row["CUST_DEPENDENTS"]:''; 
       responseJson["GetCustomerByIDResult"]["CUST_EMAIL"] = !helper.isNullEmptry(row["CUST_EMAIL"])?row["CUST_EMAIL"]:''; 
       responseJson["GetCustomerByIDResult"]["CUST_FIRSTNAME"] =!helper.isNullEmptry(row["CUST_FIRSTNAME"])?row["CUST_FIRSTNAME"]:'';  
       responseJson["GetCustomerByIDResult"]["CUST_FIRSTNAMEUN"] =!helper.isNullEmptry(row["CUST_FIRSTNAMEUN"])?row["CUST_FIRSTNAMEUN"]:'';  
-      responseJson["GetCustomerByIDResult"]["CUST_GENDER"] =!helper.isNullEmptry(row["CUST_GENDER"])?row["CUST_GENDER"]:'';  
+
+      responseJson["GetCustomerByIDResult"]["CUST_GENDER"] =!helper.isNullEmptry(row["CUST_GENDER"])?getGender(row["CUST_GENDER"]):'';  
       responseJson["GetCustomerByIDResult"]["CUST_ID"] =!helper.isNullEmptry(row["CUST_ID"])?row["CUST_ID"]:'';  
       responseJson["GetCustomerByIDResult"]["CUST_LASTNAME"] =!helper.isNullEmptry(row["CUST_LASTNAME"])?row["CUST_LASTNAME"]:'';  
       responseJson["GetCustomerByIDResult"]["CUST_LASTNAMEUN"] =!helper.isNullEmptry(row["CUST_LASTNAMEUN"])?row["CUST_LASTNAMEUN"]:'';  
-      responseJson["GetCustomerByIDResult"]["CUST_MARITALSTATUS"] =!helper.isNullEmptry(row["CUST_MARITALSTATUS"])?row["CUST_MARITALSTATUS"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_MARITALSTATUS"] =!helper.isNullEmptry(row["CUST_MARITALSTATUS"])?getMarialStstus(row["CUST_MARITALSTATUS"]):'';  
       responseJson["GetCustomerByIDResult"]["CUST_MIDNAME"] =!helper.isNullEmptry(row["CUST_MIDNAME"])?row["CUST_MIDNAME"]:'';  
       responseJson["GetCustomerByIDResult"]["CUST_MIDNAMEUN"] =!helper.isNullEmptry(row["CUST_MIDNAMEUN"])?row["CUST_MIDNAMEUN"]:'';  
       responseJson["GetCustomerByIDResult"]["CUST_NATID"] =!helper.isNullEmptry(row["CUST_NATID"])?row["CUST_NATID"]:'';  
@@ -206,17 +208,17 @@ function mapRequestToResponse(rows,err){
       responseJson["GetCustomerByIDResult"]["CUST_USERDATA2"] =!helper.isNullEmptry(row["CUST_USERDATA2"])?row["CUST_USERDATA2"]:'';  
       responseJson["GetCustomerByIDResult"]["CUST_USERDATA2UN"] =!helper.isNullEmptry(row["CUST_USERDATA2UN"])?row["CUST_USERDATA2UN"]:'';  
       responseJson["GetCustomerByIDResult"]["Loyalty"] =!helper.isNullEmptry(row["Loyalty"])?row["Loyalty"]:'';  
-      responseJson["GetCustomerByIDResult"]["PASSWORD"] =!helper.isNullEmptry(row["PASSWORD"])?row["PASSWORD"]:'';  
+      responseJson["GetCustomerByIDResult"]["PASSWORD"] =!helper.isNullEmptry(row["WCUST_PASSWORD"])?row["WCUST_PASSWORD"]:'';  
       responseJson["GetCustomerByIDResult"]["Settings"] =!helper.isNullEmptry(row["Settings"])?row["Settings"]:'';  
       responseJson["GetCustomerByIDResult"]["UPT_BYUSER"] =!helper.isNullEmptry(row["UPT_BYUSER"])?row["UPT_BYUSER"]:'';  
-      responseJson["GetCustomerByIDResult"]["UPT_DATE"] = moment(row["UPT_DATE"],'YYYY-MM-DDThh:mm:ss.ms').format('YYYY-MM-DDTHH:mm:ss');  
-      responseJson["GetCustomerByIDResult"]["USERNAME"] =!helper.isNullEmptry(row["USERNAME"])?row["USERNAME"]:''; 
+      responseJson["GetCustomerByIDResult"]["UPT_DATE"] = renderDate(row["UPT_DATE"]);  
+      responseJson["GetCustomerByIDResult"]["USERNAME"] =!helper.isNullEmptry(row["WCUST_USERNAME"])?row["WCUST_USERNAME"]:''; 
 
       responseJson["GetCustomerByIDResult"]["WCUST_ACTIVE_DATE"] = moment(row["WCUST_ACTIVE_DATE"],'YYYY-MM-DDThh:mm:ss.ms').format('YYYY-MM-DDTHH:mm:ss');  
       responseJson["GetCustomerByIDResult"]["WCUST_CORPID"] =!helper.isNullEmptry(row["WCUST_CORPID"])?row["WCUST_CORPID"]:'';  
       responseJson["GetCustomerByIDResult"]["WCUST_FIRSTNAME"] =!helper.isNullEmptry(row["WCUST_FIRSTNAME"])?row["WCUST_FIRSTNAME"]:'';  
       responseJson["GetCustomerByIDResult"]["WCUST_HASHEDPASSWORD"] =!helper.isNullEmptry(row["WCUST_HASHEDPASSWORD"])?row["WCUST_HASHEDPASSWORD"]:'';  
-      responseJson["GetCustomerByIDResult"]["WCUST_IS_GUEST"] =!helper.isNullEmptry(row["WCUST_IS_GUEST"])?row["WCUST_IS_GUEST"]:'';  
+      responseJson["GetCustomerByIDResult"]["WCUST_IS_GUEST"] =!helper.isNullEmptry(row["WCUST_IS_GUEST"])?getIsGuest(row["WCUST_IS_GUEST"]):'';  
       responseJson["GetCustomerByIDResult"]["WCUST_LASTNAME"] =!helper.isNullEmptry(row["WCUST_LASTNAME"])?row["WCUST_LASTNAME"]:'';  
       responseJson["GetCustomerByIDResult"]["WCUST_MIDNAME"] =!helper.isNullEmptry(row["WCUST_MIDNAME"])?row["WCUST_MIDNAME"]:'';  
       responseJson["GetCustomerByIDResult"]["WCUST_OFFER1"] =!helper.isNullEmptry(row["WCUST_OFFER1"])?row["WCUST_OFFER1"]:'';  
@@ -225,11 +227,11 @@ function mapRequestToResponse(rows,err){
       responseJson["GetCustomerByIDResult"]["WCUST_SEC_QUESTION"] =!helper.isNullEmptry(row["WCUST_SEC_QUESTION"])?row["WCUST_SEC_QUESTION"]:'';  
       responseJson["GetCustomerByIDResult"]["WCUST_STATUS"] =!helper.isNullEmptry(row["WCUST_STATUS"])?row["WCUST_STATUS"]:'';  
       responseJson["GetCustomerByIDResult"]["WCUST_TOKEN"] =!helper.isNullEmptry(row["WCUST_TOKEN"])?row["WCUST_TOKEN"]:'';  
-      responseJson["GetCustomerByIDResult"]["WCUST_TOKEN_DATE"] = moment(row["WCUST_TOKEN_DATE"],'YYYY-MM-DDThh:mm:ss.ms').format('YYYY-MM-DDTHH:mm:ss');  
-      responseJson["GetCustomerByIDResult"]["WEB_CRT_BY"] =!helper.isNullEmptry(row["WEB_CRT_BY"])?row["WEB_CRT_BY"]:'';  
-      responseJson["GetCustomerByIDResult"]["WEB_CRT_DATE"] = moment(row["WEB_CRT_DATE"],'YYYY-MM-DDThh:mm:ss.ms').format('YYYY-MM-DDTHH:mm:ss'); 
-      responseJson["GetCustomerByIDResult"]["WEB_UPT_BY"] =!helper.isNullEmptry(row["WEB_UPT_BY"])?row["WEB_UPT_BY"]:'';  
-      responseJson["GetCustomerByIDResult"]["WEB_UPT_DATE"] = moment(row["WEB_UPT_DATE"],'YYYY-MM-DDThh:mm:ss.ms').format('YYYY-MM-DDTHH:mm:ss'); 
+      responseJson["GetCustomerByIDResult"]["WCUST_TOKEN_DATE"] = renderDate(row["WCUST_TOKEN_DATE"]);
+      responseJson["GetCustomerByIDResult"]["WEB_CRT_BY"] =!helper.isNullEmptry(row["WCUST_WEB_CRT_BY"])?row["WCUST_WEB_CRT_BY"]:'';  
+      responseJson["GetCustomerByIDResult"]["WEB_CRT_DATE"] = renderDate(row["WCUST_WEB_CRT_DATE"]); 
+      responseJson["GetCustomerByIDResult"]["WEB_UPT_BY"] =!helper.isNullEmptry(row["WCUST_WEB_UPT_BY"])?row["WCUST_WEB_UPT_BY"]:'';  
+      responseJson["GetCustomerByIDResult"]["WEB_UPT_DATE"] = renderDate(row["WCUST_WEB_UPT_DATE"]); 
 
       responseJson["SDKResult"]["ExternalCode"] = '0';
       responseJson["SDKResult"]["ResultCode"] = 'Success';
@@ -246,6 +248,59 @@ function mapRequestToResponse(rows,err){
       }
     }
     return responseJson;
+}
+
+function renderDate(dateVal){
+  if(!helper.isNullEmptry(dateVal)){
+    return moment(dateVal,'YYYY-MM-DDThh:mm:ss.ms').format('YYYY-MM-DDTHH:mm:ss'); 
+  }else{
+    return '9000-01-01T00:00:00';
+  }
+}
+
+function getGender(genderVal){
+  let type = 'None';
+  switch (genderVal) {
+    case 0:
+      type = 'Female';
+      break;
+    case 1:
+      type =  'Male';
+      break; 
+    default:
+  };
+  return type;
+}
+
+function getMarialStstus(marialVal){
+  let type = 'None';
+  switch (marialVal) {
+    case 0:
+      type = 'Single';
+      break;
+    case 1:
+      type = 'Married';
+      break; 
+    case 2:
+      type = 'Divorced';
+      break; 
+    default:
+  };
+  return type;
+}
+
+function getIsGuest(isGuestVal){
+  let type = 'false';
+  switch (isGuestVal) {
+    case 0:
+      type = 'false';
+      break;
+    case 1:
+      type = 'true';
+      break; 
+    default:
+  };
+  return type;
 }
 
 function saveRequestMessage(request,reqTimeMs,tran_request_id){
