@@ -12,7 +12,12 @@
   "author": "Akarat Suvitayasiri",
   "license": "ISC",
   "pkg": {
-    "assets": ["common/**/*","common/*","controllers/*","services/*"]
+    "assets": [
+      "common/**/*",
+      "common/*",
+      "controllers/*",
+      "services/*"
+    ]
   },
   "dependencies": {
     "async": "^3.1.0",

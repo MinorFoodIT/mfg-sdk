@@ -58,17 +58,21 @@ const defaultThreadPoolSize = 4;
 
 // Increase thread pool size by poolMax ,used by node-oracledb
 process.env.UV_THREADPOOL_SIZE = dbConfig.hrPool.poolMax + defaultThreadPoolSize;
-//const {pool,closeConn} = require('./../services/database.js');	
+const {initialize,closeConn} = require('./../services/database.js');	
 
-/*
+
 try {
   console.log('Initializing database module');
-  await database.initialize(); 
+  initialize()
+  .then(()=>{
+    console.log('Initializing database module => done');
+  }) 
+  
 } catch (err) {
   console.error(err);
   process.exit(1); // Non-zero failure code
 }
-*/
+
 
 /**
  * Normalize a port into a number, string, or false.

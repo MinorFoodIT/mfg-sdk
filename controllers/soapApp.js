@@ -9,7 +9,8 @@ const moment = require('moment');
 const myCache = require('./../common/nodeCache');
 
 //  *** line that requires services/web-server.js is here ***
-const {pool,closeConn} = require('./../services/database.js');
+const oracledb = require('oracledb');
+const {initialize,closeConn} = require('./../services/database.js');
 
 //Load Webservice definetion
 var xml = require('fs').readFileSync(path.join(process.cwd(),'/controllers/sdk_endpoint.wsdl'), 'utf8');
@@ -25,10 +26,10 @@ var service = {
 
             let responseXML = {}; //initial xml
             try{
-              pool.getConnection()
+              oracledb.getConnection()
               .then(con => {
                   logger.info('got connection from pool');
-                  let sql_getCustomerByID = 'SELECT {0}.*,W.WCUST_ID,W.WCUST_USERNAME,W.WCUST_PASSWORD,W.WCUST_HASHEDPASSWORD,W.WCUST_CORPID,W.WCUST_STATUS,W.CRT_BY AS WCUST_WEB_CRT_BY,W.CRT_DATE AS WCUST_WEB_CRT_DATE,W.UPT_BY AS WCUST_WEB_UPT_BY,W.UPT_DATE AS WCUST_WEB_UPT_DATE,W.WCUST_TOKEN,W.WCUST_TOKEN_DATE,W.WCUST_ACTIVE_DATE,W.WCUST_FIRSTNAME,W.WCUST_MIDNAME,W.WCUST_LASTNAME,W.WCUST_OFFER1,W.WCUST_OFFER2,W.WCUST_SEC_QUESTION,W.WCUST_SEC_ANSWER,W.WCUST_IS_GUEST  FROM CC_CUSTOMER INNER JOIN CC_WEB_CUSTOMER W ON CUST_ID = W.WCUST_ID WHERE CUST_ID='+customer_id; //ORDER BY CUST_DATEADDED DESC, CUST_ID DESC';
+                  let sql_getCustomerByID = 'SELECT CC_CUSTOMER.*,W.WCUST_ID,W.WCUST_USERNAME,W.WCUST_PASSWORD,W.WCUST_HASHEDPASSWORD,W.WCUST_CORPID,W.WCUST_STATUS,W.CRT_BY AS WCUST_WEB_CRT_BY,W.CRT_DATE AS WCUST_WEB_CRT_DATE,W.UPT_BY AS WCUST_WEB_UPT_BY,W.UPT_DATE AS WCUST_WEB_UPT_DATE,W.WCUST_TOKEN,W.WCUST_TOKEN_DATE,W.WCUST_ACTIVE_DATE,W.WCUST_FIRSTNAME,W.WCUST_MIDNAME,W.WCUST_LASTNAME,W.WCUST_OFFER1,W.WCUST_OFFER2,W.WCUST_SEC_QUESTION,W.WCUST_SEC_ANSWER,W.WCUST_IS_GUEST  FROM CC_CUSTOMER INNER JOIN CC_WEB_CUSTOMER W ON CUST_ID = W.WCUST_ID WHERE CUST_ID='+customer_id; //ORDER BY CUST_DATEADDED DESC, CUST_ID DESC';
                   let options = {
                       outFormat: oracledb.OUT_FORMAT_OBJECT   // query result format
                       // extendedMetaData: true,   // get extra metadata
@@ -41,31 +42,43 @@ var service = {
                   .then(result =>{
                       logger.info('result to return =>');
                       //console.log(result.rows);
-                      responseXML = mapRequestToResponse(result.rows,null)
+                      responseXML = mapRequestToResponse(result.rows,null);
+                      cb(responseXML);
                   })
                   .catch(exec_error => {
                       logger.info('execute error to return =>');
                       console.log(exec_error);
                       responseXML = mapRequestToResponse([],exec_error);
+                      cb(responseXML);
                   })
+                  .finally(()=>{
+                    if(con){
+                      try{
+                        con.close();
+                      }catch(con_err){
+                        console.log(con_err);
+                      }
+                    }
+                  });
               })
               .catch(err => {
                   logger.info('error get connection from pool to return =>');
                   console.log(err);
                   responseXML = mapRequestToResponse([],err);
+                  cb(responseXML);
               })
             }catch(ex){
               logger.info('error pool.getConnection from pool to return =>');
               console.log(ex);
               responseXML = mapRequestToResponse([],ex);
+              cb(responseXML);
             }
 
           }else{
             logger.info('[GetCustomerByID] invalid customer_id ');
             responseXML = mapRequestToResponse([],null);
           }   
-          logger.info(responseXML);
-          cb(responseXML);
+          //logger.info(responseXML);
         }
       }
     }
@@ -161,11 +174,13 @@ function mapRequestToResponse(rows,err){
       responseJson["GetCustomerByIDResult"]["CRT_DATE"] = row["CRT_DATE"]; //moment().format('YYYYMMDDHHmmss');
       responseJson["GetCustomerByIDResult"]["CUST_CARDNUMBER"] = row["CUST_CARDNUMBER"];
       responseJson["GetCustomerByIDResult"]["CUST_CLASSID"] = row["CUST_CLASSID"];
-      responseJson["GetCustomerByIDResult"]["CUST_COMPANY"] = row["CUST_COMPANY"];
+      responseJson["GetCustomerByIDResult"]["CUST_COMPANY"] = !helper.isNullEmptry(row["CUST_COMPANY"])?row["CUST_COMPANY"]:'';
       responseJson["GetCustomerByIDResult"]["CUST_COMPANYUN"] = row["CUST_COMPANYUN"];
       responseJson["GetCustomerByIDResult"]["CUST_CORPID"] = row["CUST_CORPID"];
       responseJson["GetCustomerByIDResult"]["CUST_DATEADDED"] = row["CUST_DATEADDED"]; //moment().format('YYYYMMDDHHmmss');
-      responseJson["GetCustomerByIDResult"]["CUST_DATEOFBIRHT"] = row["CUST_DATEOFBIRHT"]; 
+      console.log('row["CUST_DATEOFBIRHT"]');
+      console.log(row["CUST_DATEOFBIRHT"]);//2019-11-25T07:42:19.000Z
+      responseJson["GetCustomerByIDResult"]["CUST_DATEOFBIRHT"] = moment().format('YYYYMMDDHHmmss');// row["CUST_DATEOFBIRHT"]; 
       responseJson["GetCustomerByIDResult"]["CUST_EMAIL"] = row["CUST_EMAIL"]; 
       responseJson["GetCustomerByIDResult"]["CUST_FIRSTNAME"] = row["CUST_FIRSTNAME"]; 
       responseJson["GetCustomerByIDResult"]["CUST_FIRSTNAMEUN"] = row["CUST_FIRSTNAMEUN"]; 
