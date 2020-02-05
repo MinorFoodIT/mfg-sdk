@@ -3,10 +3,25 @@ const oracledb = require('oracledb');
 const dbConfig = require('../common/config-database');
 var logger = require('./../common/logging/winston')(path.join(process.cwd(),'/services/database.js')); //((__filename);
 
-//var pool = null;
+function timeout(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+/*
+async function sleep(fn, ...args) {
+  await timeout(3000);
+  return fn(...args);
+}*/
+
 async function initialize() {
-  console.log(dbConfig.hrPool);
-  return await oracledb.createPool(dbConfig.hrPool);
+  logger.info(dbConfig.hrPool);
+  try{
+    return await oracledb.createPool(dbConfig.hrPool);
+  }catch(ex){
+    logger.info('Could not connect oracle server : '+ex.message);
+    await timeout(60000);
+    initialize();
+  }
+  //return await oracledb.createPool(dbConfig.hrPool);
 }
 
 async function close() {
