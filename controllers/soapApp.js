@@ -170,68 +170,66 @@ function mapRequestToResponse(rows,err){
     if(rows.length > 0){
       logger.info(rows);
       let row = rows[0];
-      responseJson["GetCustomerByIDResult"]["CRT_BYUSER"] = row["CRT_BYUSER"];
-      responseJson["GetCustomerByIDResult"]["CRT_DATE"] = row["CRT_DATE"]; //moment().format('YYYYMMDDHHmmss');
-      responseJson["GetCustomerByIDResult"]["CUST_CARDNUMBER"] = row["CUST_CARDNUMBER"];
-      responseJson["GetCustomerByIDResult"]["CUST_CLASSID"] = row["CUST_CLASSID"];
+      responseJson["GetCustomerByIDResult"]["CRT_BYUSER"] = !helper.isNullEmptry(row["CRT_BYUSER"])?row["CRT_BYUSER"]:'';
+      responseJson["GetCustomerByIDResult"]["CRT_DATE"] = moment(row["CRT_DATE"],'YYYY-MM-DDThh:mm:ss.ms').format('YYYY-MM-DDTHH:mm:ss'); //moment().format('YYYYMMDDHHmmss');
+      responseJson["GetCustomerByIDResult"]["CUST_CARDNUMBER"] = !helper.isNullEmptry(row["CUST_CARDNUMBER"])?row["CUST_CARDNUMBER"]:'';
+      responseJson["GetCustomerByIDResult"]["CUST_CLASSID"] = !helper.isNullEmptry(row["CUST_CLASSID"])?row["CUST_CLASSID"]:'';
       responseJson["GetCustomerByIDResult"]["CUST_COMPANY"] = !helper.isNullEmptry(row["CUST_COMPANY"])?row["CUST_COMPANY"]:'';
-      responseJson["GetCustomerByIDResult"]["CUST_COMPANYUN"] = row["CUST_COMPANYUN"];
-      responseJson["GetCustomerByIDResult"]["CUST_CORPID"] = row["CUST_CORPID"];
-      responseJson["GetCustomerByIDResult"]["CUST_DATEADDED"] = row["CUST_DATEADDED"]; //moment().format('YYYYMMDDHHmmss');
-      console.log('row["CUST_DATEOFBIRHT"]');
-      console.log(row["CUST_DATEOFBIRHT"]);//2019-11-25T07:42:19.000Z
+      responseJson["GetCustomerByIDResult"]["CUST_COMPANYUN"] = !helper.isNullEmptry(row["CUST_COMPANYUN"])?row["CUST_COMPANYUN"]:'';
+      responseJson["GetCustomerByIDResult"]["CUST_CORPID"] = !helper.isNullEmptry(row["CUST_CORPID"])?row["CUST_CORPID"]:'';
+      responseJson["GetCustomerByIDResult"]["CUST_DATEADDED"] = moment(row["CUST_DATEADDED"],'YYYY-MM-DDThh:mm:ss.ms').format('YYYY-MM-DDTHH:mm:ss'); //moment().format('YYYYMMDDHHmmss');  /2019-11-25T07:42:19.000Z
       responseJson["GetCustomerByIDResult"]["CUST_DATEOFBIRHT"] = moment(row["CUST_DATEOFBIRHT"],'YYYY-MM-DDThh:mm:ss.ms').format('YYYY-MM-DDTHH:mm:ss');// row["CUST_DATEOFBIRHT"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_EMAIL"] = row["CUST_EMAIL"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_FIRSTNAME"] = row["CUST_FIRSTNAME"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_FIRSTNAMEUN"] = row["CUST_FIRSTNAMEUN"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_GENDER"] = row["CUST_GENDER"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_ID"] = row["CUST_ID"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_LASTNAME"] = row["CUST_LASTNAME"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_LASTNAMEUN"] = row["CUST_LASTNAMEUN"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_MARITALSTATUS"] = row["CUST_MARITALSTATUS"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_MIDNAME"] = row["CUST_MIDNAME"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_MIDNAMEUN"] = row["CUST_MIDNAMEUN"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_NATID"] = row["CUST_NATID"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_NOTIFICATION_MOBILE"] = row["CUST_NOTIFICATION_MOBILE"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_OCCUPATION"] = row["CUST_OCCUPATION"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_OCCUPATIONUN"] = row["CUST_OCCUPATIONUN"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_PHONEAREACODE"] = row["CUST_PHONEAREACODE"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_PHONECOUNTRYCODE"] = row["CUST_PHONECOUNTRYCODE"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_PHONEEXTENSTION"] = row["CUST_PHONEEXTENSTION"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_PHONELOOKUP"] = row["CUST_PHONELOOKUP"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_PHONENUMBER"] = row["CUST_PHONENUMBER"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_PHONETYPE"] = row["CUST_PHONETYPE"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_PREFERRED_LANGUAGE"] = row["CUST_PREFERRED_LANGUAGE"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_TITLE"] = row["CUST_TITLE"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_USERDATA1"] = row["CUST_USERDATA1"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_USERDATA1UN"] = row["CUST_USERDATA1UN"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_USERDATA2"] = row["CUST_USERDATA2"]; 
-      responseJson["GetCustomerByIDResult"]["CUST_USERDATA2UN"] = row["CUST_USERDATA2UN"]; 
-      responseJson["GetCustomerByIDResult"]["Loyalty"] = row["Loyalty"]; 
-      responseJson["GetCustomerByIDResult"]["PASSWORD"] = row["PASSWORD"]; 
-      responseJson["GetCustomerByIDResult"]["Settings"] = row["Settings"]; 
-      responseJson["GetCustomerByIDResult"]["UPT_BYUSER"] = row["UPT_BYUSER"]; 
-      responseJson["GetCustomerByIDResult"]["UPT_DATE"] = row["UPT_DATE"]; 
-      responseJson["GetCustomerByIDResult"]["USERNAME"] = row["USERNAME"];
+      responseJson["GetCustomerByIDResult"]["CUST_EMAIL"] = !helper.isNullEmptry(row["CUST_EMAIL"])?row["CUST_EMAIL"]:''; 
+      responseJson["GetCustomerByIDResult"]["CUST_FIRSTNAME"] =!helper.isNullEmptry(row["CUST_FIRSTNAME"])?row["CUST_FIRSTNAME"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_FIRSTNAMEUN"] =!helper.isNullEmptry(row["CUST_FIRSTNAMEUN"])?row["CUST_FIRSTNAMEUN"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_GENDER"] =!helper.isNullEmptry(row["CUST_GENDER"])?row["CUST_GENDER"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_ID"] =!helper.isNullEmptry(row["CUST_ID"])?row["CUST_ID"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_LASTNAME"] =!helper.isNullEmptry(row["CUST_LASTNAME"])?row["CUST_LASTNAME"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_LASTNAMEUN"] =!helper.isNullEmptry(row["CUST_LASTNAMEUN"])?row["CUST_LASTNAMEUN"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_MARITALSTATUS"] =!helper.isNullEmptry(row["CUST_MARITALSTATUS"])?row["CUST_MARITALSTATUS"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_MIDNAME"] =!helper.isNullEmptry(row["CUST_MIDNAME"])?row["CUST_MIDNAME"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_MIDNAMEUN"] =!helper.isNullEmptry(row["CUST_MIDNAMEUN"])?row["CUST_MIDNAMEUN"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_NATID"] =!helper.isNullEmptry(row["CUST_NATID"])?row["CUST_NATID"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_NOTIFICATION_MOBILE"] =!helper.isNullEmptry(row["CUST_NOTIFICATION_MOBILE"])?row["CUST_NOTIFICATION_MOBILE"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_OCCUPATION"] =!helper.isNullEmptry(row["CUST_OCCUPATION"])?row["CUST_OCCUPATION"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_OCCUPATIONUN"] =!helper.isNullEmptry(row["CUST_OCCUPATIONUN"])?row["CUST_OCCUPATIONUN"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_PHONEAREACODE"] =!helper.isNullEmptry(row["CUST_PHONEAREACODE"])?row["CUST_PHONEAREACODE"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_PHONECOUNTRYCODE"] =!helper.isNullEmptry(row["CUST_PHONECOUNTRYCODE"])?row["CUST_PHONECOUNTRYCODE"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_PHONEEXTENSTION"] =!helper.isNullEmptry(row["CUST_PHONEEXTENSTION"])?row["CUST_PHONEEXTENSTION"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_PHONELOOKUP"] =!helper.isNullEmptry(row["CUST_PHONELOOKUP"])?row["CUST_PHONELOOKUP"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_PHONENUMBER"] =!helper.isNullEmptry(row["CUST_PHONENUMBER"])?row["CUST_PHONENUMBER"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_PHONETYPE"] =!helper.isNullEmptry(row["CUST_PHONETYPE"])?row["CUST_PHONETYPE"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_PREFERRED_LANGUAGE"] =!helper.isNullEmptry(row["CUST_PREFERRED_LANGUAGE"])?row["CUST_PREFERRED_LANGUAGE"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_TITLE"] =!helper.isNullEmptry(row["CUST_TITLE"])?row["CUST_TITLE"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_USERDATA1"] =!helper.isNullEmptry(row["CUST_USERDATA1"])?row["CUST_USERDATA1"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_USERDATA1UN"] =!helper.isNullEmptry(row["CUST_USERDATA1UN"])?row["CUST_USERDATA1UN"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_USERDATA2"] =!helper.isNullEmptry(row["CUST_USERDATA2"])?row["CUST_USERDATA2"]:'';  
+      responseJson["GetCustomerByIDResult"]["CUST_USERDATA2UN"] =!helper.isNullEmptry(row["CUST_USERDATA2UN"])?row["CUST_USERDATA2UN"]:'';  
+      responseJson["GetCustomerByIDResult"]["Loyalty"] =!helper.isNullEmptry(row["Loyalty"])?row["Loyalty"]:'';  
+      responseJson["GetCustomerByIDResult"]["PASSWORD"] =!helper.isNullEmptry(row["PASSWORD"])?row["PASSWORD"]:'';  
+      responseJson["GetCustomerByIDResult"]["Settings"] =!helper.isNullEmptry(row["Settings"])?row["Settings"]:'';  
+      responseJson["GetCustomerByIDResult"]["UPT_BYUSER"] =!helper.isNullEmptry(row["UPT_BYUSER"])?row["UPT_BYUSER"]:'';  
+      responseJson["GetCustomerByIDResult"]["UPT_DATE"] = moment(row["UPT_DATE"],'YYYY-MM-DDThh:mm:ss.ms').format('YYYY-MM-DDTHH:mm:ss');  
+      responseJson["GetCustomerByIDResult"]["USERNAME"] =!helper.isNullEmptry(row["USERNAME"])?row["USERNAME"]:''; 
 
-      responseJson["GetCustomerByIDResult"]["WCUST_ACTIVE_DATE"] = row["WCUST_ACTIVE_DATE"]; 
-      responseJson["GetCustomerByIDResult"]["WCUST_CORPID"] = row["WCUST_CORPID"]; 
-      responseJson["GetCustomerByIDResult"]["WCUST_FIRSTNAME"] = row["WCUST_FIRSTNAME"]; 
-      responseJson["GetCustomerByIDResult"]["WCUST_HASHEDPASSWORD"] = row["WCUST_HASHEDPASSWORD"]; 
-      responseJson["GetCustomerByIDResult"]["WCUST_IS_GUEST"] = row["WCUST_IS_GUEST"]; 
-      responseJson["GetCustomerByIDResult"]["WCUST_LASTNAME"] = row["WCUST_LASTNAME"]; 
-      responseJson["GetCustomerByIDResult"]["WCUST_MIDNAME"] = row["WCUST_MIDNAME"]; 
-      responseJson["GetCustomerByIDResult"]["WCUST_OFFER1"] = row["WCUST_OFFER1"]; 
-      responseJson["GetCustomerByIDResult"]["WCUST_OFFER2"] = row["WCUST_OFFER2"]; 
-      responseJson["GetCustomerByIDResult"]["WCUST_SEC_ANSWER"] = row["WCUST_SEC_ANSWER"]; 
-      responseJson["GetCustomerByIDResult"]["WCUST_SEC_QUESTION"] = row["WCUST_SEC_QUESTION"]; 
-      responseJson["GetCustomerByIDResult"]["WCUST_STATUS"] = row["WCUST_STATUS"]; 
-      responseJson["GetCustomerByIDResult"]["WCUST_TOKEN"] = row["WCUST_TOKEN"]; 
-      responseJson["GetCustomerByIDResult"]["WCUST_TOKEN_DATE"] = row["WCUST_TOKEN_DATE"]; 
-      responseJson["GetCustomerByIDResult"]["WEB_CRT_BY"] = row["WEB_CRT_BY"]; 
-      responseJson["GetCustomerByIDResult"]["WEB_CRT_DATE"] = row["WEB_CRT_DATE"]; 
-      responseJson["GetCustomerByIDResult"]["WEB_UPT_BY"] = row["WEB_UPT_BY"]; 
-      responseJson["GetCustomerByIDResult"]["WEB_UPT_DATE"] = row["WEB_UPT_DATE"]; 
+      responseJson["GetCustomerByIDResult"]["WCUST_ACTIVE_DATE"] = moment(row["WCUST_ACTIVE_DATE"],'YYYY-MM-DDThh:mm:ss.ms').format('YYYY-MM-DDTHH:mm:ss');  
+      responseJson["GetCustomerByIDResult"]["WCUST_CORPID"] =!helper.isNullEmptry(row["WCUST_CORPID"])?row["WCUST_CORPID"]:'';  
+      responseJson["GetCustomerByIDResult"]["WCUST_FIRSTNAME"] =!helper.isNullEmptry(row["WCUST_FIRSTNAME"])?row["WCUST_FIRSTNAME"]:'';  
+      responseJson["GetCustomerByIDResult"]["WCUST_HASHEDPASSWORD"] =!helper.isNullEmptry(row["WCUST_HASHEDPASSWORD"])?row["WCUST_HASHEDPASSWORD"]:'';  
+      responseJson["GetCustomerByIDResult"]["WCUST_IS_GUEST"] =!helper.isNullEmptry(row["WCUST_IS_GUEST"])?row["WCUST_IS_GUEST"]:'';  
+      responseJson["GetCustomerByIDResult"]["WCUST_LASTNAME"] =!helper.isNullEmptry(row["WCUST_LASTNAME"])?row["WCUST_LASTNAME"]:'';  
+      responseJson["GetCustomerByIDResult"]["WCUST_MIDNAME"] =!helper.isNullEmptry(row["WCUST_MIDNAME"])?row["WCUST_MIDNAME"]:'';  
+      responseJson["GetCustomerByIDResult"]["WCUST_OFFER1"] =!helper.isNullEmptry(row["WCUST_OFFER1"])?row["WCUST_OFFER1"]:'';  
+      responseJson["GetCustomerByIDResult"]["WCUST_OFFER2"] =!helper.isNullEmptry(row["WCUST_OFFER2"])?row["WCUST_OFFER2"]:'';  
+      responseJson["GetCustomerByIDResult"]["WCUST_SEC_ANSWER"] =!helper.isNullEmptry(row["WCUST_SEC_ANSWER"])?row["WCUST_SEC_ANSWER"]:'';  
+      responseJson["GetCustomerByIDResult"]["WCUST_SEC_QUESTION"] =!helper.isNullEmptry(row["WCUST_SEC_QUESTION"])?row["WCUST_SEC_QUESTION"]:'';  
+      responseJson["GetCustomerByIDResult"]["WCUST_STATUS"] =!helper.isNullEmptry(row["WCUST_STATUS"])?row["WCUST_STATUS"]:'';  
+      responseJson["GetCustomerByIDResult"]["WCUST_TOKEN"] =!helper.isNullEmptry(row["WCUST_TOKEN"])?row["WCUST_TOKEN"]:'';  
+      responseJson["GetCustomerByIDResult"]["WCUST_TOKEN_DATE"] = moment(row["WCUST_TOKEN_DATE"],'YYYY-MM-DDThh:mm:ss.ms').format('YYYY-MM-DDTHH:mm:ss');  
+      responseJson["GetCustomerByIDResult"]["WEB_CRT_BY"] =!helper.isNullEmptry(row["WEB_CRT_BY"])?row["WEB_CRT_BY"]:'';  
+      responseJson["GetCustomerByIDResult"]["WEB_CRT_DATE"] = moment(row["WEB_CRT_DATE"],'YYYY-MM-DDThh:mm:ss.ms').format('YYYY-MM-DDTHH:mm:ss'); 
+      responseJson["GetCustomerByIDResult"]["WEB_UPT_BY"] =!helper.isNullEmptry(row["WEB_UPT_BY"])?row["WEB_UPT_BY"]:'';  
+      responseJson["GetCustomerByIDResult"]["WEB_UPT_DATE"] = moment(row["WEB_UPT_DATE"],'YYYY-MM-DDThh:mm:ss.ms').format('YYYY-MM-DDTHH:mm:ss'); 
 
       responseJson["SDKResult"]["ExternalCode"] = '0';
       responseJson["SDKResult"]["ResultCode"] = 'Success';
@@ -239,11 +237,11 @@ function mapRequestToResponse(rows,err){
     }else{
       if(err){
         responseJson["SDKResult"]["ExternalCode"] = '1';
-        responseJson["SDKResult"]["ResultCode"] = '-2'; //External_Data_Error
+        responseJson["SDKResult"]["ResultCode"] = 'External_Data_Error'; //External_Data_Error = -2
         responseJson["SDKResult"]["ResultText"] = err.message;  
       }else{
         responseJson["SDKResult"]["ExternalCode"] = '0';
-        responseJson["SDKResult"]["ResultCode"] = '53'; //Customer_Does_Not_Exist
+        responseJson["SDKResult"]["ResultCode"] = 'Customer does not exist'; //Customer_Does_Not_Exist = 53
         responseJson["SDKResult"]["ResultText"] = 'Customer does not exist';  
       }
     }
