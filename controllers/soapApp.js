@@ -180,7 +180,7 @@ function mapRequestToResponse(rows,err){
       responseJson["GetCustomerByIDResult"]["CUST_DATEADDED"] = row["CUST_DATEADDED"]; //moment().format('YYYYMMDDHHmmss');
       console.log('row["CUST_DATEOFBIRHT"]');
       console.log(row["CUST_DATEOFBIRHT"]);//2019-11-25T07:42:19.000Z
-      responseJson["GetCustomerByIDResult"]["CUST_DATEOFBIRHT"] = moment().format('YYYYMMDDHHmmss');// row["CUST_DATEOFBIRHT"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_DATEOFBIRHT"] = moment(row["CUST_DATEOFBIRHT"],'YYYY-MM-DDThh:mm:ss.ms').format('YYYY-MM-DDTHH:mm:ss');// row["CUST_DATEOFBIRHT"]; 
       responseJson["GetCustomerByIDResult"]["CUST_EMAIL"] = row["CUST_EMAIL"]; 
       responseJson["GetCustomerByIDResult"]["CUST_FIRSTNAME"] = row["CUST_FIRSTNAME"]; 
       responseJson["GetCustomerByIDResult"]["CUST_FIRSTNAMEUN"] = row["CUST_FIRSTNAMEUN"]; 
