@@ -16,7 +16,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.sdk.entrypoints=websecure"
-      - "traefik.http.routers.sdk.rule=Host(`sdk-api.minorfoodit.com`)"
+      - "traefik.http.routers.sdk.rule=Host(`mfg-sdm-sdk.minordigital.com`)"
       - "traefik.http.routers.sdk.service=sdk-api"
       - "traefik.http.routers.sdk.tls=true"
       - "traefik.http.services.sdk-api.loadbalancer.server.port=2020"
