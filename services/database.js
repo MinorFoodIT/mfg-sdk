@@ -5,6 +5,7 @@ var logger = require('./../common/logging/winston')(path.join(process.cwd(),'/se
 
 var pool = null;
 async function initialize() {
+  console.log(dbConfig.hrPool);
   return await oracledb.createPool(dbConfig.hrPool);
 }
 
@@ -18,6 +19,7 @@ initialize()
 }) 
 .catch( err => {
   logger.info(err.message);
+  logger.info(err);
 })
 
 module.exports = {pool ,close};

@@ -32,16 +32,11 @@ const config = {
     env: envVars.NODE_ENV,
     port: envVars.PORT,
    
-    pg_host: envVars.pg_host,
-    pg_port: envVars.pg_port,
-    pg_user: envVars.pg_user,
-    pg_password: envVars.pg_password,
-    pg_database: envVars.pg_database,
-
-    partner_id: envVars.partner_id,
-    app_secret: envVars.app_secret,
-    ap_url: envVars.ap_url
-    
+    ORACLE_USER: envVars.ORACLE_USER,
+    ORACLE_PASSWORD: envVars.ORACLE_PASSWORD,
+    ORACLE_CONNECTIONSTRING: envVars.ORACLE_CONNECTIONSTRING,
+    ORACLE_POOL_MIN: envVars.ORACLE_POOL_MIN,
+    ORACLE_POOL_MAX: envVars.ORACLE_POOL_MAX,
 }
 
 module.exports = config;

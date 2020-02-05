@@ -1,9 +1,12 @@
+const config = require('./config');
+
+
 var hrPool = {
-    user: process.env.ORACLE_USER,
-    password: process.env.ORACLE_PASSWORD,
-    connectString: process.env.ORACLE_CONNECTIONSTRING,
-    poolMin: process.env.ORACLE_POOL_MIN,
-    poolMax: process.env.ORACLE_POOL_MAX,
+    user: config.ORACLE_USER,
+    password: config.ORACLE_PASSWORD,
+    connectString: config.ORACLE_CONNECTIONSTRING,
+    poolMin: config.ORACLE_POOL_MIN,
+    poolMax: config.ORACLE_POOL_MAX,
     poolIncrement: 1
   }
 
