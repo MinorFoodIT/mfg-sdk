@@ -4,12 +4,8 @@ var soap = require('soap');
 var helper = require('./../common/helper');
 var logger = require('./../common/logging/winston')(path.join(process.cwd(),'/controllers/soapApp.js')); //(path.join(__dirname,'soapApp.js')); //require('./../common/logging/winston')(__filename);
 var parser = require('fast-xml-parser');
-//var he = require('he');
-//var uuidV1 = require('uuid/v1');
+
 const moment = require('moment');
-//var processAction = Promise.promisify(require('./processAction'));
-//const dao = require('./../services/dbClient');
-//var resCode = require('./../model/resCode');
 const myCache = require('./../common/nodeCache');
 
 //  *** line that requires services/web-server.js is here ***
@@ -27,8 +23,7 @@ var service = {
             let customer_id = args["customerID"];  
             logger.info('[GetCustomerByID] customer_id => '+customer_id);
 
-            var responseXML = mapRequestToResponse(args) //initial xml
-
+            let responseXML = {}; //initial xml
             try{
               pool.getConnection()
               .then(con => {
@@ -45,30 +40,32 @@ var service = {
                   con.execute(sql_getCustomerByID,{},options)
                   .then(result =>{
                       logger.info('result to return =>');
-                      console.log(result.rows);
+                      //console.log(result.rows);
+                      responseXML = mapRequestToResponse(result.rows,null)
                   })
                   .catch(exec_error => {
                       logger.info('execute error to return =>');
                       console.log(exec_error);
+                      responseXML = mapRequestToResponse([],exec_error);
                   })
               })
               .catch(err => {
                   logger.info('error get connection from pool to return =>');
                   console.log(err);
+                  responseXML = mapRequestToResponse([],err);
               })
             }catch(ex){
               logger.info('error pool.getConnection from pool to return =>');
               console.log(ex);
+              responseXML = mapRequestToResponse([],ex);
             }
 
           }else{
             logger.info('[GetCustomerByID] invalid customer_id ');
-          }  
-          
-          //args  
+            responseXML = mapRequestToResponse([],null);
+          }   
           logger.info(responseXML);
           cb(responseXML);
-          
         }
       }
     }
@@ -152,127 +149,89 @@ function normalizePort(val) {
     return false;
   }
 
-function assignResCode(massageType,responseXML,resp,error) {
-  if(!helper.isNullEmptry(resp)){
-    if(massageType === '01'){
-      responseXML["RequestService01Result"]["ResHdr"]["ResCd"]  = resp["ResHdr"]["ResCd"];
-      responseXML["RequestService01Result"]["ResHdr"]["ResMsg"] = resp["ResHdr"]["ResMsg"];
-      responseXML["RequestService01Result"]["ResDtl"]["ErrCd"] = resp["ResDtl"]["ErrCd"];
-      responseXML["RequestService01Result"]["ResDtl"]["ErrMsgEng"]  = resp["ResDtl"]["ErrMsgEng"];
-      responseXML["RequestService01Result"]["ResDtl"]["ErrMsgThai"] = resp["ResDtl"]["ErrMsgThai"];
-      responseXML["RequestService01Result"]["ResDtl"]["Ref1"] = resp["ResDtl"]["Ref1"].length > 0?resp["ResDtl"]["Ref1"]:'';
-      responseXML["RequestService01Result"]["ResDtl"]["Ref3"] = resp["ResDtl"]["Ref3"].length > 0?resp["ResDtl"]["Ref3"]:'';
-      responseXML["RequestService01Result"]["ResDtl"]["Ref4"] = resp["ResDtl"]["Ref4"].length > 0?resp["ResDtl"]["Ref4"]:'';
-      //responseXML["RequestService01Result"]["ResDtl"]["Ref5"] = resp["ResDtl"]["Ref5"].length > 0?resp["ResDtl"]["Ref5"]:'';
-      responseXML["RequestService01Result"]["ResDtl"]["Ref6"] = resp["ResDtl"]["Ref6"].length > 0?resp["ResDtl"]["Ref6"]:'';
-      responseXML["RequestService01Result"]["ResDtl"]["Ref8"] = resp["ResDtl"]["Ref6"].length > 0?resp["ResDtl"]["Ref8"]:'';
-      responseXML["RequestService01Result"]["ResDtl"]["Ref9"] = resp["ResDtl"]["Ref6"].length > 0?resp["ResDtl"]["Ref9"]:'';
-      responseXML["RequestService01Result"]["ResDtl"]["Ref10"] = resp["ResDtl"]["Ref6"].length > 0?resp["ResDtl"]["Ref10"]:'';
-    }else if(massageType === '02'){
-      responseXML["RequestService02Result"]["ResHdr"]["ResCd"]  = resp["ResHdr"]["ResCd"];
-      responseXML["RequestService02Result"]["ResHdr"]["ResMsg"] = resp["ResHdr"]["ResMsg"];
-      responseXML["RequestService02Result"]["ResDtl"]["ErrCd"] = resp["ResDtl"]["ErrCd"];
-      responseXML["RequestService02Result"]["ResDtl"]["ErrMsgEng"]  = resp["ResDtl"]["ErrMsgEng"];
-      responseXML["RequestService02Result"]["ResDtl"]["ErrMsgThai"] = resp["ResDtl"]["ErrMsgThai"];
-      responseXML["RequestService02Result"]["ResDtl"]["Ref1"] = resp["ResDtl"]["Ref1"].length > 0?resp["ResDtl"]["Ref1"]:'';
-      responseXML["RequestService02Result"]["ResDtl"]["Ref3"] = resp["ResDtl"]["Ref3"].length > 0?resp["ResDtl"]["Ref3"]:'';
-      responseXML["RequestService02Result"]["ResDtl"]["Ref4"] = resp["ResDtl"]["Ref4"].length > 0?resp["ResDtl"]["Ref4"]:'';
-      //responseXML["RequestService02Result"]["ResDtl"]["Ref5"] = resp["ResDtl"]["Ref5"].length > 0?resp["ResDtl"]["Ref5"]:'';
-      responseXML["RequestService02Result"]["ResDtl"]["Ref6"] = resp["ResDtl"]["Ref6"].length > 0?resp["ResDtl"]["Ref6"]:'';
-      responseXML["RequestService02Result"]["ResDtl"]["Ref8"] = resp["ResDtl"]["Ref6"].length > 0?resp["ResDtl"]["Ref8"]:'';
-      responseXML["RequestService02Result"]["ResDtl"]["Ref9"] = resp["ResDtl"]["Ref6"].length > 0?resp["ResDtl"]["Ref9"]:'';
-      responseXML["RequestService02Result"]["ResDtl"]["Ref10"] = resp["ResDtl"]["Ref6"].length > 0?resp["ResDtl"]["Ref10"]:'';
-    }
-  }else if(!helper.isNullEmptry(error)){
-    if(massageType === '01'){
-      responseXML["RequestService01Result"]["ResHdr"]["ResCd"]  = '8007';
-      responseXML["RequestService01Result"]["ResHdr"]["ResMsg"] = resCode["code"]["8007"]["msgEng"];
-      responseXML["RequestService01Result"]["ResDtl"]["ErrCd"] = '8007';
-      responseXML["RequestService01Result"]["ResDtl"]["ErrMsgEng"]  = resCode["code"]["8007"]["msgEng"];
-      responseXML["RequestService01Result"]["ResDtl"]["ErrMsgThai"] = resCode["code"]["8007"]["msgEng"];
-    }else if(massageType === '02'){
-      responseXML["RequestService02Result"]["ResHdr"]["ResCd"]  = '8007';
-      responseXML["RequestService02Result"]["ResHdr"]["ResMsg"] = resCode["code"]["8007"]["msgEng"];
-      responseXML["RequestService02Result"]["ResDtl"]["ErrCd"] = '8007';
-      responseXML["RequestService02Result"]["ResDtl"]["ErrMsgEng"]  = resCode["code"]["8007"]["msgEng"];
-      responseXML["RequestService02Result"]["ResDtl"]["ErrMsgThai"] = resCode["code"]["8007"]["msgEng"];
-    }
-  }
-  
-  return responseXML;
-} 
-
-function mapRequestToResponse(args){
+function mapRequestToResponse(rows,err){
     var responseJson = {};
-    logger.info(args);
-
     responseJson["GetCustomerByIDResult"] = {}
-    responseJson["GetCustomerByIDResult"]["CRT_BYUSER"] = '';
-    responseJson["GetCustomerByIDResult"]["CRT_DATE"] = ''; //moment().format('YYYYMMDDHHmmss');
-    responseJson["GetCustomerByIDResult"]["CUST_CARDNUMBER"] = '';
-    responseJson["GetCustomerByIDResult"]["CUST_CLASSID"] = '';
-    responseJson["GetCustomerByIDResult"]["CUST_COMPANY"] = '';
-    responseJson["GetCustomerByIDResult"]["CUST_COMPANYUN"] = '';
-    responseJson["GetCustomerByIDResult"]["CUST_CORPID"] = '';
-    responseJson["GetCustomerByIDResult"]["CUST_DATEADDED"] = ''; //moment().format('YYYYMMDDHHmmss');
-    responseJson["GetCustomerByIDResult"]["CUST_DATEOFBIRHT"] = '';
-    responseJson["GetCustomerByIDResult"]["CUST_EMAIL"] = '';
-    responseJson["GetCustomerByIDResult"]["CUST_FIRSTNAME"] = '';
-    responseJson["GetCustomerByIDResult"]["CUST_FIRSTNAMEUN"] = '';
-    responseJson["GetCustomerByIDResult"]["CUST_GENDER"] = '';
-    responseJson["GetCustomerByIDResult"]["CUST_ID"] = '';
-    responseJson["GetCustomerByIDResult"]["CUST_LASTNAME"] = '';
-    responseJson["GetCustomerByIDResult"]["CUST_LASTNAMEUN"] = '';
-    responseJson["GetCustomerByIDResult"]["CUST_MARITALSTATUS"] = '';
-    responseJson["GetCustomerByIDResult"]["CUST_MIDNAME"] = '';
-    responseJson["GetCustomerByIDResult"]["CUST_MIDNAMEUN"] = '';
-    responseJson["GetCustomerByIDResult"]["CUST_NATID"] = '';
-    responseJson["GetCustomerByIDResult"]["CUST_NOTIFICATION_MOBILE"] = '';
-    responseJson["GetCustomerByIDResult"]["CUST_OCCUPATION"] = '';
-    responseJson["GetCustomerByIDResult"]["CUST_OCCUPATIONUN"] = '';
-    responseJson["GetCustomerByIDResult"]["CUST_PHONEAREACODE"] = '';  
-    responseJson["GetCustomerByIDResult"]["CUST_PHONECOUNTRYCODE"] = '';  
-    responseJson["GetCustomerByIDResult"]["CUST_PHONEEXTENSTION"] = '';  
-    responseJson["GetCustomerByIDResult"]["CUST_PHONELOOKUP"] = '';  
-    responseJson["GetCustomerByIDResult"]["CUST_PHONENUMBER"] = '';  
-    responseJson["GetCustomerByIDResult"]["CUST_PHONETYPE"] = '';  
-    responseJson["GetCustomerByIDResult"]["CUST_PREFERRED_LANGUAGE"] = '';  
-    responseJson["GetCustomerByIDResult"]["CUST_TITLE"] = '';  
-    responseJson["GetCustomerByIDResult"]["CUST_USERDATA1"] = '';  
-    responseJson["GetCustomerByIDResult"]["CUST_USERDATA1UN"] = '';  
-    responseJson["GetCustomerByIDResult"]["CUST_USERDATA2"] = '';  
-    responseJson["GetCustomerByIDResult"]["CUST_USERDATA2UN"] = '';  
-    responseJson["GetCustomerByIDResult"]["Loyalty"] = '';  
-    responseJson["GetCustomerByIDResult"]["PASSWORD"] = '';  
-    responseJson["GetCustomerByIDResult"]["Settings"] = '';  
-    responseJson["GetCustomerByIDResult"]["UPT_BYUSER"] = '';  
-    responseJson["GetCustomerByIDResult"]["UPT_DATE"] = '';  
-    responseJson["GetCustomerByIDResult"]["USERNAME"] = '';  
-    responseJson["GetCustomerByIDResult"]["WCUST_ACTIVE_DATE"] = '';  
-    
-    responseJson["GetCustomerByIDResult"]["WCUST_CORPID"] = ''; 
-    responseJson["GetCustomerByIDResult"]["WCUST_FIRSTNAME"] = ''; 
-    responseJson["GetCustomerByIDResult"]["WCUST_HASHEDPASSWORD"] = ''; 
-    responseJson["GetCustomerByIDResult"]["WCUST_IS_GUEST"] = ''; 
-    responseJson["GetCustomerByIDResult"]["WCUST_LASTNAME"] = ''; 
-    responseJson["GetCustomerByIDResult"]["WCUST_MIDNAME"] = ''; 
-    responseJson["GetCustomerByIDResult"]["WCUST_OFFER1"] = ''; 
-    responseJson["GetCustomerByIDResult"]["WCUST_OFFER2"] = ''; 
-    responseJson["GetCustomerByIDResult"]["WCUST_SEC_ANSWER"] = ''; 
-    responseJson["GetCustomerByIDResult"]["WCUST_SEC_QUESTION"] = ''; 
-    responseJson["GetCustomerByIDResult"]["WCUST_STATUS"] = ''; 
-    responseJson["GetCustomerByIDResult"]["WCUST_TOKEN"] = ''; 
-    responseJson["GetCustomerByIDResult"]["WCUST_TOKEN_DATE"] = ''; 
-    responseJson["GetCustomerByIDResult"]["WEB_CRT_BY"] = ''; 
-    responseJson["GetCustomerByIDResult"]["WEB_CRT_DATE"] = ''; 
-    responseJson["GetCustomerByIDResult"]["WEB_UPT_BY"] = ''; 
-    responseJson["GetCustomerByIDResult"]["WEB_UPT_DATE"] = ''; 
-
     responseJson["SDKResult"] = {}
-    responseJson["SDKResult"]["ExternalCode"] = '';
-    responseJson["SDKResult"]["ResultCode"] = '';
-    responseJson["SDKResult"]["ResultText"] = '';
+    
+    if(rows.length > 0){
+      logger.info(rows);
+      let row = rows[0];
+      responseJson["GetCustomerByIDResult"]["CRT_BYUSER"] = row["CRT_BYUSER"];
+      responseJson["GetCustomerByIDResult"]["CRT_DATE"] = row["CRT_DATE"]; //moment().format('YYYYMMDDHHmmss');
+      responseJson["GetCustomerByIDResult"]["CUST_CARDNUMBER"] = row["CUST_CARDNUMBER"];
+      responseJson["GetCustomerByIDResult"]["CUST_CLASSID"] = row["CUST_CLASSID"];
+      responseJson["GetCustomerByIDResult"]["CUST_COMPANY"] = row["CUST_COMPANY"];
+      responseJson["GetCustomerByIDResult"]["CUST_COMPANYUN"] = row["CUST_COMPANYUN"];
+      responseJson["GetCustomerByIDResult"]["CUST_CORPID"] = row["CUST_CORPID"];
+      responseJson["GetCustomerByIDResult"]["CUST_DATEADDED"] = row["CUST_DATEADDED"]; //moment().format('YYYYMMDDHHmmss');
+      responseJson["GetCustomerByIDResult"]["CUST_DATEOFBIRHT"] = row["CUST_DATEOFBIRHT"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_EMAIL"] = row["CUST_EMAIL"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_FIRSTNAME"] = row["CUST_FIRSTNAME"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_FIRSTNAMEUN"] = row["CUST_FIRSTNAMEUN"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_GENDER"] = row["CUST_GENDER"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_ID"] = row["CUST_ID"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_LASTNAME"] = row["CUST_LASTNAME"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_LASTNAMEUN"] = row["CUST_LASTNAMEUN"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_MARITALSTATUS"] = row["CUST_MARITALSTATUS"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_MIDNAME"] = row["CUST_MIDNAME"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_MIDNAMEUN"] = row["CUST_MIDNAMEUN"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_NATID"] = row["CUST_NATID"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_NOTIFICATION_MOBILE"] = row["CUST_NOTIFICATION_MOBILE"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_OCCUPATION"] = row["CUST_OCCUPATION"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_OCCUPATIONUN"] = row["CUST_OCCUPATIONUN"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_PHONEAREACODE"] = row["CUST_PHONEAREACODE"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_PHONECOUNTRYCODE"] = row["CUST_PHONECOUNTRYCODE"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_PHONEEXTENSTION"] = row["CUST_PHONEEXTENSTION"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_PHONELOOKUP"] = row["CUST_PHONELOOKUP"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_PHONENUMBER"] = row["CUST_PHONENUMBER"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_PHONETYPE"] = row["CUST_PHONETYPE"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_PREFERRED_LANGUAGE"] = row["CUST_PREFERRED_LANGUAGE"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_TITLE"] = row["CUST_TITLE"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_USERDATA1"] = row["CUST_USERDATA1"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_USERDATA1UN"] = row["CUST_USERDATA1UN"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_USERDATA2"] = row["CUST_USERDATA2"]; 
+      responseJson["GetCustomerByIDResult"]["CUST_USERDATA2UN"] = row["CUST_USERDATA2UN"]; 
+      responseJson["GetCustomerByIDResult"]["Loyalty"] = row["Loyalty"]; 
+      responseJson["GetCustomerByIDResult"]["PASSWORD"] = row["PASSWORD"]; 
+      responseJson["GetCustomerByIDResult"]["Settings"] = row["Settings"]; 
+      responseJson["GetCustomerByIDResult"]["UPT_BYUSER"] = row["UPT_BYUSER"]; 
+      responseJson["GetCustomerByIDResult"]["UPT_DATE"] = row["UPT_DATE"]; 
+      responseJson["GetCustomerByIDResult"]["USERNAME"] = row["USERNAME"];
 
+      responseJson["GetCustomerByIDResult"]["WCUST_ACTIVE_DATE"] = row["WCUST_ACTIVE_DATE"]; 
+      responseJson["GetCustomerByIDResult"]["WCUST_CORPID"] = row["WCUST_CORPID"]; 
+      responseJson["GetCustomerByIDResult"]["WCUST_FIRSTNAME"] = row["WCUST_FIRSTNAME"]; 
+      responseJson["GetCustomerByIDResult"]["WCUST_HASHEDPASSWORD"] = row["WCUST_HASHEDPASSWORD"]; 
+      responseJson["GetCustomerByIDResult"]["WCUST_IS_GUEST"] = row["WCUST_IS_GUEST"]; 
+      responseJson["GetCustomerByIDResult"]["WCUST_LASTNAME"] = row["WCUST_LASTNAME"]; 
+      responseJson["GetCustomerByIDResult"]["WCUST_MIDNAME"] = row["WCUST_MIDNAME"]; 
+      responseJson["GetCustomerByIDResult"]["WCUST_OFFER1"] = row["WCUST_OFFER1"]; 
+      responseJson["GetCustomerByIDResult"]["WCUST_OFFER2"] = row["WCUST_OFFER2"]; 
+      responseJson["GetCustomerByIDResult"]["WCUST_SEC_ANSWER"] = row["WCUST_SEC_ANSWER"]; 
+      responseJson["GetCustomerByIDResult"]["WCUST_SEC_QUESTION"] = row["WCUST_SEC_QUESTION"]; 
+      responseJson["GetCustomerByIDResult"]["WCUST_STATUS"] = row["WCUST_STATUS"]; 
+      responseJson["GetCustomerByIDResult"]["WCUST_TOKEN"] = row["WCUST_TOKEN"]; 
+      responseJson["GetCustomerByIDResult"]["WCUST_TOKEN_DATE"] = row["WCUST_TOKEN_DATE"]; 
+      responseJson["GetCustomerByIDResult"]["WEB_CRT_BY"] = row["WEB_CRT_BY"]; 
+      responseJson["GetCustomerByIDResult"]["WEB_CRT_DATE"] = row["WEB_CRT_DATE"]; 
+      responseJson["GetCustomerByIDResult"]["WEB_UPT_BY"] = row["WEB_UPT_BY"]; 
+      responseJson["GetCustomerByIDResult"]["WEB_UPT_DATE"] = row["WEB_UPT_DATE"]; 
+
+      responseJson["SDKResult"]["ExternalCode"] = '0';
+      responseJson["SDKResult"]["ResultCode"] = 'Success';
+      responseJson["SDKResult"]["ResultText"] = '';
+    }else{
+      if(err){
+        responseJson["SDKResult"]["ExternalCode"] = '1';
+        responseJson["SDKResult"]["ResultCode"] = '-2'; //External_Data_Error
+        responseJson["SDKResult"]["ResultText"] = err.message;  
+      }else{
+        responseJson["SDKResult"]["ExternalCode"] = '0';
+        responseJson["SDKResult"]["ResultCode"] = '53'; //Customer_Does_Not_Exist
+        responseJson["SDKResult"]["ResultText"] = 'Customer does not exist';  
+      }
+    }
     return responseJson;
 }
 
