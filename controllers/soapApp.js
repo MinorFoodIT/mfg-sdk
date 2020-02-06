@@ -71,7 +71,10 @@ var service = {
               logger.info('error pool.getConnection from pool to return =>');
               console.log(ex);
               responseXML = mapRequestToResponse([],ex);
-              cb(responseXML);
+              setTimeout(function(cb,responseXML){
+                cb(responseXML);
+              },1000);
+              //cb(responseXML);
             }
 
           }else{
