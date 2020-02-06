@@ -6,6 +6,10 @@ var app = express();
 app.use(httpContext.middleware);
 // Run the context for each request. Assign a unique identifier to each request
 
+app.get('/health', (req, res) => {
+    res.send('Service is running');
+});
+
 soapApp(app);
 app.use(function(req, res, next) {
     // console.log('middleware() => ')
