@@ -82,6 +82,71 @@ var service = {
             responseXML = mapRequestToResponse([],null);
           }   
           //logger.info(responseXML);
+        },
+        GetCustomerByUserName: function (args,cb,headers, req) {  //soap header
+          if(args["username"]){
+            let username = args["username"];  
+            let password = args["password"];  
+            logger.info('[GetCustomerByUserName] username => '+username);
+
+            let responseXML = {}; //initial xml
+            try{
+              oracledb.getConnection()
+              .then(con => {
+                  //logger.info('got connection from pool');
+                  let sql_getCustomerByID = 'SELECT CC_CUSTOMER.*,W.WCUST_ID,W.WCUST_USERNAME,W.WCUST_PASSWORD,W.WCUST_HASHEDPASSWORD,W.WCUST_CORPID,W.WCUST_STATUS,W.CRT_BY AS WCUST_WEB_CRT_BY,W.CRT_DATE AS WCUST_WEB_CRT_DATE,W.UPT_BY AS WCUST_WEB_UPT_BY,W.UPT_DATE AS WCUST_WEB_UPT_DATE,W.WCUST_TOKEN,W.WCUST_TOKEN_DATE,W.WCUST_ACTIVE_DATE,W.WCUST_FIRSTNAME,W.WCUST_MIDNAME,W.WCUST_LASTNAME,W.WCUST_OFFER1,W.WCUST_OFFER2,W.WCUST_SEC_QUESTION,W.WCUST_SEC_ANSWER,W.WCUST_IS_GUEST  FROM CC_CUSTOMER INNER JOIN CC_WEB_CUSTOMER W ON CUST_ID = W.WCUST_ID WHERE WCUST_USERNAME=\''+username+'\' and WCUST_PASSWORD=\''+password+'\' ' ; //ORDER BY CUST_DATEADDED DESC, CUST_ID DESC';
+                  let options = {
+                      outFormat: oracledb.OUT_FORMAT_OBJECT   // query result format
+                      // extendedMetaData: true,   // get extra metadata
+                      // fetchArraySize: 100       // internal buffer allocation size for tuning
+                    };
+                  //logger.info('execute query =>'); 
+                  //logger.info(sql_getCustomerByID);
+  
+                  con.execute(sql_getCustomerByID,{},options)
+                  .then(result =>{
+                      //logger.info('result to return =>');
+                      //console.log(result.rows);
+                      responseXML = mapRequestToResponse(result.rows,null);
+                      cb(responseXML);
+                  })
+                  .catch(exec_error => {
+                      logger.info('execute error to return =>');
+                      console.log(exec_error);
+                      responseXML = mapRequestToResponse([],exec_error);
+                      cb(responseXML);
+                  })
+                  .finally(()=>{
+                    if(con){
+                      try{
+                        con.close();
+                      }catch(con_err){
+                        console.log(con_err);
+                      }
+                    }
+                  });
+              })
+              .catch(err => {
+                  logger.info('error get connection from pool to return =>');
+                  console.log(err);
+                  responseXML = mapRequestToResponse([],err);
+                  cb(responseXML);
+              })
+            }catch(ex){
+              logger.info('error pool.getConnection from pool to return =>');
+              console.log(ex);
+              responseXML = mapRequestToResponse([],ex);
+              setTimeout(function(cb,responseXML){
+                cb(responseXML);
+              },1000);
+              //cb(responseXML);
+            }
+
+          }else{
+            logger.info('[GetCustomerByID] invalid customer_id ');
+            responseXML = mapRequestToResponse([],null);
+          }   
+          //logger.info(responseXML);
         }
       }
     }

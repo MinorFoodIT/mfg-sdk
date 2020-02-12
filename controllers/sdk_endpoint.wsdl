@@ -62,6 +62,26 @@
                </xs:sequence>
             </xs:complexType>
          </xs:element>
+         <xs:element name="GetCustomerByUserName">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element minOccurs="0" name="licenseCode" nillable="true" type="xs:string" />
+                  <xs:element minOccurs="0" name="requestID" nillable="true" type="xs:string" />
+                  <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+                  <xs:element minOccurs="0" name="ีusername" type="xs:string" />
+                  <xs:element minOccurs="0" name="password" type="xs:string" />
+                  <xs:element minOccurs="0" name="conceptID" type="xs:decimal" />
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="GetCustomerByUserNameResponse">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element minOccurs="0" name="GetCustomerByIDResult" nillable="true" type="tns:CC_CUSTOMER" />
+                  <xs:element minOccurs="0" name="SDKResult" nillable="true" type="tns:ServiceResult" />
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>         
             <xs:complexType name="ServiceResult">
                <xs:sequence>
                   <xs:element minOccurs="0" name="ExternalCode" type="xs:int" />
@@ -199,10 +219,20 @@
    <wsdl:message name="ISDMSDK_GetCustomerByID_OutputMessage">
       <wsdl:part name="parameters" element="tns:GetCustomerByIDResponse" />
    </wsdl:message>
+   <wsdl:message name="ISDMSDK_GetCustomerByUserName_InputMessage">
+      <wsdl:part name="parameters" element="tns:GetCustomerByUserName" />
+   </wsdl:message>
+   <wsdl:message name="ISDMSDK_GetCustomerByUserName_OutputMessage">
+      <wsdl:part name="parameters" element="tns:GetCustomerByUserNameResponse" />
+   </wsdl:message>
    <wsdl:portType name="ISDMSDK">
       <wsdl:operation name="GetCustomerByID">
          <wsdl:input wsaw:Action="http://tempuri.org/ISDMSDK/GetCustomerByID" message="tns:ISDMSDK_GetCustomerByID_InputMessage" />
          <wsdl:output wsaw:Action="http://tempuri.org/ISDMSDK/GetCustomerByIDResponse" message="tns:ISDMSDK_GetCustomerByID_OutputMessage" />
+      </wsdl:operation>
+       <wsdl:operation name="GetCustomerByUserName">
+         <wsdl:input wsaw:Action="http://tempuri.org/ISDMSDK/GetCustomerByUserName" message="tns:ISDMSDK_GetCustomerByUserName_InputMessage" />
+         <wsdl:output wsaw:Action="http://tempuri.org/ISDMSDK/GetCustomerByUserNameResponse" message="tns:ISDMSDK_GetCustomerByUserName_OutputMessage" />
       </wsdl:operation>
    </wsdl:portType>
    <wsdl:binding name="BasicHttpBinding_ISDMSDK" type="tns:ISDMSDK">
